@@ -29,139 +29,15 @@
     <link rel="stylesheet/less" type="text/css" href="less/style.css" />
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
 </head>
-<body ng-controller="NavigationController">
-    {{now}}
-<!--<div id="main" class="wrapper">-->
-    <!--<div id="primary" class="site-content">-->
-        <!--<div class="traderoom-wrapper traderoomWrap">-->
-            <!--<div class="head-section">-->
-                <!--<div class="main-logo"></div>-->
-                <!--<div class="user-info-wrapper">-->
-                    <!--<div ng-if="isLogged" class="user-balance" ng-controller="userDetailsWidgetCtrl" ng-include="'widget.userDetailsModule.template'"></div>-->
-                <!--</div>-->
-                <!--<div class="user-info-wrapper">-->
-                    <!--<div ng-if="!isLogged" class="user-balance" ng-controller="loginWidgetCtrl" ng-include="'widget.loginModule.template'"></div>-->
-                <!--</div>-->
-            <!--</div>-->
-
-            <!--<div class="mainMenu" style="">-->
-                <!--<div id="menu" class="widgetMenu">-->
-                    <!--<span ng-if="isLogged">Trade Room</span>-->
-                    <!--<div class="tradologic-logo"></div>-->
-                <!--</div>-->
-            <!--</div>-->
-
-            <!--<div ng-view>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
+<body>
 
 <header>
-
 </header>
-<div role="main">
 
-    <div id="menuPage" data-role="page" data-cache="never" class="page iscroll">
-        <div class="scroller">
-            <div class="company">
-                <img src="img/sample-images/bonsai1.jpg" alt="company">
-            </div>
+    <div class="ng-view"></div>
 
-            <ul class="menu">
-                <li>
-                    <ul class="section">
-                        <li class="square">
-                            <a class="box" href="videos.html" data-transition="fade" data-direction="reverse">
-                                <img src="img/homeicons/film.png" alt="videos">
-                                <span class="text"> Видеоклипове</span>
-                            </a>
-                        </li>
-
-                        <li class="square">
-                            <a class="box" href="services.html" data-transition="fade" data-direction="reverse">
-                                <img src="img/homeicons/services.png" alt="Services">
-                                <span class="text"> Услуги</span>
-                            </a>
-                        </li>
-
-                        <li class="square">
-                            <a class="box" href="blog.html" data-transition="fade" data-direction="reverse">
-                                <img src="img/homeicons/blog.png" alt="Blog">
-                                <span class="text"> Блог</span>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li>
-                    <ul class="section">
-                        <li class="square">
-                            <a class="box" href="gallery.html" data-transition="fade" data-direction="reverse">
-                                <img src="img/homeicons/gallery.png" alt="Gallery">
-                                <span class="text"> Галерия </span>
-                            </a>
-                        </li>
-
-                        <li class="square">
-                            <a class="box" href="portfolio.html" data-transition="fade" data-direction="reverse">
-                                <img src="img/homeicons/shop.png" alt="Portfolio">
-                                <span class="text"> Магазинче</span>
-                            </a>
-                        </li>
-
-                        <li class="square">
-                            <a class="box" href="about.html" data-transition="fade" data-direction="reverse">
-                                <img src="img/homeicons/info.png" alt="About Us">
-                                <span class="text" > За нас</span>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                 <li>
-                   <ul class="section">
-
-                     <li class="square">
-                       <a class="box" href="typography.html" data-transition="fade" data-direction="reverse">
-                           <img src="img/homeicons/tree.png" alt="Typography">
-                         <span class="text"> Отглеждане</span>
-                       </a>
-                     </li>
-
-                     <li class="square">
-                       <a class="box" href="careers.html" data-transition="fade" data-direction="reverse">
-                           <img src="img/homeicons/shoping_cart.png" alt="Careers">
-                         <span class="text"> Кошничка</span>
-                       </a>
-                     </li>
-
-
-                     <li class="square">
-                       <a class="box" href="contact.html" data-transition="fade" data-direction="reverse">
-                           <img src="img/homeicons/message_outline.png" alt="contact">
-                         <span class="text"> Контакти</span>
-                       </a>
-                     </li>
-
-
-            </ul>
-            </li>
-
-            </ul>
-            <!--end menu-->
-        </div>
-        <!--end scroller-->
-
-    </div>
-    <!--end menuPage-->
-
-</div>
-
+    
 <footer>
-
 </footer>
 
 
@@ -171,8 +47,6 @@
 <!-- Production -->
 <!-- command for magnification node_modules/requirejs/bin/r.js -o build.config.js -->
 <!--<script data-main="app.min" src="libs/require.js"></script>-->
-
-//TODO: link to GOOGLE ANALYTICS
 
 </body>
 </html>

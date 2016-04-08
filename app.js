@@ -10,14 +10,15 @@ function (angular, jQuery) {
         'ngRoute',
         'enti.controllers'
     ])
-    .config(['$httpProvider', '$routeProvider', function ($httpProvider, $routeProvider) {
+    .config(['$httpProvider', '$routeProvider', '$provide', function ($httpProvider, $routeProvider, $provide) {
         //here we set the routing for the SPA
-        //$routeProvider.when('/Traderoom', {
-        //    templateUrl: 'views/traderoom/traderoom.html',
-        //    controller: 'TraderoomViewCtrl'
-        //});
-        //
-        //$routeProvider.otherwise({ redirectTo: '/Login' });
+        $routeProvider.when('/', {
+            templateUrl: 'views/navigation.html',
+            controller: 'NavigationController'
+        })
+        .otherwise({ redirectTo: '/' });
+        
+        //$routeProvider;
     }])
     .run(['$location', '$rootScope',
         function ($location, $rootScope) {
@@ -39,9 +40,7 @@ function (angular, jQuery) {
 
                     //$.mobile.ajaxEnabled = false;
                 });
-            }
-
-            $(document).trigger('pagechange');
+            }           
         }]);
 
     return module;

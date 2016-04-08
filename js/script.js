@@ -137,22 +137,14 @@ $(document).ready(function () {
 
             }
 
-
             $('ul.menu', scrollContainer).addClass('on');
             $('.company', scrollContainer).addClass('on');
 
             setTimeout(function () {
-
                 $('.company', scrollContainer).css({
                     'height': $('.menu', scrollContainer).height()
                 });
-
             }, 100);
-
-
-
-
-
         }
         //end if
 
@@ -193,18 +185,18 @@ $(document).ready(function () {
     */
 });
 
-//var windowLoaded = false;
+var windowLoaded = false;
 
 var App = {
     init: function () {
 
-       // if (windowLoaded) {
-        //    $(window).trigger("resize");
-       // }
+        //if (windowLoaded) {
+            $(window).trigger("resize");
+        //}
 
         //$(window).load(function () {
         //    windowLoaded = true;
-            $(window).trigger("resize");
+        //    $(window).trigger("resize");
         //});
 
 
