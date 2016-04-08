@@ -13,5 +13,9 @@
         $scope.load();
     }]);
 
+    module.controller('VideosController', ['$scope', function ($scope) {
+
+    }]);
+
     return module;
 });

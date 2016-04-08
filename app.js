@@ -10,37 +10,37 @@ function (angular, jQuery) {
         'ngRoute',
         'enti.controllers'
     ])
-    .config(['$httpProvider', '$routeProvider', '$provide', function ($httpProvider, $routeProvider, $provide) {
+    .config(['$httpProvider', '$routeProvider', '$locationProvider', function ($httpProvider, $routeProvider, $locationProvider) {
         //here we set the routing for the SPA
         $routeProvider.when('/', {
             templateUrl: 'views/navigation.html',
             controller: 'NavigationController'
         })
-        .otherwise({ redirectTo: '/' });
-        
-        //$routeProvider;
+        $routeProvider.when('/videos', {
+            templateUrl: 'views/videos.html',
+            controller: 'VideosController'
+        });
+        $routeProvider.otherwise({ redirectTo: '/' });
+        $locationProvider.html5Mode(true);
     }])
     .run(['$location', '$rootScope',
         function ($location, $rootScope) {
-            //$rootScope.isLogged = cantorService.services.isLoginCookiePresent();
 
-            //
-            //$rootScope.dateFormat = 'MM/dd/yy HH:mm:ss';
-            if($.mobile){
-                $.mobile.defaultPageTransition = 'fade';
-                $.mobile.ignoreContentEnabled = true;
-                $.mobile.page.prototype.options.domCache = false;
-                $.mobile.ajaxEnabled = false;
-            }
-            else {
-                $(window).on("mobileinit", function () {
-                    $.mobile.defaultPageTransition = 'fade';
-                    $.mobile.ignoreContentEnabled = true;
-                    $.mobile.page.prototype.options.domCache = false;
+            //if($.mobile){
+            //    $.mobile.defaultPageTransition = 'fade';
+            //    $.mobile.ignoreContentEnabled = true;
+            //    $.mobile.page.prototype.options.domCache = false;
+            //    $.mobile.ajaxEnabled = false;
+            //}
+            //else {
+            //    $(window).on("mobileinit", function () {
+            //        $.mobile.defaultPageTransition = 'fade';
+            //        $.mobile.ignoreContentEnabled = true;
+            //        $.mobile.page.prototype.options.domCache = false;
 
-                    //$.mobile.ajaxEnabled = false;
-                });
-            }           
+            //        //$.mobile.ajaxEnabled = false;
+            //    });
+            //}           
         }]);
 
     return module;
