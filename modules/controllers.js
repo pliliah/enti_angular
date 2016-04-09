@@ -17,5 +17,25 @@
 
     }]);
 
+    module.controller('GalleryController', ['$scope', function ($scope) {
+
+    }]);
+
+    module.controller('GrowthController', ['$scope', function ($scope) {
+
+    }]);
+
+    module.controller('ShopController', ['$scope', function ($scope) {
+
+    }]);
+
+    module.controller('CartController', ['$scope', function ($scope) {
+
+    }]);
+
+    module.controller('ContactController', ['$scope', function ($scope) {
+
+    }]);
+
     return module;
 });

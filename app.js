@@ -12,15 +12,37 @@ function (angular, jQuery) {
     ])
     .config(['$httpProvider', '$routeProvider', '$locationProvider', function ($httpProvider, $routeProvider, $locationProvider) {
         //here we set the routing for the SPA
-        $routeProvider.when('/', {
-            templateUrl: 'views/navigation.html',
-            controller: 'NavigationController'
-        })
-        $routeProvider.when('/videos', {
-            templateUrl: 'views/videos.html',
-            controller: 'VideosController'
-        });
-        $routeProvider.otherwise({ redirectTo: '/' });
+        $routeProvider
+            .when('/', {
+                templateUrl: 'views/navigation.html',
+                controller: 'NavigationController'
+            })
+             .when('/videos', {
+                templateUrl: 'views/videos.html',
+                controller: 'VideosController'
+            })
+            .when('/gallery', {
+                templateUrl: 'views/gallery.html',
+                controller: 'GalleryController'
+            })
+            .when('/growth', {
+                templateUrl: 'views/growth.html',
+                controller: 'GrowthController'
+            })
+            .when('/shop', {
+                templateUrl: 'views/shop.html',
+                controller: 'ShopController'
+            })
+            .when('/cart', {
+                templateUrl: 'views/cart.html',
+                controller: 'CartController'
+            })
+            .when('/contact', {
+                templateUrl: 'views/contact.html',
+                controller: 'ContactController'
+            })
+            .otherwise({ redirectTo: '/' });
+
         $locationProvider.html5Mode(true);
     }])
     .run(['$location', '$rootScope',

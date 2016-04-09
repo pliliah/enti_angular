@@ -1,5 +1,5 @@
 /**
- * Created by lilia.hristova on 29.3.2016 ã..
+ * Created by lilia.hristova on 29.3.2016 ï¿½..
  */
 'use strict';
 require.config({
@@ -21,8 +21,8 @@ require.config({
         //endregion
 
         //region Photoswipe
-        pwKlass: 'js/photoswipe/klass.min',
-        pwJQuery: 'js/photoswipe/code.photoswipe.jquery-3.0.5.min',
+        //pwKlass: 'js/photoswipe/klass.min',
+        //pwJQuery: 'js/photoswipe/code.photoswipe.jquery-3.0.5.min',
         //endregion
 
         //region Other libs
@@ -95,8 +95,8 @@ require([
     //'angularBootstrapTpls',
     'ngCookies',    
     'jqueryMobile',
-    'pwKlass',
-    'pwJQuery',
+    //'pwKlass',
+    //'pwJQuery',
     'less',
     'modernizr',
     'iscroll',
