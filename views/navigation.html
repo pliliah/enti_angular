@@ -1,4 +1,4 @@
-﻿<div id="menuPage" data-role="page" data-cache="never" class="page iscroll ui-page ui-page-theme-a ui-page-active" data-url="menuPage" tabindex="0">
+﻿<div id="menuPage" data-cache="never" class="page iscroll ui-page ui-page-theme-a ui-page-active" data-url="menuPage" tabindex="0">
     <div class="windowsBG"></div>
     <div class="scroller">
         <div class="company on">
@@ -9,21 +9,21 @@
             <li>
                 <ul class="section" >
                     <li class="square">
-                        <a class="box ui-link" href="videos" data-transition="fade" data-direction="reverse">
+                        <a class="box ui-link" href="videos">
                             <img src="img/homeicons/film.png" alt="videos" class="on">
                             <span class="text"> Видеоклипове</span>
                         </a>
                     </li>
 
                     <li class="square">
-                        <a class="box ui-link" href="services" data-transition="fade" data-direction="reverse">
+                        <a class="box ui-link" href="services">
                             <img src="img/homeicons/services.png" alt="Services" class="on">
                             <span class="text"> Услуги</span>
                         </a>
                     </li>
 
                     <li class="square">
-                        <a class="box ui-link" href="blog" data-transition="fade" data-direction="reverse">
+                        <a class="box ui-link" href="blog">
                             <img src="img/homeicons/blog.png" alt="Blog" class="on">
                             <span class="text"> Блог</span>
                         </a>
@@ -34,21 +34,21 @@
             <li>
                 <ul class="section">
                     <li class="square">
-                        <a class="box ui-link" href="gallery" data-transition="fade" data-direction="reverse">
+                        <a class="box ui-link" href="gallery">
                             <img src="img/homeicons/gallery.png" alt="Gallery" class="on">
                             <span class="text"> Галерия </span>
                         </a>
                     </li>
 
                     <li class="square">
-                        <a class="box ui-link" href="shop" data-transition="fade" data-direction="reverse">
+                        <a class="box ui-link" href="shop">
                             <img src="img/homeicons/shop.png" alt="shop" class="on">
                             <span class="text"> Магазинче</span>
                         </a>
                     </li>
 
                     <li class="square">
-                        <a class="box ui-link" href="about" data-transition="fade" data-direction="reverse">
+                        <a class="box ui-link" href="about">
                             <img src="img/homeicons/info.png" alt="About Us" class="on">
                             <span class="text"> За нас</span>
                         </a>
@@ -60,14 +60,14 @@
             <li>
                 <ul class="section">
                     <li class="square">
-                        <a class="box ui-link" href="growth" data-transition="fade" data-direction="reverse">
+                        <a class="box ui-link" href="growth">
                             <img src="img/homeicons/tree.png" alt="Typography" class="on">
                             <span class="text"> Отглеждане</span>
                         </a>
                     </li>
 
                     <li class="square">
-                        <a class="box ui-link" href="cart" data-transition="fade" data-direction="reverse">
+                        <a class="box ui-link" href="cart">
                             <img src="img/homeicons/shoping_cart.png" alt="Shopping cart" class="on">
                             <span class="text"> Кошничка</span>
                         </a>
@@ -75,7 +75,7 @@
 
 
                     <li class="square">
-                        <a class="box ui-link" href="contact" data-transition="fade" data-direction="reverse">
+                        <a class="box ui-link" href="contact">
                             <img src="img/homeicons/message_outline.png" alt="contact" class="on">
                             <span class="text"> Контакти</span>
                         </a>
@@ -88,5 +88,13 @@
 
     </div>
     <!--end scroller-->
-
+    <style>
+        @media only screen and (min-width: 1281px) {
+            body, .page, .ui-overlay-c, .ui-mobile [data-role="page"], .ui-mobile [data-role="dialog"], .ui-page {
+                width: 100vw;
+                margin-left: calc(-50vw + 50%);
+                left:0px;
+            }
+        }
+    </style>
 </div>

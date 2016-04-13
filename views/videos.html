@@ -1,13 +1,13 @@
-﻿<div role="main">
+﻿<div  class="ui-mobile-viewport ui-overlay-c">
 
-    <div id="videosPage" data-role="page" class="page innerPage">
+    <div id="videosPage" class="page innerPage ui-page ui-body-c ui-page-active">
         <div class="topGrahic"></div>
-        <a href="index.html" class="menuButton">
+        <a href="index" class="menuButton ui-link">
             <img src="img/menu-button.png" alt="Menu">
         </a>
 
         <div class="padpage padtop">
-            <h1><a href="#">Videos</a></h1>
+            <h1><a href="#" class="ui-link">Videos</a></h1>
 
             <h4>
                 Multimedia Reel
@@ -21,34 +21,47 @@
             </p>
         </div>
 
-        <br/><br/>
+        <br><br>
         <div class="padpage">
             <h2> </h2>
-        <span class="h2">
-          Videos can be in a Slider
-        </span>
+            <span class="h2">
+                Videos can be in a Slider
+            </span>
         </div>
 
 
         <!--<div class="padpage">-->
-        <div class="videosSlide flexslider" data-ajax="false">
-            <ul id="slides" class="slides">
-                <li>
-                    <iframe src="http://player.vimeo.com/video/49155684?byline=0&amp;portrait=0&amp;color=ff9933" height="190" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-                </li>
-                <li>
-                    <iframe src="http://player.vimeo.com/video/33091687?byline=0&amp;portrait=0&amp;color=c9ff23" height="190" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-                </li>
-            </ul>
+        <div class="videosSlide flexslider slidered" data-ajax="false">
+
+            <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                <ul id="slides" class="slides" style="width: 800%; transition-duration: 0s; transform: translate3d(-1016px, 0px, 0px);">
+                    <li class="clone" style="width: 1016px; float: left; display: block;">
+                        <iframe src="http://player.vimeo.com/video/33091687?byline=0&amp;portrait=0&amp;color=c9ff23" height="190" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                    </li>
+                    <li class="flex-active-slide" style="width: 1016px; float: left; display: block;">
+                        <iframe src="http://player.vimeo.com/video/49155684?byline=0&amp;portrait=0&amp;color=ff9933" height="190" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                    </li>
+                    <li style="width: 1016px; float: left; display: block;" class="">
+                        <iframe src="http://player.vimeo.com/video/33091687?byline=0&amp;portrait=0&amp;color=c9ff23" height="190" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                    </li>
+                    <li class="clone" style="width: 1016px; float: left; display: block;">
+                        <iframe src="http://player.vimeo.com/video/49155684?byline=0&amp;portrait=0&amp;color=ff9933" height="190" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                    </li>
+                </ul>
+            </div><ol class="flex-control-nav flex-control-paging"><li><a class="flex-active">1</a></li><li><a class="">2</a></li></ol><ul class="flex-direction-nav"><li><a class="flex-prev" href="#">Previous</a></li><li><a class="flex-next" href="#">Next</a></li></ul>
         </div>
         <!--</div>-->
 
-        <br/><br/>
+
+
+
+
+        <br><br>
         <div class="padpage">
             <h2> </h2>
-        <span class="h2">
-          Videos can be in a grid
-        </span>
+            <span class="h2">
+                Videos can be in a grid
+            </span>
         </div>
 
 
@@ -56,22 +69,22 @@
         <div class="videosGrid">
             <ul>
                 <li>
-                    <iframe src="http://player.vimeo.com/video/49155684?byline=0&amp;portrait=0&amp;color=ff9933" height="190" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                    <iframe src="http://player.vimeo.com/video/49155684?byline=0&amp;portrait=0&amp;color=ff9933" height="190" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                 </li>
                 <li>
-                    <iframe src="http://player.vimeo.com/video/33091687?byline=0&amp;portrait=0&amp;color=c9ff23" height="190" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                    <iframe src="http://player.vimeo.com/video/33091687?byline=0&amp;portrait=0&amp;color=c9ff23" height="190" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                 </li>
                 <li>
-                    <iframe src="http://player.vimeo.com/video/49155684?byline=0&amp;portrait=0&amp;color=ff9933" height="190" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                    <iframe src="http://player.vimeo.com/video/49155684?byline=0&amp;portrait=0&amp;color=ff9933" height="190" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                 </li>
                 <li>
-                    <iframe src="http://player.vimeo.com/video/33091687?byline=0&amp;portrait=0&amp;color=c9ff23" height="190" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                    <iframe src="http://player.vimeo.com/video/33091687?byline=0&amp;portrait=0&amp;color=c9ff23" height="190" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                 </li>
                 <li>
-                    <iframe src="http://player.vimeo.com/video/49155684?byline=0&amp;portrait=0&amp;color=ff9933" height="190" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                    <iframe src="http://player.vimeo.com/video/49155684?byline=0&amp;portrait=0&amp;color=ff9933" height="190" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                 </li>
                 <li>
-                    <iframe src="http://player.vimeo.com/video/33091687?byline=0&amp;portrait=0&amp;color=c9ff23" height="190" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                    <iframe src="http://player.vimeo.com/video/33091687?byline=0&amp;portrait=0&amp;color=c9ff23" height="190" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                 </li>
             </ul>
             <div class="clearfix"></div>
@@ -82,12 +95,12 @@
 
 
 
-        <br/><br/>
+        <br><br>
         <div class="padpage">
             <h2> </h2>
-        <span class="h2">
-          Of course! Videos in a list, too!
-        </span>
+            <span class="h2">
+                Of course! Videos in a list, too!
+            </span>
         </div>
 
 
@@ -95,29 +108,30 @@
         <div class="videosList">
             <ul>
                 <li>
-                    <iframe src="http://player.vimeo.com/video/49155684?byline=0&amp;portrait=0&amp;color=ff9933" height="190" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                    <iframe src="http://player.vimeo.com/video/49155684?byline=0&amp;portrait=0&amp;color=ff9933" height="190" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                 </li>
                 <li>
-                    <iframe src="http://player.vimeo.com/video/33091687?byline=0&amp;portrait=0&amp;color=c9ff23" height="190" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                    <iframe src="http://player.vimeo.com/video/33091687?byline=0&amp;portrait=0&amp;color=c9ff23" height="190" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                 </li>
                 <li>
-                    <iframe src="http://player.vimeo.com/video/49155684?byline=0&amp;portrait=0&amp;color=ff9933" height="190" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                    <iframe src="http://player.vimeo.com/video/49155684?byline=0&amp;portrait=0&amp;color=ff9933" height="190" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                 </li>
             </ul>
             <div class="clearfix"></div>
         </div>
         <!--</div>-->
 
+
         <div class="padpage padbottom">
             <div class="footer">
                 <div class="social right">
-                    <a href="http://plus.google.com" target="_blank"> <img src="img/icon-gplus.png" alt="Like us on Google+"></a>
-                    <a href="http://twitter.com" target="_blank"> <img src="img/icon-twitter.png" alt="Follow us on Twitter"></a>
-                    <a href="http://facebook.com" target="_blank"> <img src="img/icon-facebook.png" alt="Like us on Facebook"></a>
+                    <a href="http://plus.google.com" target="_blank" class="ui-link"> <img src="img/icon-gplus.png" alt="Like us on Google+"></a>
+                    <a href="http://twitter.com" target="_blank" class="ui-link"> <img src="img/icon-twitter.png" alt="Follow us on Twitter"></a>
+                    <a href="http://facebook.com" target="_blank" class="ui-link"> <img src="img/icon-facebook.png" alt="Like us on Facebook"></a>
                 </div>
 
                 <div class="copyright left">
-                    Copyright &copy; by SMV Creations
+                    Copyright © by SMV Creations
                 </div>
 
                 <div class="clearfix"></div>
@@ -127,7 +141,9 @@
         </div>
         <!--end padbottom-->
 
+
     </div>
     <!--end careers page-->
 
+    <div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span><h1>loading</h1></div>
 </div>
