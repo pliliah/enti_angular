@@ -11,7 +11,7 @@ require.config({
         angular: 'js/angular/angular',
         angularRoute: 'js/angular/angular-route',
         ngTouch: 'js/angular/angular-touch',
-        ngCookies: 'js/angular/angular-cookies',
+        ngCookies: 'js/angular/angular-cookies',        
         //angularBootstrap: 'js/angular/ui-bootstrap',
         //angularBootstrapTpls: 'js/angular/ui-bootstrap-tpls',
         //jQuery have to be loaded only if necessary
@@ -21,8 +21,9 @@ require.config({
         //endregion
 
         //region Photoswipe
-        //pwKlass: 'js/photoswipe/klass.min',
-        //pwJQuery: 'js/photoswipe/code.photoswipe.jquery-3.0.5.min',
+        pw: 'js/photoswipe/photoswipe',
+        photoswipeUI: 'js/photoswipe/photoswipe-ui-default.min',
+        ngPhotoswipe: 'js/photoswipe/angular-photoswipe',
         //endregion
 
         //region Other libs
@@ -40,7 +41,11 @@ require.config({
     },
     shim: {
         angular: { 'exports': 'angular' },
-        jquery: {'exports': 'jquery'},
+        jquery: { 'exports': 'jquery' },
+        pw: {
+            deps: ['angular'],
+            'export': 'pw'
+        },
         angularRoute: {
             deps: ['angular'],
             'export': 'angularRoute'
@@ -52,6 +57,14 @@ require.config({
         ngCookies: {
             deps: ['angular'],
             'export': 'ngCookies'
+        },
+        photoswipeUI: {
+            deps: ['angular', 'pw'],
+            'export': 'photoswipeUI'
+        },
+        ngPhotoswipe: {
+            deps: ['angular', 'pw', 'photoswipeUI'],
+            'export': 'ngPhotoswipe'
         },
         //angularBootstrap: {
         //    deps: ['angular'],
@@ -93,10 +106,8 @@ require([
     'angularRoute',
     'ngTouch',
     //'angularBootstrapTpls',
-    'ngCookies',    
+    'ngCookies',
     'jqueryMobile',
-    //'pwKlass',
-    //'pwJQuery',
     'less',
     'modernizr',
     'iscroll',
