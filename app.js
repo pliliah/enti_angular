@@ -41,6 +41,18 @@ function (angular, jQuery) {
                 templateUrl: 'views/contact.html',
                 controller: 'ContactController'
             })
+            .when('/history', {
+                templateUrl: 'views/history.html',
+                controller: 'HistoryController'
+            })
+            .when('/links', {
+                 templateUrl: 'views/links.html',
+                 controller: 'LinksController'
+             })
+            .when('/about', {
+                templateUrl: 'views/about.html',
+                controller: 'AboutController'
+            })
             .otherwise({ redirectTo: '/' });
 
         $locationProvider.html5Mode(true);

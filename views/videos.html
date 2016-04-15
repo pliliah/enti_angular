@@ -1,10 +1,7 @@
 ﻿<div  class="ui-mobile-viewport ui-overlay-c">
 
     <div id="videosPage"  class="page innerPage ui-page ui-body-c ui-page-active">
-        <div class="topGrahic"></div>
-        <a href="index" class="menuButton ui-link">
-            <img src="img/menu-button.png" alt="Menu">
-        </a>
+        <div ng-include="'views/header.html'"></div>
 
         <div class="padpage padtop">
             <h1><a href="#" class="ui-link">Videos</a></h1>
@@ -122,23 +119,7 @@
         <!--</div>-->
 
 
-        <div class="padpage padbottom">
-            <div class="footer">
-                <div class="social right">
-                    <a href="http://plus.google.com" target="_blank" class="ui-link"> <img src="img/icon-gplus.png" alt="Like us on Google+"></a>
-                    <a href="http://twitter.com" target="_blank" class="ui-link"> <img src="img/icon-twitter.png" alt="Follow us on Twitter"></a>
-                    <a href="http://facebook.com" target="_blank" class="ui-link"> <img src="img/icon-facebook.png" alt="Like us on Facebook"></a>
-                </div>
-
-                <div class="copyright left">
-                    Copyright © by SMV Creations
-                </div>
-
-                <div class="clearfix"></div>
-            </div>
-            <!--end footer-->
-
-        </div>
+        <div ng-include="'views/footer.html'"></div>
         <!--end padbottom-->
 
 

@@ -51,5 +51,17 @@
 
     }]);
 
+    module.controller('HistoryController', ['$scope', function ($scope) {
+
+    }]);
+
+    module.controller('LinksController', ['$scope', function ($scope) {
+
+    }]);
+
+    module.controller('AboutController', ['$scope', function ($scope) {
+
+    }]);
+
     return module;
 });

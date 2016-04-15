@@ -1,0 +1,170 @@
+<div id="blogDetailPage" data-role="page" class="page innerPage ui-page ui-body-c ui-page-active" data-url="blogDetailPage" tabindex="0" style="min-height: 553px;">
+    <div ng-include="'views/header.html'"></div>
+    <div class="padpage padtop">
+        <h1><a class="back ui-link" href="blog.html"><img src="img/icon-back.png" alt="Back"> Blog</a></h1>
+    </div>
+
+    <div class="blogDetail">
+
+        <div class="blogPost">
+
+
+            <div class="head">
+                <div class="padpage">
+                    <div class="title">
+                        <h3> <a href="#" class="ui-link"> Blog Post title goes here </a> </h3>
+                        <div class="date">21 Aug 2012 </div>
+                    </div>
+                </div>
+
+                <!--
+                <a class="image" href="#">
+                    <img src="img/sample-images/image3.jpg" alt="Blog image">
+                </a>
+                -->
+                <div class="flexslider">
+                    <img src="img/sample-images/image3.jpg" alt="Blog image">
+                </div>
+            </div>
+            <!--end head-->
+
+            <div class="description">
+                <div class="padpage">
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type. Lorem Ipsum is simply dummy text Lorem text.
+                    </p>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type. Lorem Ipsum is simply dummy text Lorem text.
+                    </p>
+                </div>
+
+
+                <!--<div class="padpage">-->
+                <div class="flexslider slidered" data-ajax="false">
+
+                    <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                        <ul id="slides" class="slides" style="width: 1000%; transition-duration: 0s; transform: translate3d(-1016px, 0px, 0px);">
+                            <li class="clone" style="width: 1016px; float: left; display: block;">
+                                <a class="gallery-item ui-link photoswiped" href="img/sample-images/blog-5.jpg"> <img src="img/sample-images/blog-5.jpg" alt="Image1"></a>
+                            </li>
+                            <li class="flex-active-slide" style="width: 1016px; float: left; display: block;">
+                                <a class="gallery-item ui-link photoswiped" href="img/sample-images/blog-3.jpg"> <img src="img/sample-images/blog-3.jpg" alt="Image1"></a>
+                            </li>
+                            <li style="width: 1016px; float: left; display: block;">
+                                <a class="gallery-item ui-link photoswiped" href="img/sample-images/blog-4.jpg"> <img src="img/sample-images/blog-4.jpg" alt="Image1"></a>
+                            </li>
+                            <li style="width: 1016px; float: left; display: block;">
+                                <a class="gallery-item ui-link photoswiped" href="img/sample-images/blog-5.jpg"> <img src="img/sample-images/blog-5.jpg" alt="Image1"></a>
+                            </li>
+                            <li class="clone" style="width: 1016px; float: left; display: block;">
+                                <a class="gallery-item ui-link photoswiped" href="img/sample-images/blog-3.jpg"> <img src="img/sample-images/blog-3.jpg" alt="Image1"></a>
+                            </li>
+                        </ul>
+                    </div><ol class="flex-control-nav flex-control-paging"><li><a class="flex-active">1</a></li><li><a>2</a></li><li><a>3</a></li></ol><ul class="flex-direction-nav"><li><a class="flex-prev" href="#">Previous</a></li><li><a class="flex-next" href="#">Next</a></li></ul>
+                </div>
+                <!--</div>-->
+
+            </div>
+
+            <div class="padpage">
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type. Lorem Ipsum is simply dummy text Lorem text.
+                </p>
+                <div class="foot">
+                    <a href="#" class="left category ui-link">News</a>
+                    <a href="#" class="right author ui-link">- Matt Hardy</a>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+
+
+
+
+
+                <div class="comments-list">
+                    <h4>3 Comments </h4>
+                    <ul>
+                        <li>
+                            <a href="#" class="author left ui-link"> Bartowski </a>
+                            <span href="#" class="date right"> 1 Feb 2012 </span>
+                            <div class="clearfix"></div>
+                            <div class="comment">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standards of industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standards of industry
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#" class="author left ui-link"> Walker </a>
+                            <span href="#" class="date right"> 9 Feb 2012 </span>
+                            <div class="clearfix"></div>
+                            <div class="comment">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standards of industry
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#" class="author left ui-link"> Casey</a>
+                            <span href="#" class="date right"> 10 Feb 2012 </span>
+                            <div class="clearfix"></div>
+                            <div class="comment">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standards of industry
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--end comments-->
+
+                <h4>Write a comment</h4>
+
+
+                <div class="ui-widget successMessage">
+                    <div class="ui-state-highlight ui-corner-all">
+                        <p>
+                            <span class="ui-icon ui-icon-info" style=""></span>
+                            <strong>Success!</strong> Your comment has been added.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="postComment">
+                    <form action="send-comment.php" method="POST" data-enhance="false" class="html5enhanced">
+                        <ul>
+                            <li>
+                                <input class="textbox required" type="text" placeholder="Name" required="" name="contactName" id="contactName">
+                            </li>
+                            <li>
+                                <input class="textbox required" type="email" placeholder="Email" required="" name="contactEmail" id="contactEmail">
+                            </li>
+                            <li>
+                                <input class="textbox" type="url" placeholder="Website" name="contactWebsite" id="contactWebsite">
+                            </li>
+                            <li>
+                                <textarea class="textarea required" placeholder="Comment" required="" name="contactMessage" id="contactMessage"></textarea>
+                            </li>
+                        </ul>
+
+                        <input type="submit" class="button buttonStrong right" value="Send" name="buttonSubmit">
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+        </div>
+        <!--end blog post-->
+
+
+
+    </div>
+
+    <div ng-include="'views/footer.html'"></div>
+</div>
