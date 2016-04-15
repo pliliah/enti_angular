@@ -48,20 +48,20 @@ function (angular, jQuery) {
     .run(['$location', '$rootScope',
         function ($location, $rootScope) {
 
-            if($.mobile){
-                $.mobile.defaultPageTransition = 'none';
-                $.mobile.ignoreContentEnabled = true;
-                $.mobile.page.prototype.options.domCache = false;
-                $.mobile.ajaxEnabled = false;
-            }
-            else {
-                $(window).on("mobileinit", function () {
-                    $.mobile.defaultPageTransition = 'none';
-                    $.mobile.ignoreContentEnabled = true;
-                    $.mobile.page.prototype.options.domCache = false;
-                    $.mobile.ajaxEnabled = false;
-                });
-            }      
+            //if($.mobile){
+            //    $.mobile.defaultPageTransition = 'none';
+            //    $.mobile.ignoreContentEnabled = true;
+            //    $.mobile.page.prototype.options.domCache = false;
+            //    $.mobile.ajaxEnabled = false;
+            //}
+            //else {
+            //    $(window).on("mobileinit", function () {
+            //        $.mobile.defaultPageTransition = 'none';
+            //        $.mobile.ignoreContentEnabled = true;
+            //        $.mobile.page.prototype.options.domCache = false;
+            //        $.mobile.ajaxEnabled = false;
+            //    });
+            //}      
             
         }]);
 

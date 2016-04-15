@@ -1,5 +1,7 @@
 ﻿define([
     'angular',
+    'js/photoswipe/photoswipe.min',
+    'js/photoswipe/photoswipe-ui-default.min',
     'js/photoswipe/angular-photoswipe'
     //'text!widgets/traderoom/traderoomWidget.html!strip'
 ], function (angular, htmlTemplate) {
@@ -19,29 +21,18 @@
     }]);
 
     module.controller('GalleryController', ['$scope', function ($scope) {
-        $scope.opts = {
-            index: 0
-        };
-
         //these are the images from the gallery
         $scope.slides = [];
         for (var i = 1; i < 16; i++) {
             $scope.slides.push({
                 src: 'img/gallery/' + i + '.jpg',
-                w: 500, h: 500
+                safeSrc: 'img/gallery/' + i + '.jpg',
+                thumb: 'img/gallery/' + i + '.jpg',
+                caption: 'Lorem Ipsum Dolor',
+                size: '500x500',
+                type: 'image'
             });
         }
-
-        $scope.showGallery = function (i) {
-            if (angular.isDefined(i)) {
-                $scope.opts.index = i;
-            }
-            $scope.open = true;
-        };
-
-        $scope.closeGallery = function () {
-            $scope.open = false;
-        };
     }]);
 
     module.controller('GrowthController', ['$scope', function ($scope) {

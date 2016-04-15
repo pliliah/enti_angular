@@ -21,7 +21,7 @@ require.config({
         //endregion
 
         //region Photoswipe
-        pw: 'js/photoswipe/photoswipe',
+        pw: 'js/photoswipe/photoswipe.min',
         photoswipeUI: 'js/photoswipe/photoswipe-ui-default.min',
         ngPhotoswipe: 'js/photoswipe/angular-photoswipe',
         //endregion
