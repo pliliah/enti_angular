@@ -6,12 +6,12 @@
         </a>
         <h1><a href="#">Gallery</a></h1>
 
-        <div class="iscroll" id="galleryScroller" data-ajax="false">
+        <div class="iscroll" id="galleryScroller">
             <div class="scroller">
-                <ul class="menu">                  
+                <!--<ul class="menu">                  
                     <li>
                         <ul class="section">
-                            <li class="square" ng-repeat="img in slides track by $index" ng-if="$index < slides.length / 3" ng-click="showGallery($index)">
+                            <li class="square" ng-repeat="img in slides track by $index" ng-if="$index < slides.length / 3" >
                                 <a class="box gallery-item">
                                     <img ng-src="{{ img.src }}" alt="slide number {{ $index }}">
                                 </a>
@@ -20,7 +20,7 @@
                     </li>
                     <li>
                         <ul class="section">
-                            <li class="square" ng-repeat="img in slides track by $index" ng-if="$index >= slides.length / 3 && $index < slides.length / 1.5 " ng-click="showGallery($index)">
+                            <li class="square" ng-repeat="img in slides track by $index" ng-if="$index >= slides.length / 3 && $index < slides.length / 1.5 " >
                                 <a class="box gallery-item">
                                     <img ng-src="{{ img.src }}" alt="slide number {{ $index }}">
                                 </a>
@@ -29,21 +29,25 @@
                     </li>
                     <li>
                         <ul class="section">
-                            <li class="square"  ng-repeat="img in slides track by $index" ng-if="$index >= slides.length / 1.5" ng-click="showGallery($index)">
+                            <li class="square"  ng-repeat="img in slides track by $index" ng-if="$index >= slides.length / 1.5" >
                                 <a class="box gallery-item">
                                     <img ng-src="{{ img.src }}" alt="slide number {{ $index }}">
                                 </a>
                             </li>
                         </ul>
-                    </li>
-                    
-                </ul>
+                    </li>                    
+                </ul>-->
                 <!--end menu-->
-            </div>
+                <div id="photoswipe" photo-swipe images="slides">
+                </div>
 
-            <div ng-photoswipe slides="slides" open="open" on-close="closeGallery()" options="opts"></div>
+                <!-- Dem photoswipe -->
+                <div photo-slider></div>
+            </div>                        
             <!--end scroller-->
         </div>
         <!--end gallery scroller-->
+
+        
     </div>
 </div>
