@@ -10,35 +10,17 @@
     <!-- h2 has to be written like this, for the black area -->
     <h2></h2>
     <span class="h2">
-        Български страници за бонсай
+        Български страници
     </span>
 
-    <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.
-    </p>
-
     <ul class="services">
-        <li>
-            <a class="image ui-link" href="http://bonsai.bg/"> <img src="img/sample-images/product1-image.png" alt="Product 1"> </a> 
-            <a href="http://bonsai.bg/" class="text ui-link" target="_blank"> Бонсай Клуб - България</a>
+        <li  ng-repeat="link in bgLinks track by $index">
+            <a class="image ui-link" href="{{ link.src }}"  target="_blank"> <img src="img/sample-images/product5-image.png" alt="{{ link.title }}"> </a> 
+            <a href="{{ link.src }}" class="text ui-link" target="_blank">{{ link.title }}</a>
             <div class="clearfix"></div>
-        </li>
-        <li>
-            <a class="image ui-link" href="http://bonsai-bg.com/"> <img src="img/sample-images/product2-image.png" alt="Product 2"> </a> 
-            <a href="http://bonsai-bg.com/" class="text ui-link"> Сайт на Димитър Димитров </a>
-            <div class="clearfix"></div>
-        </li>
-        <li>
-            <a class="image ui-link" href="service-detail.html"> <img src="img/sample-images/product3-image.png" alt="Product 3"> </a> <a href="service-detail.html" class="text ui-link"> TweetPeck API 10.0 </a>
-            <div class="clearfix"></div>
-        </li>
-        <li>
-            <a class="image ui-link" href="service-detail.html"> <img src="img/sample-images/product4-image.png" alt="Product 4"> </a> <a href="service-detail.html" class="text ui-link"> LinkedOut </a>
-            <div class="clearfix"></div>
-        </li>
+        </li>        
     </ul>
-
-
+    
 
     <!-- h2 has to be written like this, for the black area -->
     <h2></h2>
@@ -47,46 +29,11 @@
     </span>
 
     <ul class="services">
-        <li>
-            <a class="image ui-link" href="service-detail.html"> <img src="img/sample-images/product1-image.png" alt="Product 1"> </a> <a href="service-detail.html" class="text ui-link"> HTML 5 Sebwite</a>
+        <li ng-repeat="link in clubsLinks track by $index">
+            <a class="image ui-link" href="{{ link.src }}" target="_blank"> <img src="img/sample-images/product5-image.png" alt="{{ link.title }}"> </a>
+            <a href="{{ link.src }}" class="text ui-link" target="_blank">{{ link.title }}</a>
             <div class="clearfix"></div>
-        </li>
-        <li>
-            <a class="image ui-link" href="service-detail.html"> <img src="img/sample-images/product2-image.png" alt="Product 2"> </a> <a href="service-detail.html" class="text ui-link"> Pkyse </a>
-            <div class="clearfix"></div>
-        </li>
-        <li>
-            <a class="image ui-link" href="service-detail.html"> <img src="img/sample-images/product3-image.png" alt="Product 3"> </a> <a href="service-detail.html" class="text ui-link"> TweetPeck API 10.0 </a>
-            <div class="clearfix"></div>
-        </li>
-        <li>
-            <a class="image ui-link" href="service-detail.html"> <img src="img/sample-images/product4-image.png" alt="Product 4"> </a> <a href="service-detail.html" class="text ui-link"> LinkedOut </a>
-            <div class="clearfix"></div>
-        </li>
-        <li>
-            <a class="image ui-link" href="service-detail.html"> <img src="img/sample-images/product5-image.png" alt="Product 5"> </a> <a href="service-detail.html" class="text ui-link"> HitGub </a>
-            <div class="clearfix"></div>
-        </li>
-        <li>
-            <a class="image ui-link" href="service-detail.html"> <img src="img/sample-images/product1-image.png" alt="Product 1"> </a> <a href="service-detail.html" class="text ui-link"> HTML 5 Sebwite</a>
-            <div class="clearfix"></div>
-        </li>
-        <li>
-            <a class="image ui-link" href="service-detail.html"> <img src="img/sample-images/product2-image.png" alt="Product 2"> </a> <a href="service-detail.html" class="text ui-link"> Pkyse </a>
-            <div class="clearfix"></div>
-        </li>
-        <li>
-            <a class="image ui-link" href="service-detail.html"> <img src="img/sample-images/product3-image.png" alt="Product 3"> </a> <a href="service-detail.html" class="text ui-link"> TweetPeck API 10.0 </a>
-            <div class="clearfix"></div>
-        </li>
-        <li>
-            <a class="image ui-link" href="service-detail.html"> <img src="img/sample-images/product4-image.png" alt="Product 4"> </a> <a href="service-detail.html" class="text ui-link"> LinkedOut </a>
-            <div class="clearfix"></div>
-        </li>
-        <li>
-            <a class="image ui-link" href="service-detail.html"> <img src="img/sample-images/product5-image.png" alt="Product 5"> </a> <a href="service-detail.html" class="text ui-link"> HitGub </a>
-            <div class="clearfix"></div>
-        </li>
+        </li>   
     </ul>
 
     <!-- h2 has to be written like this, for the black area -->
@@ -94,6 +41,28 @@
     <span class="h2">
         Блогове
     </span>
+
+    <ul class="services">
+        <li ng-repeat="link in blogsLinks track by $index">
+            <a class="image ui-link" href="{{ link.src }}" target="_blank"> <img src="img/sample-images/product5-image.png" alt="{{ link.title }}"> </a>
+            <a href="{{ link.src }}" class="text ui-link" target="_blank">{{ link.title }}</a>
+            <div class="clearfix"></div>
+        </li>
+    </ul>
+
+    <!-- h2 has to be written like this, for the black area -->
+    <h2></h2>
+    <span class="h2">
+        Магазини
+    </span>
+
+    <ul class="services">
+        <li ng-repeat="link in shopsLinks track by $index">
+            <a class="image ui-link" href="{{ link.src }}" target="_blank"> <img src="img/sample-images/product5-image.png" alt="{{ link.title }}"> </a>
+            <a href="{{ link.src }}" class="text ui-link" target="_blank">{{ link.title }}</a>
+            <div class="clearfix"></div>
+        </li>
+    </ul>
 
     <div ng-include="'views/footer.html'"></div>
 

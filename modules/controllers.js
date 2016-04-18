@@ -56,7 +56,62 @@
     }]);
 
     module.controller('LinksController', ['$scope', function ($scope) {
-
+        //links to bg sites for bonsai
+        $scope.bgLinks = [
+            { src: "http://bonsai.bg/", title: "Бонсай Клуб - България" },
+            { src: "http://bonsai-bg.com/", title: " Димитър Димитров" },
+            { src: "http://pencho-minchev-bonsai.blogspot.bg", title: "Пенчо Минчев" },
+            { src: "http://svilen.bonsai.bg/", title: "Свилен Добрев" },
+            { src: "http://peter.bonsai.bg/", title: "Петър Светославов" },
+            { src: "http://bonsaidnevnik.blogspot.bg/", title: "Радко Колев" },
+            { src: "http://forum.flowersnet.info/viewforum.php?f=33", title: "Форум" }
+        ];
+        //links to clubs for bonsai
+        $scope.clubsLinks = [
+            { src: "http://www.aabcltd.org/", title: "Асоцияция на австралийските бонсай клубове" },
+            { src: "http://www.cbs.org.au/index.php", title: "Бонсай общност - Канбера" },
+            { src: "http://www.bonsai.asn.au/", title: "Бонсай общност - Австралия" },
+            { src: "https://www.bonsaisocietyqld.asn.au/", title: "Бонсай общност - Куинсленд" },
+            { src: "http://www.ottawabonsai.org/", title: "Бонсай общност - Отава" },
+            { src: "http://bonsaimontreal.com/#&panel1-3", title: "Бонсай общност - Монтреал" },
+            { src: "http://bonsaiduquebec.com/", title: "Бонсай общност - Квебек" },
+            { src: "http://www.nibonsai.co.uk/", title: "Бонсай общество – Северна Ирландия" },
+            { src: "http://www.arcobonsai.com/", title: "Аркобонсай клуб – Италия" },
+            { src: "http://ahmedabadbonsaiclub.blogspot.bg/", title: "Ахмедабат бонсай клуб – Индия" },
+            { src: "http://www.ebabonsai.com/", title: "Европейска бонсай асоциация" },
+            { src: "http://www.absbonsai.org/", title: "Американска бонсай асоциация" },
+            { src: "http://www.saba.org.za/", title: "Южноафриканска бонсай асоциация" },
+            { src: "http://www.scottishbonsai.org/page.cfm?page=1", title: "Шотладска бонсай асоциация" },
+            { src: "http://www.bonsainz.com/", title: "Новозеландска бонсай асоциация" },
+            { src: "http://iabonsai.org/", title: "Бонсай асоциация – Айова" },
+            { src: "http://www.shohin-europe.com/", title: "Европейска шохин асоциация" },
+            { src: "http://bowiebonsai.tripod.com/", title: "Бауи бонсай клуб" },
+            { src: "http://hawaiibonsaiassoc.org/", title: "Хавайска бонсай асоциация" },
+            { src: "http://www.artisticbonsaicircle.co.uk/", title: "Кръг на бонсай артистите" }
+        ];
+        //links to blogs for bonsai
+        $scope.blogsLinks = [
+            { src: "http://walter-pall-bonsai.blogspot.bg/", title: "Уолтър Пол" },
+            { src: "http://tedyboybonsai.blogspot.bg/", title: "Теди Бой" }            
+        ];
+        //links to shops for bonsai
+        $scope.shopsLinks = [
+            { src: "http://www.kaizenbonsai.com/", title: "Англия - Кайзен бонсай" },
+            { src: "http://www.makebonsai.com/", title: "Англия - Ма Ке бонсай" },
+            { src: "http://www.herons.co.uk/", title: "Англия - Херонс" },
+            { src: "http://www.willowbog-bonsai.co.uk/", title: "Англия - Уилоубог" },
+            { src: "http://www.greendragonbonsai.co.uk/", title: "Англия - Зелен Дракон" },
+            { src: "http://www.johnhanbybonsai.co.uk/store/", title: "Английя - Джон Ханби" },
+            { src: "http://www.southamptonbonsai.uk/", title: "Англия - Саутамптон бонсай" },
+            { src: "https://www.bonsai-shop.com/", title: "Германия - Бонсай магазин" },            
+            { src: "http://www.bonsaioutlet.com/", title: "САЩ - Бонсай аутлет" },
+            { src: "http://www.bonsaiwest.com/", title: "САЩ - Бонсай уест" },
+            { src: "http://www.hollowcreekbonsai.com/", title: "САЩ - Холоу Крийк" },
+            { src: "http://www.bonsaiboy.com/", title: "САЩ - Бонсай бой" },
+            { src: "http://www.samurai.nl/", title: "Холандия - Самурай" },
+            { src: "http://www.bonsaiempire.com/", title: "Холандия - Бонсай империя" },
+            { src: "http://www.yoshoen.com/", title: "Япония - Йошoен" }
+        ];
     }]);
 
     module.controller('AboutController', ['$scope', function ($scope) {
