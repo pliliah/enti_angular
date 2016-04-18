@@ -1,11 +1,10 @@
-<div id="portfolioPage" data-role="page" class="page innerPage ui-page ui-body-c ui-page-active" data-url="portfolioPage" tabindex="0" style="min-height: 356px;">
+﻿<div id="portfolioPage" data-role="page" class="page innerPage ui-page ui-body-c ui-page-active" data-url="portfolioPage" tabindex="0" style="min-height: 356px;">
     <div ng-include="'views/header.html'"></div>
 
     <div class="padpage padtop">
-        <h1><a href="#" class="ui-link">Projects Portfolio</a></h1>
+        <h1><a href="#" class="ui-link">Отглеждане и грижи</a></h1>
         <p>
-            We have been in this industry since 12 years.<br>
-            And we have a huge portfolio with rich client base.
+            Тук ще намерите информация за всичко, свързано с отглеждането и грижите, които трябва да полагате, за вашите бонсаи.
         </p>
     </div>
 
@@ -13,150 +12,25 @@
         <!-- h2 has to be written like this, for the black area -->
         <h2></h2>
         <span class="h2">
-            Our Projects
+            Секции
         </span>
     </div>
-
-
-
+    
     <div class="projects">
         <ul data-role="listview" class="ui-listview">
-            <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c">
+            <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"
+                ng-repeat="link in sectionLinks">
                 <div class="ui-btn-inner ui-li">
                     <div class="ui-btn-text">
-                        <a href="project-detail.html" class="ui-link-inherit">
-                            <img src="img/gallery/10.jpg" alt="image 2" class="ui-li-thumb">
-                            <h3 class="ui-li-heading">Project Name goes here</h3>
-                            <p class="ui-li-desc">Client Name</p>
+                        <a href="{{ link.url }}" class="ui-link-inherit">
+                            <img src="{{ link.imgSrc }}" alt="{{ link.name + " - " + link.description }}" class="ui-li-thumb">
+                            <h3 class="ui-li-heading">{{ link.name }}</h3>
+                            <p class="ui-li-desc">{{ link.description }}</p>
                         </a>
                     </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
                 </div>
-            </li>
-            <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c">
-                <div class="ui-btn-inner ui-li">
-                    <div class="ui-btn-text">
-                        <a href="project-detail.html" class="ui-link-inherit">
-                            <img src="img/gallery/1.jpg" alt="image 1" class="ui-li-thumb">
-                            <h3 class="ui-li-heading">Large Hadron Collider</h3>
-                            <p class="ui-li-desc">Geneva</p>
-                        </a>
-                    </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
-                </div>
-            </li>
-            <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c">
-                <div class="ui-btn-inner ui-li">
-                    <div class="ui-btn-text">
-                        <a href="project-detail.html" class="ui-link-inherit">
-                            <img src="img/gallery/12.jpg" alt="image 2" class="ui-li-thumb">
-                            <h3 class="ui-li-heading">Project Name goes here</h3>
-                            <p class="ui-li-desc">Client Name</p>
-                        </a>
-                    </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
-                </div>
-            </li>
-            <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c">
-                <div class="ui-btn-inner ui-li">
-                    <div class="ui-btn-text">
-                        <a href="project-detail.html" class="ui-link-inherit">
-                            <img src="img/gallery/5.jpg" alt="image 1" class="ui-li-thumb">
-                            <h3 class="ui-li-heading">Large Hadron Collider</h3>
-                            <p class="ui-li-desc">Geneva</p>
-                        </a>
-                    </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
-                </div>
-            </li>
-            <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c">
-                <div class="ui-btn-inner ui-li">
-                    <div class="ui-btn-text">
-                        <a href="project-detail.html" class="ui-link-inherit">
-                            <img src="img/gallery/15.jpg" alt="image 2" class="ui-li-thumb">
-                            <h3 class="ui-li-heading">Project Name goes here</h3>
-                            <p class="ui-li-desc">Client Name</p>
-                        </a>
-                    </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
-                </div>
-            </li>
-            <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c">
-                <div class="ui-btn-inner ui-li">
-                    <div class="ui-btn-text">
-                        <a href="project-detail.html" class="ui-link-inherit">
-                            <img src="img/gallery/7.jpg" alt="image 1" class="ui-li-thumb">
-                            <h3 class="ui-li-heading">Large Hadron Collider</h3>
-                            <p class="ui-li-desc">Geneva</p>
-                        </a>
-                    </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
-                </div>
-            </li>
+            </li>            
         </ul>
-    </div>
-
-
-    <div class="padpage">
-        <!-- h2 has to be written like this, for the black area -->
-        <h2></h2>
-        <span class="h2">
-            Our Clients
-        </span>
-    </div>
-
-
-
-
-    <div class="clients">
-        <ul data-role="listview" class="ui-listview">
-            <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-icon ui-btn-up-c">
-                <div class="ui-btn-inner ui-li">
-                    <div class="ui-btn-text">
-                        <a href="client-detail.html" class="ui-link-inherit">
-                            <img class="ui-li-icon ui-li-thumb" src="img/sample-images/icon1.png" alt="image 2">
-                            Adidas
-                        </a>
-                    </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
-                </div>
-            </li>
-            <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-icon ui-btn-up-c">
-                <div class="ui-btn-inner ui-li">
-                    <div class="ui-btn-text">
-                        <a href="client-detail.html" class="ui-link-inherit">
-                            <img class="ui-li-icon ui-li-thumb" src="img/sample-images/icon2.png" alt="image 1">
-                            Microsoft
-                        </a>
-                    </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
-                </div>
-            </li>
-            <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-icon ui-btn-up-c">
-                <div class="ui-btn-inner ui-li">
-                    <div class="ui-btn-text">
-                        <a href="client-detail.html" class="ui-link-inherit">
-                            <img class="ui-li-icon ui-li-thumb" src="img/sample-images/icon3.png" alt="image 2">
-                            Google
-                        </a>
-                    </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
-                </div>
-            </li>
-            <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-icon ui-btn-up-c">
-                <div class="ui-btn-inner ui-li">
-                    <div class="ui-btn-text">
-                        <a href="client-detail.html" class="ui-link-inherit">
-                            <img class="ui-li-icon ui-li-thumb" src="img/gallery/7.jpg" alt="image 1">
-                            Amazon
-                        </a>
-                    </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
-                </div>
-            </li>
-            <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-icon ui-btn-up-c">
-                <div class="ui-btn-inner ui-li">
-                    <div class="ui-btn-text">
-                        <a href="client-detail.html" class="ui-link-inherit">
-                            <img class="ui-li-icon ui-li-thumb" src="img/sample-images/icon1.png" alt="image 2">
-                            Itercept
-                        </a>
-                    </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span>
-                </div>
-            </li>
-
-        </ul>
-
     </div>
 
     <div ng-include="'views/footer.html'"></div>

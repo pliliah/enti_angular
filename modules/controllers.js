@@ -36,7 +36,15 @@
     }]);
 
     module.controller('GrowthController', ['$scope', function ($scope) {
-
+        $scope.sectionLinks = [
+            { imgSrc: "img/gallery/10.jpg", name: "Подстригване", description: "Видове бонсаи, оформление и стилове.", url: "growth/cutting" },
+            { imgSrc: "img/gallery/1.jpg", name: "Грижи", description: "Поливане, подстригване, пресаждане и почви.", url: "growth/care" },
+            { imgSrc: "img/gallery/5.jpg", name: "Саксии", description: "Видове саксии и избор на подходяща саксия за вашия бонсай.", url: "growth/potting" },
+            { imgSrc: "img/gallery/15.jpg", name: "Технологии за отглеждане", description: "Стари и нови технологии за отглеждане на бонсаи. Плюсове и минуси на всяка една.", url: "growth/technologies" },
+            { imgSrc: "img/gallery/15.jpg", name: "Почви", description: "Видове почви и дрениране.", url: "growth/soil" },
+            { imgSrc: "img/gallery/15.jpg", name: "Място на отглеждане", description: "Външно и вътрешно отглеждане на бонсаите.", url: "growth/place" },
+            { imgSrc: "img/gallery/15.jpg", name: "Торене", description: "Видове торове и торене при бонсаите.", url: "growth/fertilization" }
+        ];
     }]);
 
     module.controller('ShopController', ['$scope', function ($scope) {

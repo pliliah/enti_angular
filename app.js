@@ -53,6 +53,36 @@ function (angular, jQuery) {
                 templateUrl: 'views/about.html',
                 controller: 'AboutController'
             })
+
+            .when('/growth/care', {
+                templateUrl: 'views/info/care.html',
+                controller: 'GrowthController'
+            })
+            .when('/growth/cutting', {
+                templateUrl: 'views/info/cutting.html',
+                controller: 'GrowthController'
+            })
+            .when('/growth/fertilization', {
+                templateUrl: 'views/info/fertilization.html',
+                controller: 'GrowthController'
+            })
+            .when('/growth/place', {
+                templateUrl: 'views/info/place.html',
+                controller: 'GrowthController'
+            })
+            .when('/growth/potting', {
+                templateUrl: 'views/info/potting.html',
+                controller: 'GrowthController'
+            })
+            .when('/growth/soil', {
+                templateUrl: 'views/info/soil.html',
+                controller: 'GrowthController'
+            })
+            .when('/growth/technologies', {
+                templateUrl: 'views/info/technologies.html',
+                controller: 'GrowthController'
+            })
+
             .otherwise({ redirectTo: '/' });
 
         $locationProvider.html5Mode(true);
