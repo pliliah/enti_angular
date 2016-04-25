@@ -33,6 +33,10 @@ function (angular, jQuery) {
                 templateUrl: 'views/shop.html',
                 controller: 'ShopController'
             })
+             .when('/shop/:category', {
+                 templateUrl: 'views/shopDetails.html',
+                 controller: 'ShopController'
+             })
             .when('/cart', {
                 templateUrl: 'views/cart.html',
                 controller: 'CartController'

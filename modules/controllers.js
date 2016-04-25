@@ -29,7 +29,7 @@
                 safeSrc: 'img/gallery/' + i + '.jpg',
                 thumb: 'img/gallery/' + i + '.jpg',
                 caption: 'Lorem Ipsum Dolor',
-                size: '500x500',
+                size: '400x400',
                 type: 'image'
             });
         }
@@ -47,7 +47,23 @@
         ];
     }]);
 
-    module.controller('ShopController', ['$scope', function ($scope) {
+    module.controller('ShopController', ['$scope', '$routeParams', function ($scope, $routeParams) {
+        $scope.shopCategories = [
+            { imgSrc: "img/gallery/10.jpg", src:"shop/plants", name: "Растения", description: "Продажба на различни видове растения бонсаи и ...", count: 10 },
+            { imgSrc: "img/gallery/1.jpg", src: "shop/soil", name: "Почви", description: "Продажба на различни видове почви, подходящи за отглеждане на бонсаи", count: 15 },
+            { imgSrc: "img/gallery/5.jpg", src: "shop/pots", name: "Саксии", description: "Продажба на ръчно правени саксии за бонсаи, в различни видове и размери", count: 10 },
+            { imgSrc: "img/gallery/15.jpg", src: "shop/accessories", name: "Аксесоари", description: "Всякакви аксесоари, необходими за грижите за вашите растения", count: 10 },
+            { imgSrc: "img/gallery/5.jpg", src: "shop/fertilization", name: "Торове", description: "Различни видове торове, подходящи за различните бонсаи", count: 10 }
+        ];
+
+        if ($routeParams.category) {
+            $scope.category = $routeParams.category;
+        }
+        else {
+            $scope.category = '';
+        }
+
+
 
     }]);
 
