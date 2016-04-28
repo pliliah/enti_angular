@@ -47,7 +47,7 @@
         ];
     }]);
 
-    module.controller('ShopController', ['$scope', '$routeParams', function ($scope, $routeParams) {
+    module.controller('ShopController', ['$scope', '$routeParams', 'shopService', 'shopDataModel', function ($scope, $routeParams, shopService, shopDataModel) {
         $scope.shopCategories = [
             { imgSrc: "img/gallery/10.jpg", src:"shop/plants", name: "Растения", description: "Продажба на различни видове растения бонсаи и ...", count: 10 },
             { imgSrc: "img/gallery/1.jpg", src: "shop/soil", name: "Почви", description: "Продажба на различни видове почви, подходящи за отглеждане на бонсаи", count: 15 },
