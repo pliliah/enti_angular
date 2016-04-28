@@ -3,12 +3,14 @@ define([
     //'text!app.config.json!strip',
     'angular',
     'jquery',
-    'modules/controllers'
+    'modules/controllers',
+    'modules/services'
 ],
 function (angular, jQuery) {
     var module = angular.module('enti', [
         'ngRoute',
-        'enti.controllers'
+        'enti.controllers',
+        'enti.services'
     ])
     .config(['$httpProvider', '$routeProvider', '$locationProvider', function ($httpProvider, $routeProvider, $locationProvider) {
         //here we set the routing for the SPA
