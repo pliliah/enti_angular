@@ -74,7 +74,8 @@
         }
     }]);
 
-    module.controller('CartController', ['$scope', function ($scope) {
+    module.controller('CartController', ['$scope', 'shoppingCartService', 'shoppingCartData', function ($scope, shoppingCartService, shoppingCartData) {
+        $scope.shoppingCart = shoppingCartData;
 
     }]);
 
