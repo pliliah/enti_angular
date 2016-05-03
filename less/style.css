@@ -461,7 +461,7 @@ form li{
 
 
 
-.blog{
+.shop{
    margin-top: 20px;
    .head{
       .image{
@@ -524,7 +524,7 @@ form li{
    /*end head*/
 }
 
-.blogPost{
+.shopItem{
    margin-bottom: 20px;
    padding-bottom: 4%;
    .head{
@@ -547,6 +547,15 @@ form li{
             overflow: hidden;
          }
       }
+
+    .discountOldPrice{
+        color: red;
+        text-decoration: line-through;
+    }
+    .discountNewPrice{
+        color: green;
+        font-weight:bold;
+    }
       
       .date{
          font-size: 85%;
@@ -648,7 +657,7 @@ form li{
    }
    
 }
-/*end blog post*/
+/*end shop post*/
 
 
 
