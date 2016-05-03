@@ -88,7 +88,6 @@ function (angular, jQuery) {
                 templateUrl: 'views/info/technologies.html',
                 controller: 'GrowthController'
             })
-
             .otherwise({ redirectTo: '/' });
 
         $locationProvider.html5Mode(true);

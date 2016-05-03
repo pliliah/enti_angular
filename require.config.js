@@ -10,6 +10,7 @@ require.config({
         //region Libs
         angular: 'js/angular/angular',
         angularRoute: 'js/angular/angular-route',
+        angularBg: 'js/angular/angular-locale_bg-bg.min',
         ngTouch: 'js/angular/angular-touch',
         ngCookies: 'js/angular/angular-cookies',        
         //angularBootstrap: 'js/angular/ui-bootstrap',
@@ -41,6 +42,10 @@ require.config({
     },
     shim: {
         angular: { 'exports': 'angular' },
+        angularBg: {
+            deps: ['angular'],
+            'export': 'angularBg'
+        },
         jquery: { 'exports': 'jquery' },
         pw: {
             deps: ['angular'],
@@ -103,6 +108,7 @@ window.name = "NG_DEFER_BOOTSTRAP!";
 require([
     'angular',
     'jquery',
+    'angularBg',
     'angularRoute',
     'ngTouch',
     //'angularBootstrapTpls',

@@ -3,9 +3,9 @@
 
     <h1><a href="#" class="ui-link">Категории продукти</a></h1>
 
-    <div class="blog">
+    <div class="shop">
 
-        <div class="blogPost" ng-repeat="category in shopCategories">
+        <div class="shopItem" ng-repeat="(catName, category) in shopCategories">
             <div class="head">
                 <a class="left image icon ui-link" href="blog-detail.html">
                     <img src="{{ category.imgSrc }}" alt="{{ category.name }}">
