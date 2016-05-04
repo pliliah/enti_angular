@@ -343,6 +343,9 @@ input:-moz-placeholder { color:lighten(@themeColor, 35%); }
    &:hover{
       background: lighten(@themeColor, 10%);
    }
+   &:disabled{
+       background-color: #DADADA;
+   }
    .rounded(0);
 }
 
@@ -1485,6 +1488,9 @@ form li{
 }
 
 
+.delete.ui-btn-icon-right:after {
+    content: "x"
+}
 
 
 

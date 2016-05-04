@@ -84,6 +84,17 @@
             updateTotal();
         }
 
+        $scope.DeleteCartItem = function (e, item) {
+            //check whether the user has clicked on the X circle
+            if (e.offsetX > e.currentTarget.offsetWidth - 25 &&
+                e.offsetX < e.currentTarget.offsetWidth - 10 &&
+                e.offsetY > e.currentTarget.offsetHeight - 58 &&
+                e.offsetY < e.currentTarget.offsetHeight - 35) {
+                shoppingCartService.DeleteCartItem(item);
+                updateTotal();
+            } 
+        }
+
         $scope.SubmitOrder = function (customer, shoppingCart) {
 
         }
@@ -95,7 +106,7 @@
             }
             $scope.total = totalOrder;
         }
-
+        
         updateTotal();
     }]);
 

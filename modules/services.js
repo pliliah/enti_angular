@@ -39,6 +39,13 @@
     module.service('shoppingCartService', ['shoppingCartData', '$cookies', function (shoppingCartData, $cookies) {
         var self = this;
 
+        var updateShoppingCookie = function () {
+            if ($cookies.get('shoppingCart')) {
+                $cookies.remove('shoppingCart');
+            }
+            $cookies.put('shoppingCart', JSON.stringify(shoppingCartData));
+        }
+
         self.AddCartItem = function (item, quantity) {
             if (shoppingCartData[item.id]) {
                 shoppingCartData[item.id].quantity = quantity;
@@ -50,17 +57,23 @@
                 }
             }
 
-            if ($cookies.get('shoppingCart')) {
-                $cookies.remove('shoppingCart');
-            }
-            $cookies.put('shoppingCart', JSON.stringify(shoppingCartData));
+            updateShoppingCookie();
         }
 
         self.UpdateCart = function (shoppingCart) {
-            if ($cookies.get('shoppingCart')) {
-                $cookies.remove('shoppingCart');
+            updateShoppingCookie();
+        }
+
+        self.DeleteCartItem = function (item) {
+            if (shoppingCartData[item.id]) {
+                delete shoppingCartData[item.id];
             }
-            $cookies.put('shoppingCart', JSON.stringify(shoppingCartData));
+            updateShoppingCookie();
+        }
+
+        self.EmptyCart = function () {
+            shoppingCartData = {};
+            $cookies.remove('shoppingCart');
         }
 
         return self;

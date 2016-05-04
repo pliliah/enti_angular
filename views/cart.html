@@ -10,18 +10,18 @@
             <h4> Това са избраните от вас артикули за поръчка. Уверете се, че сте избрали желаното от вас количество, преди да направите поръчката.</h4>       
         <div>
             <ul data-role="listview" class="ui-listview">
-                <li ng-repeat="(id, item) in shoppingCart" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c">
+                <li ng-repeat="(id, item) in shoppingCart" ng-click="DeleteCartItem($event, item.item)" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c delete">
                     <div class="ui-btn-inner ui-li">
                         <div class="ui-btn-text">
                             <a href="#" class="ui-link-inherit">
-                                <img src="img/gallery/10.jpg" alt="image 2" class="ui-li-thumb">
+                                <img src="{{ item.item.src }}" alt="image 2" class="ui-li-thumb">
                                 <h3 class="ui-li-heading">{{ item.item.title }} - {{ item.item.price * item.quantity | currency}}</h3>
                                 <p class="ui-li-desc">{{ item.item.description }}</p>
-                                <input type="number" ng-model="item.quantity" ng-change="UpdateCart(shoppingCart)" max="{{ item.item.quantity }}" min="0" class="quantity" />
+                                <input type="number" ng-model="item.quantity" ng-change="UpdateCart(shoppingCart)" max="{{ item.item.quantity }}" min="1" class="quantity" />
                             </a>
                         </div>
-                    </div>                   
-                </li>                
+                    </div>  
+                </li>                    
             </ul>
             <p>
                 <h4 class="ui-li-heading right"> Общо: {{ total | currency }}</h4>
@@ -29,26 +29,27 @@
         </div>
         <br />
         <div class="postComment">
-            <form id="order">
+            <form name="form" novalidate>
+                <p>Детайли към поръчката</p>
                 <ul>
                     <li>
-                        <input class="textbox required" type="text" placeholder="Име" required="" ng-model="customer.name" id="customerName">
+                        <input class="textbox required" type="text" placeholder="*Име" required=""  ng-model="customer.name" id="customerName">
                     </li>
                     <li>
-                        <input class="textbox required" type="email" placeholder="Email" required="" ng-model="customer.email" id="customerEmail">
+                        <input class="textbox required" type="email" placeholder="*Email" required"=""  ng-model="customer.email" id="customerEmail">
                     </li>
                     <li>
-                        <input class="textbox required" type="tel" placeholder="Телефон" ng-model="customer.phone" id="customerPhone">
+                        <input class="textbox required" type="tel" placeholder="*Телефон" required=""  ng-model="customer.phone" id="customerPhone">
                     </li>
                     <li>
-                        <input class="textbox required" type="text" placeholder="Адрес: град, област, улица, номер" ng-model="customer.address" id="customerAddress">
+                        <input class="textbox required" type="text" required="" placeholder="*Адрес: град, област, улица, номер" ng-model="customer.address" id="customerAddress">
                     </li>
                     <li>
-                        <textarea class="textarea required" placeholder="Коментар" required="" ng-model="customer.message" id="customerMessage"></textarea>
+                        <textarea class="textarea" placeholder="Коментар" ng-model="customer.message" id="customerMessage"></textarea>
                     </li>
                 </ul>
-
-                <input type="submit" class="button buttonStrong right" ng-click="SubmitOrder(customer, shoppingCart)" value="Изпрати поръчката" name="buttonSubmit">
+             
+                <input type="submit" class="button buttonStrong right" ng-disabled="form.$invalid" ng-click="SubmitOrder(customer, shoppingCart)" value="ИЗПРАТИ ПОРЪЧКАТА" name="buttonSubmit">
                 <div class="clearfix"></div>
             </form>
         </div>
