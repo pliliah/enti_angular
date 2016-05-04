@@ -76,7 +76,27 @@
 
     module.controller('CartController', ['$scope', 'shoppingCartService', 'shoppingCartData', function ($scope, shoppingCartService, shoppingCartData) {
         $scope.shoppingCart = shoppingCartData;
+        $scope.customer = {};
+        $scope.total = 0;
 
+        $scope.UpdateCart = function (shoppingCart) {
+            shoppingCartService.UpdateCart(shoppingCart);
+            updateTotal();
+        }
+
+        $scope.SubmitOrder = function (customer, shoppingCart) {
+
+        }
+
+        var updateTotal = function () {
+            var totalOrder = 0;
+            for (var itemId in shoppingCartData) {
+                totalOrder += shoppingCartData[itemId].item.price * shoppingCartData[itemId].quantity;
+            }
+            $scope.total = totalOrder;
+        }
+
+        updateTotal();
     }]);
 
     module.controller('ContactController', ['$scope', function ($scope) {

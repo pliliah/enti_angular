@@ -56,6 +56,13 @@
             $cookies.put('shoppingCart', JSON.stringify(shoppingCartData));
         }
 
+        self.UpdateCart = function (shoppingCart) {
+            if ($cookies.get('shoppingCart')) {
+                $cookies.remove('shoppingCart');
+            }
+            $cookies.put('shoppingCart', JSON.stringify(shoppingCartData));
+        }
+
         return self;
     }]);
 

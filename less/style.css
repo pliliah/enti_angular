@@ -499,7 +499,7 @@ form li{
 
 
 
-.blogDetail{
+.shopDetail{
    .head{
       .image{
          box-sizing: border-box;
@@ -521,6 +521,10 @@ form li{
       }
       /*end image*/
    }
+
+    .quantity{
+        width: 50px;
+    }
    /*end head*/
 }
 
