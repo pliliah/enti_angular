@@ -12,6 +12,10 @@ function (angular, jQuery) {
         'enti.controllers',
         'enti.services'
     ])
+    .constant('config', {
+        "apiUrl": "http://localhost:55187/api/",
+        "shoppingCartCookie": "shoppingCart"
+    })
     .config(['$httpProvider', '$routeProvider', '$locationProvider', function ($httpProvider, $routeProvider, $locationProvider) {
         //here we set the routing for the SPA
         $routeProvider

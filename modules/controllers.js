@@ -96,7 +96,7 @@
         }
 
         $scope.SubmitOrder = function (customer, shoppingCart) {
-
+            shoppingCartService.SubmitOrder(customer, shoppingCart);
         }
 
         var updateTotal = function () {

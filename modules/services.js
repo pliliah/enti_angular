@@ -4,16 +4,16 @@
 ], function (angular, htmlTemplate) {
     var module = angular.module('enti.services', ['ngCookies']);
 
-    module.factory('shoppingCartData', ['$cookies', function ($cookies) {
-        if ($cookies.get('shoppingCart')) {
-            return JSON.parse($cookies.get('shoppingCart'));
+    module.factory('shoppingCartData', ['$cookies', 'config', function ($cookies, config) {
+        if ($cookies.get(config.shoppingCartCookie)) {
+            return JSON.parse($cookies.get(config.shoppingCartCookie));
         }
         else {
             return {};
         }
     }]);
 
-    module.service('shopService', [function () {
+    module.service('shopService', ['$http', function ($http) {
         var self = this;
 
         self.GetCategoryItems = function (category) {
@@ -36,14 +36,14 @@
         return self;
     }]);
 
-    module.service('shoppingCartService', ['shoppingCartData', '$cookies', function (shoppingCartData, $cookies) {
+    module.service('shoppingCartService', ['shoppingCartData', '$cookies', 'config', '$http', function (shoppingCartData, $cookies, config, $http) {
         var self = this;
 
         var updateShoppingCookie = function () {
-            if ($cookies.get('shoppingCart')) {
-                $cookies.remove('shoppingCart');
+            if ($cookies.get(config.shoppingCartCookie)) {
+                $cookies.remove(config.shoppingCartCookie);
             }
-            $cookies.put('shoppingCart', JSON.stringify(shoppingCartData));
+            $cookies.put(config.shoppingCartCookie, JSON.stringify(shoppingCartData));
         }
 
         self.AddCartItem = function (item, quantity) {
@@ -73,7 +73,24 @@
 
         self.EmptyCart = function () {
             shoppingCartData = {};
-            $cookies.remove('shoppingCart');
+            $cookies.remove(config.shoppingCartCookie);
+        }
+
+        self.SubmitOrder = function (customer, shoppingCart) {
+            var params = {
+                shoppingCart: [],
+                customer: customer
+            }
+            for (var id in shoppingCart) {
+                params.shoppingCart.push(shoppingCart[id])
+            }
+            var result = $http.post(config.apiUrl + 'Order', params)
+                .success(function (data, status) {
+                    console.log('success');
+                })
+                .error(function () {
+                    console.log('error');
+                });
         }
 
         return self;
