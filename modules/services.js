@@ -66,6 +66,13 @@
                 });
         }
 
+        self.DeleteShoppingItem = function (item) {
+            $http.delete(config.apiUrl + 'ShoppingItems?id=' + item.id)
+               .then(function (response) {
+                   alert('Артикул изтрит успешно');
+               });
+        }
+
         self.GetCategories();
 
         return self;

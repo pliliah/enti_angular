@@ -40,6 +40,10 @@
         $scope.Update = function (item) {
             shopService.UpdateCategoryItem(item);
         }
+
+        $scope.Delete = function (item) {
+            shopService.DeleteShoppingItem(item);
+        }
     }]);
 
     module.controller('ItemDetailsController', ['$scope', '$routeParams', function ($scope, $routeParams) {

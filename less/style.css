@@ -354,6 +354,15 @@ input:-moz-placeholder { color:lighten(@themeColor, 35%); }
    .rounded(0);
 }
 
+.buttonAlert {
+    color: firebrick;
+    font-weight: bold;
+    background: lighten(@themeColor, 15%);
+    &:hover{
+      background: lighten(@themeColor, 25%);
+   }
+}
+
 form li{
    margin-bottom: 10px;
 }
