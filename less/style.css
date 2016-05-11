@@ -233,6 +233,11 @@ h4{
    }
 }
 
+label {
+    font-size: 12px;    
+    padding: 0 5px;    
+}
+
 p{
    margin-bottom: 14px;
 }

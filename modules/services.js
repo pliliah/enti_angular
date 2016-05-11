@@ -13,25 +13,60 @@
         }
     }]);
 
-    module.service('shopService', ['$http', function ($http) {
+    module.service('shopService', ['$http', 'config', function ($http, config) {
         var self = this;
+        self.categories = {};
+        self.shoppingItems = {
+            items: [], 
+            category: {}
+        };
 
-        self.GetCategoryItems = function (category) {
-            var result = {items: [], category: category};
-            for (var i = 1; i < 6; i++) {
-                result.items.push({
-                    id: i,
-                    src: 'img/gallery/10.jpg',
-                    title: 'Item number ' + i,
-                    description: 'Description number ' + i,
-                    price: 10 * i,
-                    quantity: i + 5,
-                    discount: i*10 - 10,
-                    lastUpdated: new Date()
+        //Gets all the categories from the DB
+        self.GetCategories = function () {
+            $http.get(config.apiUrl + 'Categories')
+                .then(function (response) {
+                    //successs
+                    var category = null;
+                    for (inx in response.data) {
+                        category = response.data[inx];
+                        self.categories[category.systemName] = category;
+                    }
+                },
+                function (error) {
+                    //error
                 });
-            }
-            return result;            
         }
+
+        self.GetCategoryItems = function (category) {            
+            self.shoppingItems.category = category;
+            self.shoppingItems.items = [];
+            $http.get(config.apiUrl + 'ShoppingItems?categoryId=' + category.id)
+                .then(function (response) {
+                    //successs
+                    for (inx in response.data) {
+                        self.shoppingItems.items.push(response.data[inx]);
+                    }
+                },
+                function (error) {
+                    //error
+                });                    
+        }
+
+        self.InsertCategoryItem = function (newItem) {
+            $http.post(config.apiUrl + 'ShoppingItems', newItem)
+                .then(function (response) {
+                    alert('Артикул добавен успешно');
+                });
+        }
+
+        self.UpdateCategoryItem = function (item) {
+            $http.put(config.apiUrl + 'ShoppingItems', item)
+                .then(function (response) {
+                    alert('Артикул редактиран успешно');
+                });
+        }
+
+        self.GetCategories();
 
         return self;
     }]);

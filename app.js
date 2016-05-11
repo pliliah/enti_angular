@@ -1,16 +1,17 @@
-﻿
-define([
+﻿define([
     //'text!app.config.json!strip',
     'angular',
     'jquery',
     'modules/controllers',
-    'modules/services'
+    'modules/services',
+    'modules/panel/controllers',
 ],
 function (angular, jQuery) {
     var module = angular.module('enti', [
         'ngRoute',
         'enti.controllers',
-        'enti.services'
+        'enti.services',
+        'enti.panel.controllers'
     ])
     .constant('config', {
         "apiUrl": "http://localhost:55187/api/",
@@ -91,6 +92,23 @@ function (angular, jQuery) {
             .when('/growth/technologies', {
                 templateUrl: 'views/info/technologies.html',
                 controller: 'GrowthController'
+            })
+
+            .when('/admin', {
+                templateUrl: 'views/panel/index.html',
+                controller: 'AdminController'
+            })
+            .when('/admin/items', {
+                templateUrl: 'views/panel/items.html',
+                controller: 'ItemsController'
+            })
+            .when('/admin/item/add/:categoryId/:categoryName', {
+                templateUrl: 'views/panel/itemAdd.html',
+                controller: 'NewItemController'
+            })
+            .when('/admin/item/:id', {
+                templateUrl: 'views/panel/itemEdit.html',
+                controller: 'ItemsController'
             })
             .otherwise({ redirectTo: '/' });
 

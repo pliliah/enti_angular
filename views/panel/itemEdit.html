@@ -1,0 +1,51 @@
+﻿<div id="portfolioPage" data-role="page" class="page innerPage ui-page ui-body-c ui-page-active" data-url="portfolioPage" tabindex="0" style="min-height: 356px;">
+    <div ng-include="'views/header.html'"></div>
+    <div class="padpage padtop">
+        <h1><a class="back ui-link" href="admin/items"><img src="img/icon-back.png" alt="Back"> Обратно към артикулите</a></h1>
+    </div>
+
+    <div class="shopDetail padpage padtop">
+        <h1 class="ui-link">Редактиране на артикул към категория "{{ selectedCategory.name }}"</h1>
+        <br />
+
+        <div class="postComment">
+            <form name="form" novalidate>
+                <p>Детайли за артикула</p>
+                <ul>
+                    <li>
+                        <label>*Заглавие</label>
+                        <input class="textbox required" type="text" placeholder="*Заглавие" required="" ng-model="selectedItem.title" id="title">
+                    </li>
+                    <li>
+                        <label>*Описание</label>
+                        <textarea class="textarea required" type="te" placeholder="*Описание" required"="" ng-model="selectedItem.description" id="description"> </textarea>
+                    </li>
+                    <li>
+                        <label>*Цена лв</label>
+                        <input class="textbox required" type="text" placeholder="*Цена лв" required="" ng-model="selectedItem.price" id="price">
+                    </li>
+                    <li>
+                        <label>*Намаление %</label>
+                        <input class="textbox required" type="text" required="" placeholder="*Намаление %" ng-model="selectedItem.discount" id="discount">
+                    </li>
+                    <li>
+                        <label>*Налично количество</label>
+                        <input class="textbox required" type="text" required="" placeholder="*Налично количество" ng-model="selectedItem.quantity" id="quantity">
+                    </li>
+                    <li>
+                        <label>*Изображение URL</label>
+                        <input class="textbox required" type="text" required="" placeholder="*Изображение URL" ng-model="selectedItem.src" id="src">
+                    </li>
+                </ul>
+
+                <input type="submit" class="button buttonStrong right" ng-disabled="form.$invalid" ng-click="Update(selectedItem)" value="ЗАПИШИ ПРОМЕНИТЕ" name="buttonSubmit">
+                <div class="clearfix"></div>
+            </form>
+        </div>
+
+    </div>
+
+    <div ng-include="'views/footer.html'"></div>
+    <a href="https://icons8.com" style="display:none">Icon pack by Icons8</a>
+    <!--end padpage-->
+</div>

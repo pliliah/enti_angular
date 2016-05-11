@@ -8,12 +8,12 @@
         <div class="shopItem" ng-repeat="(catName, category) in shopCategories">
             <div class="head">
                 <a class="left image icon ui-link" href="blog-detail.html">
-                    <img src="{{ category.imgSrc }}" alt="{{ category.name }}">
+                    <img src="{{ category.imageSrc }}" alt="{{ category.name }}">
                 </a>
                 <div class="left title">
                     <h3> <a href="{{ category.src }}" class="ui-link"> {{ category.name }}</a> </h3>
                     <!--<div class="left date">21 Aug 2012 </div>-->
-                    <div class="comments right"><img src="img/icon-comment.png" alt="Брой стоки в тази секция"><a href="#" class="count ui-link">{{ category.count }}</a></div>
+                    <div class="comments right"><img src="img/icon-comment.png" alt="Брой стоки в тази секция"><a href="#" class="count ui-link">{{ category.itemsCount }}</a></div>
                 </div>
             </div>
             <div class="clearfix"></div>

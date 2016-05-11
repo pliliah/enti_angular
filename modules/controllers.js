@@ -49,23 +49,15 @@
     }]);
 
     module.controller('ShopController', ['$scope', '$routeParams', 'shopService', 'shoppingCartService', function ($scope, $routeParams, shopService, shoppingCartService) {
-        $scope.shopCategories = {
-            plants: { imgSrc: "img/gallery/10.jpg", src: "shop/plants", name: "Растения", description: "Продажба на различни видове растения бонсаи и ...", count: 10 },
-            soil: { imgSrc: "img/gallery/1.jpg", src: "shop/soil", name: "Почви", description: "Продажба на различни видове почви, подходящи за отглеждане на бонсаи", count: 15 },
-            pots: { imgSrc: "img/gallery/5.jpg", src: "shop/pots", name: "Саксии", description: "Продажба на ръчно правени саксии за бонсаи, в различни видове и размери", count: 10 },
-            accessories: { imgSrc: "img/gallery/15.jpg", src: "shop/accessories", name: "Аксесоари", description: "Всякакви аксесоари, необходими за грижите за вашите растения", count: 10 },
-            fertilization: { imgSrc: "img/gallery/5.jpg", src: "shop/fertilization", name: "Торове", description: "Различни видове торове, подходящи за различните бонсаи", count: 10 }
-        };
-                
+          
+        $scope.shopCategories = shopService.categories;
+        $scope.categoryItems = shopService.shoppingItems;
+        
         //triggered when we change the page to see shop details
         $scope.$on('$routeChangeSuccess', function (next, current) {
             if (current.params.category) {
                 $scope.category = $scope.shopCategories[current.params.category].name;
-                $scope.categoryItems = shopService.GetCategoryItems($scope.category);
-            }
-            else {
-                $scope.category = '';
-                $scope.categoryItems = [];
+                shopService.GetCategoryItems($scope.shopCategories[current.params.category]);
             }
         });
 

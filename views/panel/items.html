@@ -1,0 +1,56 @@
+﻿<div id="portfolioPage" data-role="page" class="page innerPage ui-page ui-body-c ui-page-active" data-url="portfolioPage" tabindex="0" style="min-height: 356px;">
+    <div ng-include="'views/header.html'"></div>
+    <div class="padpage padtop">
+        <h1><a class="back ui-link" href="admin"><img src="img/icon-back.png" alt="Back"> Обратно към админския панел</a></h1>
+    </div>
+
+
+    <div class="shop padpage padtop">
+
+        <h1 class="ui-link">Артикули в магазина</h1>
+        <br />
+
+        Категория: 
+        <select ng-model="selectedCategory" name="categories" ng-change="GetItemsForCategory()" ng-options="category as category.name for category in categories">           
+        </select>
+        <hr />
+        <a href="admin/item/add/{{ selectedCategory.id }}/{{ selectedCategory.name }}" ng-show="!!selectedCategory">Добави нов артикул към категорията</a>
+        <hr ng-show="!!selectedCategory" />
+
+        <div class="padtop shopItem" ng-repeat="item in categoryItems.items">
+            <div class="head">
+                <a class="left image icon ui-link" href="admin/item/{{ item.id }}">
+                    <img src="{{ item.src }}" alt="{{ item.title }}">
+                </a>
+                <div class="left title">
+                    <h3> <a href="admin/item/{{ item.id }}" class="ui-link"> {{ item.title }} </a> </h3>
+                    <label ng-class="(item.discount > 0)? 'discountOldPrice left' : ''"> {{ item.price | currency }}</label>
+                    <label ng-show="(item.discount > 0)" ng-class="(item.discount > 0) ? 'discountNewPrice' : ''"> &nbsp; {{ item.price - item.price*item.discount/100 | currency }}</label>
+                    <div class="left date">{{ item.lastUpdated | date:"dd MMM yyyy" }}</div>
+                    <br /><br />
+
+                    
+                    <div class="comments right"><img src="img/icon-comment.png" alt="Брой стоки в тази секция"><a href="#" class="count ui-link">{{ item.quantity }}</a></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="description">
+                {{ item.description }}
+            </div>
+
+            <!--<div class="foot">
+                <a href="#" class="left category ui-link">News</a>
+                <a href="#" class="right author ui-link">- Matt Hardy</a>
+                <div class="clearfix"></div>
+            </div>-->
+            <div class="clearfix"></div>
+        </div>
+        <!--end category-->
+               
+    </div>
+
+    <div ng-include="'views/footer.html'"></div>
+    <a href="https://icons8.com" style="display:none">Icon pack by Icons8</a>
+    <!--end padpage-->
+</div>
