@@ -108,7 +108,7 @@
             $cookies.remove(config.shoppingCartCookie);
         }
 
-        self.SubmitOrder = function (customer, shoppingCart) {
+        self.SubmitOrder = function (customer, shoppingCart, callback) {
             var params = {
                 shoppingCart: [],
                 customer: customer
@@ -119,6 +119,8 @@
             var result = $http.post(config.apiUrl + 'Order', params)
                 .success(function (data, status) {
                     console.log('success');
+                    self.EmptyCart();
+                    callback(data, status);
                 })
                 .error(function () {
                     console.log('error');

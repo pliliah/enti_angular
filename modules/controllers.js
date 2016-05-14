@@ -97,19 +97,43 @@
                     message: function () {
                         return 'Детайли за поръчката';
                     },
-                    path: function () {
-                        return '/shop';
-                    },
                     order: function () {
                         return {
                             shoppingCart: shoppingCart,
                             customer: customer,
                             total: $scope.total
                         }
+                    },
+                    callback: function () {
+                        return orderSubmittedCallback
                     }
                 }
             });
+        }
 
+        var orderSubmittedCallback = function (data) {
+            if (data.code == 201) {
+                //success
+                var modalInstance = $uibModal.open({
+                    templateUrl: 'modules/templates/successModal.html',
+                    controller: 'OrderModalController',
+                    size: 'sm', //'lg' and by default none
+                    resolve: {
+                        message: function () {
+                            return 'Поръчката е изпратена успешно! Благодарим ви, че паразувахте при нас!';
+                        },                       
+                        order: function () {
+                            return {}
+                        },
+                        callback: function () {
+                            return {}
+                        }
+                    }
+                });
+            }
+            else if (data.code == 500) {
+                //failure
+            }
         }
 
         var updateTotal = function () {
@@ -194,22 +218,26 @@
 
     }]);
 
-    module.controller('OrderModalController', ['$scope', '$location', 'shoppingCartService', '$uibModalInstance', 'message', 'path', 'order',
-        function ($scope, $location, shoppingCartService, $uibModalInstance, message, path, order) {
+    module.controller('OrderModalController', ['$scope', '$location', 'shoppingCartService', '$uibModalInstance', 'message', 'order', 'callback',
+        function ($scope, $location, shoppingCartService, $uibModalInstance, message, order, callback) {
 
             $scope.message = message;
             $scope.customer = order.customer;
             $scope.shoppingCart = order.shoppingCart;
             $scope.total = order.total;
 
-        $scope.ok = function () {
-            shoppingCartService.SubmitOrder(order.customer, order.shoppingCart);
-            $uibModalInstance.close();
-            $location.path(path);
+        $scope.submit = function () {
+            shoppingCartService.SubmitOrder(order.customer, order.shoppingCart, callback);
+            $uibModalInstance.close();            
         };
 
         $scope.cancel = function () {
             $uibModalInstance.dismiss('cancel');
+        };
+
+        $scope.ok = function () {
+            $uibModalInstance.close();
+            $location.path('/');
         };
     }]);
 
