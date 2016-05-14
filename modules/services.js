@@ -56,17 +56,11 @@
         }
 
         self.UpdateCategoryItem = function (item) {
-            $http.put(config.apiUrl + 'ShoppingItems', item)
-                .then(function (response) {
-                    alert('Артикул редактиран успешно');
-                });
+            return $http.put(config.apiUrl + 'ShoppingItems', item);                
         }
 
         self.DeleteShoppingItem = function (item) {
-            $http.delete(config.apiUrl + 'ShoppingItems?id=' + item.id)
-               .then(function (response) {
-                   alert('Артикул изтрит успешно');
-               });
+            return $http.delete(config.apiUrl + 'ShoppingItems?id=' + item.id);               
         }
 
         self.GetCategories();

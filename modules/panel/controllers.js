@@ -9,7 +9,7 @@
 
     }]);
 
-    module.controller('ItemsController', ['$scope', 'shopService', function ($scope, shopService) {
+    module.controller('ItemsController', ['$scope', 'shopService', '$uibModal', function ($scope, shopService, $uibModal) {
         $scope.categories = shopService.categories;
         $scope.categoryItems = shopService.shoppingItems;
         $scope.selectedCategory = null;
@@ -35,15 +35,49 @@
             else {
                 $scope.selectedItem = {};
                 $scope.selectedCategory = $scope.categoryItems.category;
+                if ($scope.selectedCategory.id) {
+                    //get items again if there is selected category
+                    shopService.GetCategoryItems($scope.selectedCategory);
+                }
             }
         });
 
         $scope.Update = function (item) {
-            shopService.UpdateCategoryItem(item);
+            shopService.UpdateCategoryItem(item)
+            .then(function (response) {
+                var modalInstance = $uibModal.open({
+                    templateUrl: 'modules/templates/successModal.html',
+                    controller: 'ModalController',
+                    size: 'sm', //'lg' and by default none
+                    resolve: {
+                        message: function () {
+                            return 'Артикул "' + item.title + '" е редактиран успешно!';
+                        },
+                        path: function () {
+                            return '/admin/items';
+                        }
+                    }
+                });
+            });
         }
 
         $scope.Delete = function (item) {
-            shopService.DeleteShoppingItem(item);
+            shopService.DeleteShoppingItem(item)
+                .then(function (response) {                   
+                    var modalInstance = $uibModal.open({
+                        templateUrl: 'modules/templates/successModal.html',
+                        controller: 'ModalController',
+                        size: 'sm', //'lg' and by default none
+                        resolve: {
+                            message: function () {
+                                return 'Артикул "' + item.title + '" е изтрит успешно!';
+                            },
+                            path: function () {
+                                return '/admin/items';
+                            }
+                        }
+                    });
+            });
         }
     }]);
 
@@ -72,7 +106,7 @@
                     size: 'sm', //'lg' and by default none
                     resolve: {
                         message: function () {
-                            return 'Артикул добавен успешно';
+                            return 'Артикул "' + newItem.title + '" е добавен успешно!';
                         },
                         path: function () {
                             return '/admin/items';
