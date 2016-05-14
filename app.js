@@ -120,20 +120,22 @@ function (angular, jQuery) {
         function ($location, $rootScope) {
             //this is to fix the showing of the loading element when use Back navigation of the browser
             if($.mobile){
-                $.mobile.defaultPageTransition = 'none';
-                $.mobile.ignoreContentEnabled = true;
-                $.mobile.page.prototype.options.domCache = false;
-                $.mobile.ajaxEnabled = false;
+                //$.mobile.defaultPageTransition = 'none';
+                //$.mobile.ignoreContentEnabled = true;
+                //$.mobile.page.prototype.options.domCache = false;
+                //$.mobile.ajaxEnabled = false;
+                $.mobile.changePage.defaults.showLoadMsg = false;
             }
             else {
                 $(window).on("mobileinit", function () {
-                    $.mobile.defaultPageTransition = 'none';
-                    $.mobile.ignoreContentEnabled = true;
-                    $.mobile.page.prototype.options.domCache = false;
-                    $.mobile.ajaxEnabled = false;
+                    //$.mobile.defaultPageTransition = 'none';
+                    //$.mobile.ignoreContentEnabled = true;
+                    //$.mobile.page.prototype.options.domCache = false;
+                    //$.mobile.ajaxEnabled = false;
+                    $.mobile.changePage.defaults.showLoadMsg = false;
                 });
             }      
-            
+           
         }]);
 
     return module;
