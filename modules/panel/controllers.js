@@ -1,7 +1,8 @@
 ﻿define([
     'angular',
-    'modules/services'
-], function (angular, htmlTemplate) {
+    'modules/services',
+    'text!modules/templates/successModal.html!strip'
+], function (angular, services) {
     var module = angular.module('enti.panel.controllers', []);    
 
     module.controller('AdminController', ['$scope', function ($scope) {
@@ -50,7 +51,7 @@
         var itemId = $routeParams.id;
     }]);
 
-    module.controller('NewItemController', ['$scope', '$routeParams', 'shopService', function ($scope, $routeParams, shopService) {
+    module.controller('NewItemController', ['$scope', '$routeParams', 'shopService',  '$uibModal', function ($scope, $routeParams, shopService,  $uibModal) {
         $scope.category = $routeParams.categoryName;
         $scope.newItem = {
             title: '',
@@ -63,8 +64,33 @@
         };
 
         $scope.Submit = function (newItem) {
-            shopService.InsertCategoryItem(newItem);
-        }
+            shopService.InsertCategoryItem(newItem)
+            .then(function (response) {
+                var modalInstance = $uibModal.open({
+                    templateUrl: 'modules/templates/successModal.html',
+                    controller: 'ModalController',
+                    size: 'sm', //'lg' and by default none
+                    resolve: {
+                        message: function () {
+                            return 'Артикул добавен успешно';
+                        },
+                        path: function () {
+                            return '/admin/items';
+                        }
+                    }
+                });
+            });;
+        }       
+
+    }]);
+
+    module.controller('ModalController', ['$scope', '$location', '$uibModalInstance', 'message', 'path', function ($scope, $location, $uibModalInstance, message, path) {
+        $scope.message = message;
+
+        $scope.ok = function () {
+            $uibModalInstance.close();
+            $location.path(path);
+        };
     }]);
 
     return module;

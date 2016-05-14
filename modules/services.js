@@ -1,7 +1,6 @@
 ﻿define([
-    'angular'
-    //'text!widgets/traderoom/traderoomWidget.html!strip'
-], function (angular, htmlTemplate) {
+    'angular'    
+], function (angular) {
     var module = angular.module('enti.services', ['ngCookies']);
 
     module.factory('shoppingCartData', ['$cookies', 'config', function ($cookies, config) {
@@ -53,10 +52,7 @@
         }
 
         self.InsertCategoryItem = function (newItem) {
-            $http.post(config.apiUrl + 'ShoppingItems', newItem)
-                .then(function (response) {
-                    alert('Артикул добавен успешно');
-                });
+           return  $http.post(config.apiUrl + 'ShoppingItems', newItem);
         }
 
         self.UpdateCategoryItem = function (item) {
