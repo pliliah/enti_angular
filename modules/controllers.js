@@ -2,11 +2,11 @@
     'angular',
     'js/photoswipe/photoswipe.min',
     'js/photoswipe/photoswipe-ui-default.min',
-    'js/photoswipe/angular-photoswipe',
-    'modules/services'
+    'js/photoswipe/angular-photoswipe',    
+    'modules/services'  
     //'text!widgets/traderoom/traderoomWidget.html!strip'
 ], function (angular, htmlTemplate) {
-    var module = angular.module('enti.controllers', ['ngPhotoswipe']);
+    var module = angular.module('enti.controllers', ['ngPhotoswipe', 'ui.bootstrap']);
     
     module.controller('NavigationController', ['$scope', function ($scope) {
 

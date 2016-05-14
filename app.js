@@ -5,13 +5,15 @@
     'modules/controllers',
     'modules/services',
     'modules/panel/controllers',
+    'angularBootstrapTpls'
 ],
 function (angular, jQuery) {
     var module = angular.module('enti', [
         'ngRoute',
         'enti.controllers',
         'enti.services',
-        'enti.panel.controllers'
+        'enti.panel.controllers',
+        'ui.bootstrap'
     ])
     .constant('config', {
         "apiUrl": "http://localhost:55187/api/",

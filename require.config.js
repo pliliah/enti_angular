@@ -14,7 +14,7 @@ require.config({
         ngTouch: 'js/angular/angular-touch',
         ngCookies: 'js/angular/angular-cookies',        
         //angularBootstrap: 'js/angular/ui-bootstrap',
-        //angularBootstrapTpls: 'js/angular/ui-bootstrap-tpls',
+        angularBootstrapTpls: 'js/angular/ui-bootstrap-tpls-1.3.2.min',
         //jQuery have to be loaded only if necessary
         jquery: 'js/jquery/jquery-1.12.2.min',
         jqueryMobile: 'js/jquery/jquery.mobile-1.4.5',
@@ -75,10 +75,10 @@ require.config({
         //    deps: ['angular'],
         //    'export': 'angularBootstrap'
         //},
-        //angularBootstrapTpls: {
-        //    deps: ['angular'],
-        //    'export': 'angularBootstrapTpls'
-        //},
+        angularBootstrapTpls: {
+            deps: ['angular'],
+            'export': 'angularBootstrapTpls'
+        },
         jqueryMobile: {
             deps: ['jquery'],
             'export': 'jqueryMobile'
@@ -111,7 +111,8 @@ require([
     'angularBg',
     'angularRoute',
     'ngTouch',
-    //'angularBootstrapTpls',
+    //'angularBootstrap',
+    'angularBootstrapTpls',
     'ngCookies',
     'jqueryMobile',
     'less',

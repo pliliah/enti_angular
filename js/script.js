@@ -56,11 +56,10 @@ $(document).ready(function () {
 
                     totalWidth += $(this).find('img').width() + $(this).outerWidth();
                 } else {
-                    totalWidth += $(this).outerWidth() + 5;
+                    totalWidth += $(this).outerWidth() + parseInt($(this).outerWidth() / 4);
                 }
             });
 
-            console.log(totalWidth);
             $('.menu', scrollContainer).css({
                 'width': totalWidth
             });
@@ -150,6 +149,7 @@ $(document).ready(function () {
 
         setTimeout(function () {
             $('.company img').show();
+            $('.ui-page-active .menu').css('left', parseInt($('.ui-page-active .company img').width()) + parseInt($('.ui-page-active .menu .square:first').css('margin-bottom')));
         }, 200);
 
     });
