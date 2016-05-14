@@ -3,8 +3,7 @@
     'js/photoswipe/photoswipe.min',
     'js/photoswipe/photoswipe-ui-default.min',
     'js/photoswipe/angular-photoswipe',    
-    'modules/services'  
-    //'text!widgets/traderoom/traderoomWidget.html!strip'
+    'modules/services'
 ], function (angular, htmlTemplate) {
     var module = angular.module('enti.controllers', ['ngPhotoswipe', 'ui.bootstrap']);
     
@@ -66,7 +65,9 @@
         }
     }]);
 
-    module.controller('CartController', ['$scope', 'shoppingCartService', 'shoppingCartData', function ($scope, shoppingCartService, shoppingCartData) {
+    module.controller('CartController', ['$scope', 'shoppingCartService', 'shoppingCartData', '$uibModal',
+        function ($scope, shoppingCartService, shoppingCartData, $uibModal) {
+
         $scope.shoppingCart = shoppingCartData;
         $scope.customer = {};
         $scope.total = 0;
@@ -88,7 +89,27 @@
         }
 
         $scope.SubmitOrder = function (customer, shoppingCart) {
-            shoppingCartService.SubmitOrder(customer, shoppingCart);
+            var modalInstance = $uibModal.open({
+                templateUrl: 'modules/templates/submitOrderModal.html',
+                controller: 'OrderModalController',
+                size: 'lg', //'lg' and by default none
+                resolve: {
+                    message: function () {
+                        return 'Детайли за поръчката';
+                    },
+                    path: function () {
+                        return '/shop';
+                    },
+                    order: function () {
+                        return {
+                            shoppingCart: shoppingCart,
+                            customer: customer,
+                            total: $scope.total
+                        }
+                    }
+                }
+            });
+
         }
 
         var updateTotal = function () {
@@ -171,6 +192,25 @@
 
     module.controller('AboutController', ['$scope', function ($scope) {
 
+    }]);
+
+    module.controller('OrderModalController', ['$scope', '$location', 'shoppingCartService', '$uibModalInstance', 'message', 'path', 'order',
+        function ($scope, $location, shoppingCartService, $uibModalInstance, message, path, order) {
+
+            $scope.message = message;
+            $scope.customer = order.customer;
+            $scope.shoppingCart = order.shoppingCart;
+            $scope.total = order.total;
+
+        $scope.ok = function () {
+            shoppingCartService.SubmitOrder(order.customer, order.shoppingCart);
+            $uibModalInstance.close();
+            $location.path(path);
+        };
+
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+        };
     }]);
 
     return module;
