@@ -150,6 +150,17 @@ $(document).ready(function () {
         setTimeout(function () {
             $('.company img').show();
             $('.ui-page-active .menu').css('left', parseInt($('.ui-page-active .company img').width()) + parseInt($('.ui-page-active .menu .square:first').css('margin-bottom')));
+
+            var scrollContainer;
+            if ($('.ui-page-active.iscroll').length > 0) {
+                scrollContainer = $('.ui-page-active.iscroll')
+            } else {
+                scrollContainer = $('.ui-page-active .iscroll')
+            }
+            var companyWidth = parseInt($('.company img', scrollContainer).outerWidth()) || 0;
+            $('.scroller', scrollContainer).css({
+                'width': parseInt($('.menu', scrollContainer).outerWidth()) + parseInt($('.menu', scrollContainer).css('padding-right')) + companyWidth
+            });
         }, 200);
 
     });
