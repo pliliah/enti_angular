@@ -38,33 +38,34 @@
                     <textarea  class="form-control" id="inputMessage" placeholder="Допълнителна информация" ng-model="customer.message" />
                 </div>
             </div>
+            <div class="table-responsive">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Артикул</th>
+                            <th>Единична цена</th>
+                            <th>Количество</th>
+                            <th>Общо</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(id, cartItem) in shoppingCart">
+                            <td>{{ cartItem.item.title}}</td>
+                            <td>{{ cartItem.item.price | currency }}</td>
+                            <td>{{ cartItem.quantity }}</td>
+                            <td>{{ cartItem.quantity * cartItem.item.price | currency}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">Обща сума на поръчката</td>
+                            <td><strong>{{ total | currency }}</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
         </form>
-        <div class="table-responsive">
-            <table class="table table-condensed">
-                <thead>
-                    <tr>
-                        <th>Артикул</th>
-                        <th>Единична цена</th>
-                        <th>Количество</th>
-                        <th>Общо</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="(id, cartItem) in shoppingCart">
-                        <td>{{ cartItem.item.title}}</td>
-                        <td>{{ cartItem.item.price | currency }}</td>
-                        <td>{{ cartItem.quantity }}</td>
-                        <td>{{ cartItem.quantity * cartItem.item.price | currency}}</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="3">Обща сума на поръчката</td>
-                        <td><strong>{{ total | currency }}</strong></td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+        
     <div class="modal-footer">
         <button class="btn btn-primary" type="button" ng-click="submit()">Изпрати</button>
         <button class="btn btn-warning" type="button" ng-click="cancel()">Прекрати</button>

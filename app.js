@@ -16,7 +16,7 @@ function (angular, jQuery) {
         'ui.bootstrap'
     ])
     .constant('config', {
-        "apiUrl": "http://localhost:222/api/",
+        "apiUrl": "http://192.168.254.173:222/api/",
         "shoppingCartCookie": "shoppingCart"
     })
     .config(['$httpProvider', '$routeProvider', '$locationProvider', function ($httpProvider, $routeProvider, $locationProvider) {

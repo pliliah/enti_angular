@@ -1116,7 +1116,9 @@ form li{
    
    background: @bgColorReverse !important;
    color: @textColorReverse;
+   overflow-x: scroll !important;
 }
+
 
 #galleryScroller{
    
@@ -1513,3 +1515,8 @@ form li{
    ========================================================================== */
 /*#blr.ns-helpers();*/
 /*@media print { #blr.media-print(); }*/
+
+/*Override some bootstrap classes*/
+.popover-content {
+    z-index:1000;
+}

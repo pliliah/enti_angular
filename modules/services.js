@@ -79,17 +79,19 @@
         }
 
         self.AddCartItem = function (item, quantity) {
-            if (shoppingCartData[item.id]) {
-                shoppingCartData[item.id].quantity = quantity;
-            }
-            else {
-                shoppingCartData[item.id] = {
-                    item: item,
-                    quantity: quantity
+            if (item.quantity > 0) {
+                if (shoppingCartData[item.id]) {
+                    shoppingCartData[item.id].quantity = quantity;
                 }
-            }
+                else {
+                    shoppingCartData[item.id] = {
+                        item: item,
+                        quantity: quantity
+                    }
+                }
 
-            updateShoppingCookie();
+                updateShoppingCookie();
+            }
         }
 
         self.UpdateCart = function (shoppingCart) {
