@@ -354,6 +354,12 @@ input:-moz-placeholder { color:lighten(@themeColor, 35%); }
    .rounded(0);
 }
 
+a.button {
+    color: white !important;
+    text-shadow: none;
+    text-align: center;
+}
+
 .buttonAlert {
     color: firebrick;
     font-weight: bold;

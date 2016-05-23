@@ -1,7 +1,7 @@
 ﻿<div id="portfolioPage" data-role="page" class="page innerPage ui-page ui-body-c ui-page-active" data-url="portfolioPage" tabindex="0" style="min-height: 356px;">
     <div ng-include="'views/header.html'"></div>
     <div class="padpage padtop">
-        <h1><a class="back ui-link" href="shop"><img src="img/icon-back.png" alt="Back"> Обратно към категории продукти</a></h1>
+        <h1><a class="back ui-link" href="shop"><img src="img/icon-back.png" alt="Обратно към магазина"> Обратно към категории продукти</a></h1>
     </div>
 
 
@@ -9,7 +9,9 @@
         
         <h1 class="ui-link">Артикули в категорията "{{ category }}"</h1>
         <br />
-
+        <a href="cart" class="button buttonStrong right" alt="Към завършване на вашата поръчка"> КЪМ ВАШАТА КОШНИЧКА</a>
+        <br /><br />
+        <hr />
         <div class="shopItem" ng-repeat="item in categoryItems.items">
             <div class="head">
                 <a class="left image icon ui-link" href="blog-detail.html">
@@ -46,7 +48,7 @@
             <div class="clearfix"></div>
         </div>
         <!--end category-->
-       
+        <a href="cart" class="button buttonStrong right" alt="Към завършване на вашата поръчка"> КЪМ ВАШАТА КОШНИЧКА</a>
     </div>
 
     <div ng-include="'views/footer.html'"></div>
