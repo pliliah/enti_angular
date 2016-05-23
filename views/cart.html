@@ -13,11 +13,11 @@
                 <li ng-repeat="(id, item) in shoppingCart" ng-click="DeleteCartItem($event, item.item)" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c delete">
                     <div class="ui-btn-inner ui-li">
                         <div class="ui-btn-text">
-                            <a href="#" class="ui-link-inherit">
+                            <a href="#" class="ui-link-inherit shopping-cart-details">
                                 <img src="{{ item.item.src }}" alt="image 2" class="ui-li-thumb">
-                                <h3 class="ui-li-heading">{{ item.item.title }} - {{ item.item.price * item.quantity | currency}}</h3>
+                                <h3 class="ui-li-heading">{{ item.item.title }} - {{ (item.item.price - item.item.price * item.item.discount/100) * item.quantity | currency }} </h3>
                                 <p class="ui-li-desc">{{ item.item.description | limitTo : 100 }}...</p>
-                                <input type="number" ng-model="item.quantity" ng-change="UpdateCart(shoppingCart)" max="{{ item.item.quantity }}" min="1" class="quantity" />
+                                <p><input type="number" ng-model="item.quantity" ng-change="UpdateCart(shoppingCart)" max="{{ item.item.quantity }}" min="1" class="quantity" /></p>
                             </a>
                         </div>
                     </div>  

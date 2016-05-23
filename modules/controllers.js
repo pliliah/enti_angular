@@ -138,8 +138,10 @@
 
         var updateTotal = function () {
             var totalOrder = 0;
+            var item = null;
             for (var itemId in shoppingCartData) {
-                totalOrder += shoppingCartData[itemId].item.price * shoppingCartData[itemId].quantity;
+                item = shoppingCartData[itemId];
+                totalOrder += (item.item.price - item.item.price * item.item.discount / 100) * item.quantity;
             }
             $scope.total = totalOrder;
         }

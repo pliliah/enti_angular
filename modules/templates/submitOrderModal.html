@@ -51,9 +51,9 @@
                     <tbody>
                         <tr ng-repeat="(id, cartItem) in shoppingCart">
                             <td>{{ cartItem.item.title}}</td>
-                            <td>{{ cartItem.item.price | currency }}</td>
+                            <td>{{ cartItem.item.price - cartItem.item.price * cartItem.item.discount/100 | currency }}</td>
                             <td>{{ cartItem.quantity }}</td>
-                            <td>{{ cartItem.quantity * cartItem.item.price | currency}}</td>
+                            <td>{{ cartItem.quantity * (cartItem.item.price - cartItem.item.price * cartItem.item.discount/100) | currency}}</td>
                         </tr>
                     </tbody>
                     <tfoot>
