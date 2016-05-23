@@ -17,7 +17,8 @@ function (angular, jQuery) {
     ])
     .constant('config', {
         "apiUrl": "http://192.168.254.173:222/api/",
-        "shoppingCartCookie": "shoppingCart"
+        "shoppingCartCookie": "shoppingCart",
+        "shoppingItemGallery": "/img/gallery/"
     })
     .config(['$httpProvider', '$routeProvider', '$locationProvider', function ($httpProvider, $routeProvider, $locationProvider) {
         //here we set the routing for the SPA

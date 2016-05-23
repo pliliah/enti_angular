@@ -47,10 +47,12 @@
         ];
     }]);
 
-    module.controller('ShopController', ['$scope', '$routeParams', 'shopService', 'shoppingCartService', function ($scope, $routeParams, shopService, shoppingCartService) {
+    module.controller('ShopController', ['$scope', '$routeParams', 'shopService', 'shoppingCartService', 'config',
+        function ($scope, $routeParams, shopService, shoppingCartService, config) {
           
         $scope.shopCategories = shopService.categories;
         $scope.categoryItems = shopService.shoppingItems;
+        $scope.imagesFolter = config.shoppingItemGallery;
         
         //triggered when we change the page to see shop details
         $scope.$on('$routeChangeSuccess', function (next, current) {
@@ -65,12 +67,13 @@
         }
     }]);
 
-    module.controller('CartController', ['$scope', 'shoppingCartService', 'shoppingCartData', '$uibModal',
-        function ($scope, shoppingCartService, shoppingCartData, $uibModal) {
+    module.controller('CartController', ['$scope', 'shoppingCartService', 'shoppingCartData', '$uibModal', 'config',
+        function ($scope, shoppingCartService, shoppingCartData, $uibModal, config) {
 
         $scope.shoppingCart = shoppingCartData;
         $scope.customer = {};
         $scope.total = 0;
+        $scope.imagesFolter = config.shoppingItemGallery;
 
         $scope.UpdateCart = function (shoppingCart) {
             shoppingCartService.UpdateCart(shoppingCart);

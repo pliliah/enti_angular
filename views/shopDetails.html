@@ -14,8 +14,8 @@
         <hr />
         <div class="shopItem" ng-repeat="item in categoryItems.items">
             <div class="head">
-                <a class="left image icon ui-link" href="blog-detail.html">
-                    <img src="{{ item.src }}" alt="{{ item.title }}">
+                <a class="left image ui-link">
+                    <img src="{{ imagesFolter + item.src }}" alt="{{ item.title }}">
                 </a>
                 <div class="left title">
                     <h3> <a href="#" class="ui-link"> {{ item.title }} </a> </h3>

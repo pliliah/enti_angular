@@ -9,11 +9,13 @@
 
     }]);
 
-    module.controller('ItemsController', ['$scope', 'shopService', '$uibModal', function ($scope, shopService, $uibModal) {
+    module.controller('ItemsController', ['$scope', 'shopService', '$uibModal', 'config',
+        function ($scope, shopService, $uibModal, config) {
         $scope.categories = shopService.categories;
         $scope.categoryItems = shopService.shoppingItems;
         $scope.selectedCategory = null;
-        $scope.selectedItem = {}
+        $scope.selectedItem = {};
+        $scope.imagesFolter = config.shoppingItemGallery;
         
         $scope.GetItemsForCategory = function () {
             shopService.GetCategoryItems($scope.selectedCategory);

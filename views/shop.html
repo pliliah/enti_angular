@@ -15,7 +15,7 @@
 
         <div class="shopItem" ng-repeat="(catName, category) in shopCategories">
             <div class="head">
-                <a class="left image icon ui-link" href="blog-detail.html">
+                <a class="left image ui-link" href="{{ category.src }}">
                     <img src="{{ category.imageSrc }}" alt="{{ category.name }}">
                 </a>
                 <div class="left title">
