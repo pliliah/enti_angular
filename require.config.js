@@ -14,6 +14,7 @@ require.config({
         ngTouch: 'js/angular/angular-touch',
         ngCookies: 'js/angular/angular-cookies',        
         //angularBootstrap: 'js/angular/ui-bootstrap',
+        bootstrap: 'bootstrap/js/bootstrap.min',
         angularBootstrapTpls: 'js/angular/ui-bootstrap-tpls-1.3.2.min',
         //jQuery have to be loaded only if necessary
         jquery: 'js/jquery/jquery-1.12.2.min',
@@ -71,10 +72,10 @@ require.config({
             deps: ['angular', 'pw', 'photoswipeUI'],
             'export': 'ngPhotoswipe'
         },
-        //angularBootstrap: {
-        //    deps: ['angular'],
-        //    'export': 'angularBootstrap'
-        //},
+        bootstrap: {
+            deps: ['jquery'],
+            'export': 'bootstrap'
+        },
         angularBootstrapTpls: {
             deps: ['angular'],
             'export': 'angularBootstrapTpls'
@@ -111,7 +112,7 @@ require([
     'angularBg',
     'angularRoute',
     'ngTouch',
-    //'angularBootstrap',
+    'bootstrap',
     'angularBootstrapTpls',
     'ngCookies',
     'jqueryMobile',

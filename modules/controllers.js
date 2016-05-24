@@ -7,14 +7,16 @@
 ], function (angular, htmlTemplate) {
     var module = angular.module('enti.controllers', ['ngPhotoswipe', 'ui.bootstrap']);
     
-    module.controller('NavigationController', ['$scope', function ($scope) {
+    module.controller('NavigationController', ['$scope', 'shopService',
+        function ($scope, shopService) {
+            $scope.shopCategories = shopService.categories;
 
-        $scope.load = function () {
-            $(document).trigger('pagechange');
-        }
+            $scope.load = function () {
+                $(document).trigger('pagechange');
+            }
 
-        $scope.load();
-    }]);
+            $scope.load();
+        }]);
 
     module.controller('VideosController', ['$scope', function ($scope) {
        

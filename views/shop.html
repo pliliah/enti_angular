@@ -1,4 +1,4 @@
-﻿<div id="blogPage" class="page innerPage padpage padtop padbottom ui-page ui-body-c ui-page-active" tabindex="0" style="min-height: 352.875px;">
+﻿<div id="blogPage" class="page innerPage padpage padtop padbottom ui-page ui-body-c ui-page-active" tabindex="0">
     <div ng-include="'views/header.html'"></div>
 
     <h1><a href="#" class="ui-link">Категории продукти</a></h1>
@@ -16,7 +16,7 @@
         <div class="shopItem" ng-repeat="(catName, category) in shopCategories">
             <div class="head">
                 <a class="left image ui-link" href="{{ category.src }}">
-                    <img src="{{ category.imageSrc }}" alt="{{ category.name }}">
+                    <img src="{{ category.imageSrc }}" alt="{{ category.name }}" class="img-thumbnail">
                 </a>
                 <div class="left title">
                     <h3> <a href="{{ category.src }}" class="ui-link"> {{ category.name }}</a> </h3>

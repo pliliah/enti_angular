@@ -360,6 +360,10 @@ a.button {
     text-align: center;
 }
 
+a{
+    text-shadow: none;
+}
+
 .buttonAlert {
     color: firebrick;
     font-weight: bold;
@@ -1314,12 +1318,16 @@ form li{
 
 /* Screen width <= 320px */
 @media only screen and (max-width: 320px) {
-
+    .nav-link {
+        margin-left: 5px;
+    }
 }
 
 /* Screen width > 320px */
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-
+    .nav-link {
+        margin-left: 5px;
+    }
 }
 
 /* Screen width > 480px */
@@ -1348,13 +1356,13 @@ form li{
       }
    }
    
-   
+    .nav-link {
+        margin-left: 5px;
+    }
 }
 
 /* Screen width > 768px */
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
-   
-   
    
    .innerPage{
       /*padding: 5%;*/
