@@ -117,6 +117,10 @@ function (angular, jQuery) {
                 templateUrl: 'views/panel/orders.html',
                 controller: 'OrdersController'
             })
+            .when('/admin/orders/:id', {
+                templateUrl: 'views/panel/orderEdit.html',
+                controller: 'OrderDetailsController'
+            })
             .otherwise({ redirectTo: '/' });
 
         $locationProvider.html5Mode(true);

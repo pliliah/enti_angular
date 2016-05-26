@@ -121,8 +121,8 @@
 
     }]);
 
-    module.controller('OrdersController', ['$scope', 'ordersService', '$uibModal', 'config', '$rootScope',
-        function ($scope, ordersService, $uibModal, config, $rootScope) {
+    module.controller('OrdersController', ['$scope', 'ordersService', '$rootScope', '$location',
+        function ($scope, ordersService, $rootScope, $location) {
             $scope.orders = [];
             ordersService.GetOrders();
             $scope.today = new Date();
@@ -132,7 +132,7 @@
             });
 
             $scope.ShowOrder = function (order) {
-
+                $location.path('admin/orders/' + order.orderId);
             }
 
             //Compares the order date to the current date
@@ -140,6 +140,46 @@
                 return Math.round(Math.abs(($scope.today.getTime() - (new Date(orderDate)).getTime()) / (24 * 60 * 60 * 1000))) - 1;
             }
         }]);
+
+    module.controller('OrderDetailsController', ['$scope', 'ordersService', '$uibModal', 'config', '$rootScope', '$routeParams',
+       function ($scope, ordersService, $uibModal, config, $rootScope, $routeParams) {
+           $scope.orderDetails = {};
+           $scope.imagesFolter = config.shoppingItemGallery;
+           $scope.totalPrice = 0;
+
+           $rootScope.$on('orderDetailsLoaded', function (event, order) {
+               $scope.orderDetails = order;
+               for (var i = 0; i < order.items.length; i++ ) {
+                   $scope.totalPrice += order.items[i].itemPrice * order.items[i].quantity;
+               }
+           });
+
+           //take the order data 
+           if ($routeParams.id) {
+               ordersService.GetOrderDetails($routeParams.id);
+           }
+
+           //Saves the order as submitted
+           $scope.OrderSubmitted = function (orderId, isCompleted) {
+               ordersService.UpdateOrder(orderId, isCompleted)
+                   .then(function (response) {
+                   var modalInstance = $uibModal.open({
+                       templateUrl: 'modules/templates/successModal.html',
+                       controller: 'ModalController',
+                       size: 'sm', //'lg' and by default none
+                       resolve: {
+                           message: function () {
+                               return 'Поръчка номер "' + orderId + '" е записана като ' + (isCompleted ? 'изпратена' : 'неизпратена') + '!';
+                           },
+                           path: function () {
+                               return '/admin/orders';
+                           }
+                       }
+                   });
+               });
+           }
+           
+       }]);
 
     module.controller('ModalController', ['$scope', '$location', '$uibModalInstance', 'message', 'path', function ($scope, $location, $uibModalInstance, message, path) {
         $scope.message = message;

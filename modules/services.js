@@ -135,6 +135,7 @@
     module.service('ordersService', ['$http', 'config', '$rootScope', function ($http, config, $rootScope) {
         var self = this;
         self.orders = [];
+        self.orderDetails = {};
 
         self.GetOrders = function () {
             $http.get(config.apiUrl + 'Order')
@@ -147,7 +148,24 @@
                 function (error) {
                     //error
                 });
-        }           
+        }
+
+        self.GetOrderDetails = function (id) {
+            $http.get(config.apiUrl + 'Order?orderId=' + id)
+                .then(function (response) {
+                    //success
+                    self.orderDetails = response.data;
+                    $rootScope.$emit('orderDetailsLoaded', self.orderDetails);
+                    return response.data;
+                },
+                function (error) {
+                    //error
+                });
+        }
+
+        self.UpdateOrder = function (id, isCompleted) {
+            return $http.put(config.apiUrl + 'Order?id=' + id + '&isCompleted=' + isCompleted);
+        }
     }]);
 
     return module;
