@@ -16,6 +16,7 @@ require.config({
         //angularBootstrap: 'js/angular/ui-bootstrap',
         bootstrap: 'bootstrap/js/bootstrap.min',
         angularBootstrapTpls: 'js/angular/ui-bootstrap-tpls-1.3.2.min',
+        //uiGrid: 'js/angular/ui-grid',
         //jQuery have to be loaded only if necessary
         jquery: 'js/jquery/jquery-1.12.2.min',
         jqueryMobile: 'js/jquery/jquery.mobile-1.4.5',
@@ -80,6 +81,10 @@ require.config({
             deps: ['angular'],
             'export': 'angularBootstrapTpls'
         },
+        //uiGrid: {
+        //    deps: ['angular'],
+        //    'export': 'uiGrid'
+        //},
         jqueryMobile: {
             deps: ['jquery'],
             'export': 'jqueryMobile'

@@ -16,7 +16,7 @@ function (angular, jQuery) {
         'ui.bootstrap'
     ])
     .constant('config', {
-        "apiUrl": "http://192.168.254.173:222/api/",
+        "apiUrl": "http://127.0.0.1:222/api/",
         "shoppingCartCookie": "shoppingCart",
         "shoppingItemGallery": "/img/gallery/"
     })
@@ -112,6 +112,10 @@ function (angular, jQuery) {
             .when('/admin/item/:id', {
                 templateUrl: 'views/panel/itemEdit.html',
                 controller: 'ItemsController'
+            })
+            .when('/admin/orders', {
+                templateUrl: 'views/panel/orders.html',
+                controller: 'OrdersController'
             })
             .otherwise({ redirectTo: '/' });
 

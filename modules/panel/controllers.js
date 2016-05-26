@@ -2,6 +2,7 @@
     'angular',
     'modules/services',
     'text!modules/templates/successModal.html!strip'
+    //'uiGrid'
 ], function (angular, services) {
     var module = angular.module('enti.panel.controllers', []);    
 
@@ -119,6 +120,26 @@
         }       
 
     }]);
+
+    module.controller('OrdersController', ['$scope', 'ordersService', '$uibModal', 'config', '$rootScope',
+        function ($scope, ordersService, $uibModal, config, $rootScope) {
+            $scope.orders = [];
+            ordersService.GetOrders();
+            $scope.today = new Date();
+            
+            $rootScope.$on('ordersLoaded', function (event, orders) {
+                $scope.orders = orders;
+            });
+
+            $scope.ShowOrder = function (order) {
+
+            }
+
+            //Compares the order date to the current date
+            $scope.CompareDates = function(orderDate){
+                return Math.round(Math.abs(($scope.today.getTime() - (new Date(orderDate)).getTime()) / (24 * 60 * 60 * 1000))) - 1;
+            }
+        }]);
 
     module.controller('ModalController', ['$scope', '$location', '$uibModalInstance', 'message', 'path', function ($scope, $location, $uibModalInstance, message, path) {
         $scope.message = message;

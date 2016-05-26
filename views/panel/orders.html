@@ -1,0 +1,41 @@
+﻿<div id="portfolioPage" data-role="page" class="page innerPage ui-page ui-body-c ui-page-active" data-url="portfolioPage" tabindex="0" >
+    <div ng-include="'views/header.html'"></div>
+    <div class="padpage padtop">
+        <h1><a class="back ui-link" href="admin"><img src="img/icon-back.png" alt="Back"> Обратно към админския панел</a></h1>
+    </div>
+
+
+    <div class="shop padpage padtop">
+
+        <h1 class="ui-link">Поръчки в магазина</h1>
+        <br />
+
+        <table class="table table-striped table-hover">
+           <thead>
+               <tr>
+                   <th>Поръчка</th>
+                   <th>Дата</th>
+                   <th>Съобщение</th>
+                   <th>Брой артикули</th>
+                   <th>Обща цена</th>
+                   <th>Изпратена</th>
+               </tr>
+           </thead>
+            <tbody>
+                <tr ng-repeat="order in orders" ng-click="ShowOrder(order)" 
+                    ng-class="order.isCompleted ? 'success' : (CompareDates(order.orderDate) >= 5 ? 'danger' : (CompareDates(order.orderDate) >= 3 ? 'warning' : ''))">
+                    <td>{{ order.orderId }}</td>
+                    <td>{{ order.orderDate | date : 'short' }}</td>
+                    <td>{{ order.message }}</td>
+                    <td>{{ order.itemsCount }}</td>
+                    <td>{{ order.totalPrice }}</td>
+                    <td><div ng-class="order.isCompleted ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-minus'"></div></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div ng-include="'views/footer.html'"></div>
+    <a href="https://icons8.com" style="display:none">Icon pack by Icons8</a>
+    <!--end padpage-->
+</div>

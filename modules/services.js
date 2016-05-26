@@ -11,7 +11,7 @@
             return {};
         }
     }]);
-
+    
     module.service('shopService', ['$http', 'config', function ($http, config) {
         var self = this;
         self.categories = {};
@@ -132,6 +132,23 @@
         return self;
     }]);
 
+    module.service('ordersService', ['$http', 'config', '$rootScope', function ($http, config, $rootScope) {
+        var self = this;
+        self.orders = [];
+
+        self.GetOrders = function () {
+            $http.get(config.apiUrl + 'Order')
+                .then(function (response) {
+                    //successs
+                    self.orders = response.data;
+                    $rootScope.$emit('ordersLoaded', self.orders);
+                    return self.orders;
+                },
+                function (error) {
+                    //error
+                });
+        }           
+    }]);
 
     return module;
 });
