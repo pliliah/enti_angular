@@ -1,8 +1,11 @@
 ﻿define([
-    'angular'    
+    'angular',
+    'md5',
+    'sha1',
+    'base64'
 ], function (angular) {
     var module = angular.module('enti.services', ['ngCookies']);
-
+    
     module.factory('shoppingCartData', ['$cookies', 'config', function ($cookies, config) {
         if ($cookies.get(config.shoppingCartCookie)) {
             return JSON.parse($cookies.get(config.shoppingCartCookie));
@@ -166,6 +169,66 @@
         self.UpdateOrder = function (id, isCompleted) {
             return $http.put(config.apiUrl + 'Order?id=' + id + '&isCompleted=' + isCompleted);
         }
+
+        return self;
+    }]);
+
+    module.service('loginService', ['$http', 'config', '$rootScope', '$location',
+        function ($http, config, $rootScope, $location) {
+        var self = this;
+
+        var generateNonce = function (numbersCount) {
+            ///<summary> Generates randowm NONCE text </summary>
+            var text = "";
+            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+            if (!numbersCount)
+                numbersCount = 19;
+
+            for (var i = 0; i < numbersCount; i++)
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+            return text;
+        };
+
+        self.Login = function (username, password, callback) {
+            var nonce = generateNonce();
+            var nonce2base64 = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(nonce));
+            var created = (new Date()).toISOString();
+            var hashedPass = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(md5(nonce + created + password)));
+           
+            var params = {
+                user: username,
+                nonce: nonce2base64,
+                date: created,
+                digest: hashedPass
+            };
+            //var config = {
+            //    headers: {
+            //        'Authorization': 'Basic d2VudHdvcnRobWFuOkNoYW5nZV9tZQ==',
+            //        'Accept': 'application/json;odata=verbose',
+            //        "X-Testing": "testing"
+            //    }
+            //};
+            $http.post(config.apiUrl + 'Login', params)
+                .then(function (response) {
+                    //success
+                    if (response.data && response.data.code) {
+                        switch (response.data.code) {
+                            case 202:
+                                callback(true);
+                                break;
+                            case 401: 
+                            default: callback(false);
+                        }
+                    }
+                }, function (error) {
+                    //error
+                    callback(false);
+                });
+        }
+
+        return self;
     }]);
 
     return module;

@@ -1,0 +1,29 @@
+﻿<div id="login" ng-controller="LoginController">  
+    <!-- #customize your modal window here -->
+
+    <div id="dialog" class="window">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="inputUsername" class="col-sm-2 control-label">Username</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputUsername" ng-model="username" placeholder="Username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword" ng-model="password" placeholder="Password">
+                </div>
+            </div>            
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default" ng-click="Login(username, password)">Sign in</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br />
+  
+    <!-- Do not remove div#mask, because you'll need it to fill the whole screen -->
+    <div id="mask"></div>
+</div>

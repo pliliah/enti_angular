@@ -190,5 +190,34 @@
         };
     }]);
 
+    module.controller('LoginController', ['$scope', '$location', 'loginService', function ($scope, $location, loginService) {
+        //check whether user is logged in
+        $scope.username = '';
+        $scope.password = '';
+
+        if (true) {
+            var $id = $('#dialog');
+            //transition effect    
+            $('#mask').fadeIn(1000);
+            $('#mask').fadeTo("slow", 0.8);
+            //transition effect
+            $id.fadeIn(2000);
+        }
+        else {
+            $location.path('/');
+        }
+
+        $scope.Login = function (username, password) {
+            loginService.Login(username, password, function (response) {
+                if (response) {
+                   //hide the dialog here
+                }
+                else {
+                    $location.path('/');
+                }
+            });
+        }
+    }]);
+
     return module;
 });

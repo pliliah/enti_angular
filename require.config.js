@@ -39,7 +39,12 @@ require.config({
         //endregion
 
         //region Core dependencies
-        app: 'app'
+        app: 'app',
+        //endregion
+        //region Cryptography
+        md5: 'js/crypto/md5',
+        sha1: 'js/crypto/sha1',
+        base64: 'js/crypto/enc-base64-min'
         //endregion
     },
     shim: {
@@ -100,6 +105,10 @@ require.config({
         script: {
             deps: ['angular'],
             'export': 'script'
+        },
+        base64: {
+            deps: ['sha1'],
+            'export': 'base64'
         }
 
     },
