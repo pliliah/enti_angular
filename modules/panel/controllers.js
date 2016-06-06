@@ -210,7 +210,9 @@
         $scope.Login = function (username, password) {
             loginService.Login(username, password, function (response) {
                 if (response) {
-                   //hide the dialog here
+                    //hide the dialog here
+                    $('#mask').remove();
+                    $('#dialog').remove();
                 }
                 else {
                     $location.path('/');

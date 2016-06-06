@@ -216,6 +216,7 @@
                     if (response.data && response.data.code) {
                         switch (response.data.code) {
                             case 202:
+                                //save credentials to cookie for further use
                                 callback(true);
                                 break;
                             case 401: 
