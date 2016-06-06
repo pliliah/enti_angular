@@ -195,7 +195,7 @@
         $scope.username = '';
         $scope.password = '';
 
-        if (true) {
+        if (!loginService.IsLoggedIn()) {
             var $id = $('#dialog');
             //transition effect    
             $('#mask').fadeIn(1000);
@@ -203,10 +203,7 @@
             //transition effect
             $id.fadeIn(2000);
         }
-        else {
-            $location.path('/');
-        }
-
+        
         $scope.Login = function (username, password) {
             loginService.Login(username, password, function (response) {
                 if (response) {

@@ -18,10 +18,28 @@ function (angular, jQuery) {
     .constant('config', {
         "apiUrl": "http://localhost:55187/api/",
         "shoppingCartCookie": "shoppingCart",
-        "shoppingItemGallery": "/img/gallery/"
+        "shoppingItemGallery": "/img/gallery/",
+        "userCookie": "userCookie",
+        "nonceCookie": "nonceCookie",
+        "createdCookie": "createdCookie",
+        "digestCookie": "digestCookie",
     })
+    .factory('httpRequestInterceptor', ['$cookies', 'config', function ($cookies, config) {
+        return {
+            request: function (httpConfig) {
+                if ($cookies.get(config.userCookie)) {
+                    httpConfig.headers['X-Auth-User'] = $cookies.get(config.userCookie);
+                    httpConfig.headers['X-Auth-Nonce'] = $cookies.get(config.nonceCookie);
+                    httpConfig.headers['X-Auth-Created'] = $cookies.get(config.createdCookie);
+                    httpConfig.headers['X-Auth-Digest'] = $cookies.get(config.digestCookie);
+                }
+                return httpConfig;
+            }
+        };
+    }])
     .config(['$httpProvider', '$routeProvider', '$locationProvider', function ($httpProvider, $routeProvider, $locationProvider) {
         //here we set the routing for the SPA
+        $httpProvider.interceptors.push('httpRequestInterceptor');
         $routeProvider
             .when('/', {
                 templateUrl: 'views/navigation.html',

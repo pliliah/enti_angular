@@ -173,8 +173,8 @@
         return self;
     }]);
 
-    module.service('loginService', ['$http', 'config', '$rootScope', '$location',
-        function ($http, config, $rootScope, $location) {
+    module.service('loginService', ['$http', 'config', '$rootScope', '$location', '$cookies',
+        function ($http, config, $rootScope, $location, $cookies) {
         var self = this;
 
         var generateNonce = function (numbersCount) {
@@ -191,6 +191,18 @@
             return text;
         };
 
+        
+        self.IsLoggedIn = function () {
+            ///<summary> Checks whether the user is logged in </summary>
+            if ($cookies.get(config.userCookie) &&
+                $cookies.get(config.nonceCookie) &&
+                $cookies.get(config.createdCookie) &&
+                $cookies.get(config.digestCookie)) {
+                return true;
+            }
+            return false;
+        };
+
         self.Login = function (username, password, callback) {
             var nonce = generateNonce();
             var nonce2base64 = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(nonce));
@@ -203,13 +215,6 @@
                 date: created,
                 digest: hashedPass
             };
-            //var config = {
-            //    headers: {
-            //        'Authorization': 'Basic d2VudHdvcnRobWFuOkNoYW5nZV9tZQ==',
-            //        'Accept': 'application/json;odata=verbose',
-            //        "X-Testing": "testing"
-            //    }
-            //};
             $http.post(config.apiUrl + 'Login', params)
                 .then(function (response) {
                     //success
@@ -217,10 +222,23 @@
                         switch (response.data.code) {
                             case 202:
                                 //save credentials to cookie for further use
+                                $cookies.remove(config.userCookie);
+                                $cookies.remove(config.nonceCookie);
+                                $cookies.remove(config.createdCookie);
+                                $cookies.remove(config.digestCookie);
+                                $cookies.put(config.userCookie, JSON.stringify(username));
+                                $cookies.put(config.nonceCookie, JSON.stringify(nonce2base64));
+                                $cookies.put(config.createdCookie, JSON.stringify(created));
+                                $cookies.put(config.digestCookie, JSON.stringify(hashedPass));
                                 callback(true);
                                 break;
                             case 401: 
-                            default: callback(false);
+                            default:
+                                $cookies.remove(config.userCookie);
+                                $cookies.remove(config.nonceCookie);
+                                $cookies.remove(config.createdCookie);
+                                $cookies.remove(config.digestCookie);
+                                callback(false);
                         }
                     }
                 }, function (error) {
