@@ -6,11 +6,14 @@
 
 
 var myScroll;
+
 $(document).ready(function () {
     try {
         MBP.hideUrlBarOnLoad();
     } catch (e) {
     }
+
+    var m_isMobile = /Mobi/.test(navigator.userAgent); //gets whether it's a mobile device
 
     $(window).on("resize", function () {
         //alert("resized");
@@ -161,39 +164,40 @@ $(document).ready(function () {
             $('.scroller', scrollContainer).css({
                 'width': parseInt($('.menu', scrollContainer).outerWidth()) + parseInt($('.menu', scrollContainer).css('padding-right')) + companyWidth
             });
+
+            //scrolls left the whole screen animated so the navigation menu is visible only for mobile browsers
+            if (m_isMobile) {
+                $('#menuPage').animate({ scrollLeft: companyWidth }, 800);
+            }
         }, 200);
 
     });
     //end window resize binding
 
 
+    window.ondeviceorientation = function (event) {
+        //var a = event.alpha;
+        var b = event.beta;
+        var g = event.gamma;
+        g *= -1;
 
-    /*
-     window.ondeviceorientation = function(event) {
-         //var a = event.alpha;
-         var b = event.beta;
-         var g = event.gamma;
-         g *=-1;
-         
-         $('.menu .square').css({
-             'transform': 'skewY(' + parseInt(g/10) + 'deg)',
-             '-webkit-transform': 'skewY(' + parseInt(g/10) + 'deg)',
-             '-moz-transform': 'skewY(' + parseInt(g/10) + 'deg)'
-             
-         })
-     }
-    */
+        $('.menu .square').css({
+            'transform': 'skewY(' + parseInt(g / 10) + 'deg)',
+            '-webkit-transform': 'skewY(' + parseInt(g / 10) + 'deg)',
+            '-moz-transform': 'skewY(' + parseInt(g / 10) + 'deg)'
 
-    /*
-    $(window).scroll(function(e){
+        })
+    }
+    
+    $(window).scroll(function (e) {
         var scrollValue = $(window).scrollLeft() + 100;
         $('.menu').css({
             'transform-origin': scrollValue + 'px center',
-           '-webkit-transform-origin': scrollValue + 'px center',
-           '-moz-transform-origin': scrollValue + 'px center'
-       });  
+            '-webkit-transform-origin': scrollValue + 'px center',
+            '-moz-transform-origin': scrollValue + 'px center'
+        });
     })
-    */
+    
 });
 
 var windowLoaded = false;
