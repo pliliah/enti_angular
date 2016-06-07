@@ -222,14 +222,17 @@
                         switch (response.data.code) {
                             case 202:
                                 //save credentials to cookie for further use
+                                var now = new Date(),
+                                    expire = new Date(now.getTime() + 15 * 60000); //expire in 15 minutes
+
                                 $cookies.remove(config.userCookie);
                                 $cookies.remove(config.nonceCookie);
                                 $cookies.remove(config.createdCookie);
                                 $cookies.remove(config.digestCookie);
-                                $cookies.put(config.userCookie, JSON.stringify(username));
-                                $cookies.put(config.nonceCookie, JSON.stringify(nonce2base64));
-                                $cookies.put(config.createdCookie, JSON.stringify(created));
-                                $cookies.put(config.digestCookie, JSON.stringify(hashedPass));
+                                $cookies.put(config.userCookie, JSON.stringify(username), { expires: expire });
+                                $cookies.put(config.nonceCookie, JSON.stringify(nonce2base64), { expires: expire });
+                                $cookies.put(config.createdCookie, JSON.stringify(created), { expires: expire });
+                                $cookies.put(config.digestCookie, JSON.stringify(hashedPass), { expires: expire });
                                 callback(true);
                                 break;
                             case 401: 
