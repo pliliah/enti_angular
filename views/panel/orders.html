@@ -18,6 +18,7 @@
                    <th>Съобщение</th>
                    <th>Брой артикули</th>
                    <th>Обща цена</th>
+                   <th>Дата на изпращане</th>
                    <th>Изпратена</th>
                </tr>
            </thead>
@@ -29,6 +30,7 @@
                     <td>{{ order.message }}</td>
                     <td>{{ order.itemsCount }}</td>
                     <td>{{ order.totalPrice }}</td>
+                    <td>{{ order.orderCompletedDate | date : 'short' }}</td>
                     <td><div ng-class="order.isCompleted ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-minus'"></div></td>
                 </tr>
             </tbody>
