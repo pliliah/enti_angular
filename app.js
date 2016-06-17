@@ -13,10 +13,11 @@ function (angular, jQuery) {
         'enti.controllers',
         'enti.services',
         'enti.panel.controllers',
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'ngTouch'
     ])
     .constant('config', {
-        "apiUrl": "http://localhost:55187/api/",
+        "apiUrl": "http://192.168.254.177:222/api/",
         "shoppingCartCookie": "shoppingCart",
         "shoppingItemGallery": "/img/gallery/",
         "userCookie": "userCookie",

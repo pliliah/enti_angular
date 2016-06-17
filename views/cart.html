@@ -9,27 +9,27 @@
         <br />
             <h4> Това са избраните от вас артикули за поръчка. Уверете се, че сте избрали желаното от вас количество, преди да направите поръчката.</h4>       
         <div>
-           
-            <table class="table table-striped table-hover">               
-                <tbody>
-                    <tr ng-repeat="(id, item) in shoppingCart">
-                        <td><img class="img-responsive" style="max-height:40px" src="{{ imagesFolter + item.item.src }}" /></td> 
-                        <td>{{ item.item.title }}</td>                        
-                        <td>{{  item.item.description | limitTo : 100 }}</td>
-                        <td>{{ (item.item.price - item.item.price * item.item.discount/100) * item.quantity | currency }}</td>
-                        <td><input type="number" ng-model="item.quantity" ng-change="UpdateCart(shoppingCart)" max="{{ item.item.quantity }}" min="1" class="quantity" /></td>                        
-                        <td class="text-center"><div class='glyphicon glyphicon-remove' ng-click="DeleteCartItem($event, item.item)"></div>  </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="1"></td>
-                        <td colspan="4">Обща цена на поръчката:</td>
-                        <td class="text-success"><b>{{ total | currency }}</b></td>
-                    </tr>
-                </tfoot>
-            </table>           
-        </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <tbody>
+                        <tr ng-repeat="(id, item) in shoppingCart">
+                            <td><img class="img-responsive" style="max-height:40px" src="{{ imagesFolter + item.item.src }}" /></td>
+                            <td>{{ item.item.title }}</td>
+                            <td>{{  item.item.description | limitTo : 100 }}</td>
+                            <td>{{ (item.item.price - item.item.price * item.item.discount/100) * item.quantity | currency }}</td>
+                            <td><input type="number" ng-model="item.quantity" ng-change="UpdateCart(shoppingCart)" max="{{ item.item.quantity }}" min="1" class="quantity" /></td>
+                            <td class="text-center"><div class='glyphicon glyphicon-remove' ng-click="DeleteCartItem($event, item.item)"></div>  </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="1"></td>
+                            <td colspan="4">Обща цена на поръчката:</td>
+                            <td class="text-success"><b>{{ total | currency }}</b></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
         <br />
         <div class="postComment">
             <form name="form" novalidate>
@@ -52,7 +52,7 @@
                     </li>
                 </ul>
              
-                <input type="submit" class="button buttonStrong right" ng-disabled="form.$invalid" ng-click="SubmitOrder(customer, shoppingCart)" value="ИЗПРАТИ ПОРЪЧКАТА" name="buttonSubmit">
+                <input type="button" class="button buttonStrong right" ng-disabled="form.$invalid" ng-click="SubmitOrder(customer, shoppingCart)" value="ИЗПРАТИ ПОРЪЧКАТА" name="buttonSubmit">
                 <div class="clearfix"></div>
             </form>
         </div>

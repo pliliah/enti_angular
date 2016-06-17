@@ -51,49 +51,50 @@
 
             <h3>Данни за поръчката</h3>
 
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>ID</th>
-                        <th>Име</th>
-                        <th>Количество</th>
-                        <th>Цена при продажба</th>
-                        <th>Обявена цена</th>
-                        <th>Отстъпка</th>
-                        <th>Категория на продукта</th>
-                        <th>Общо</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="item in orderDetails.items">
-                        <td><img class="img-responsive" style="max-height:40px" src="{{ imagesFolter + item.imageSrc}}" /></td>
-                        <td>{{ item.shoppingItemId }}</td>
-                        <td>{{ item.title }}</td>
-                        <td>{{ item.quantity }}</td>
-                        <td class="text-success"><b>{{ item.itemPrice | currency }}</b></td>
-                        <td>{{ item.sellPrice | currency }}</td>
-                        <td>{{ item.discount}}%</td>
-                        <td>{{ item.categoryName}}</td>
-                        <td>{{ item.quantity * item.itemPrice | currency }}</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2"></td>
-                        <td colspan="6">Обща цена на поръчката:</td>
-                        <td class="text-success"><b>{{ totalPrice | currency }}</b></td>
-                    </tr>
-                </tfoot>
-            </table>
-
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" ng-show="!orderDetails.isCompleted" class="btn btn-success pull-right" ng-click="OrderSubmitted(orderDetails.orderId, true)">Запиши като изпратена</button>
-                    <button type="submit" ng-show="orderDetails.isCompleted" class="btn btn-danger pull-right" ng-click="OrderSubmitted(orderDetails.orderId, false)">Запиши като неизпратена</button>
-                </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>ID</th>
+                            <th>Име</th>
+                            <th>Количество</th>
+                            <th>Цена при продажба</th>
+                            <th>Обявена цена</th>
+                            <th>Отстъпка</th>
+                            <th>Категория на продукта</th>
+                            <th>Общо</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in orderDetails.items">
+                            <td><img class="img-responsive" style="max-height:40px" src="{{ imagesFolter + item.imageSrc}}" /></td>
+                            <td>{{ item.shoppingItemId }}</td>
+                            <td>{{ item.title }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td class="text-success"><b>{{ item.itemPrice | currency }}</b></td>
+                            <td>{{ item.sellPrice | currency }}</td>
+                            <td>{{ item.discount}}%</td>
+                            <td>{{ item.categoryName}}</td>
+                            <td>{{ item.quantity * item.itemPrice | currency }}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="6">Обща цена на поръчката:</td>
+                            <td class="text-success"><b>{{ totalPrice | currency }}</b></td>
+                        </tr>
+                    </tfoot>
+                </table>
             </div>
-        </form>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" ng-show="!orderDetails.isCompleted" class="btn btn-success pull-right" ng-click="OrderSubmitted(orderDetails.orderId, true)">Запиши като изпратена</button>
+                        <button type="button" ng-show="orderDetails.isCompleted" class="btn btn-danger pull-right" ng-click="OrderSubmitted(orderDetails.orderId, false)">Запиши като неизпратена</button>
+                    </div>
+                </div>
+</form>
     </div>
     
     <div ng-include="'views/footer.html'"></div>

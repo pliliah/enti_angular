@@ -9,33 +9,33 @@
 
         <h1 class="ui-link">Поръчки в магазина</h1>
         <br />
-
-        <table class="table table-striped table-hover">
-           <thead>
-               <tr>
-                   <th>Поръчка</th>
-                   <th>Дата</th>
-                   <th>Съобщение</th>
-                   <th>Брой артикули</th>
-                   <th>Обща цена</th>
-                   <th>Дата на изпращане</th>
-                   <th>Изпратена</th>
-               </tr>
-           </thead>
-            <tbody>
-                <tr ng-repeat="order in orders" ng-click="ShowOrder(order)" 
-                    ng-class="order.isCompleted ? 'success' : (CompareDates(order.orderDate) >= 5 ? 'danger' : (CompareDates(order.orderDate) >= 3 ? 'warning' : ''))">
-                    <td>{{ order.orderId }}</td>
-                    <td>{{ order.orderDate | date : 'short' }}</td>
-                    <td>{{ order.message }}</td>
-                    <td>{{ order.itemsCount }}</td>
-                    <td>{{ order.totalPrice }}</td>
-                    <td>{{ order.orderCompletedDate | date : 'short' }}</td>
-                    <td><div ng-class="order.isCompleted ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-minus'"></div></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+        <div class="table-responsive">
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <th>Поръчка</th>
+                        <th>Дата</th>
+                        <th>Съобщение</th>
+                        <th>Брой артикули</th>
+                        <th>Обща цена</th>
+                        <th>Дата на изпращане</th>
+                        <th>Изпратена</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="order in orders" ng-click="ShowOrder(order)"
+                        ng-class="order.isCompleted ? 'success' : (CompareDates(order.orderDate) >= 5 ? 'danger' : (CompareDates(order.orderDate) >= 3 ? 'warning' : ''))">
+                        <td>{{ order.orderId }}</td>
+                        <td>{{ order.orderDate | date : 'short' }}</td>
+                        <td>{{ order.message }}</td>
+                        <td>{{ order.itemsCount }}</td>
+                        <td>{{ order.totalPrice }}</td>
+                        <td>{{ order.orderCompletedDate | date : 'short' }}</td>
+                        <td><div ng-class="order.isCompleted ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-minus'"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
     <div ng-include="'views/footer.html'"></div>
     <a href="https://icons8.com" style="display:none">Icon pack by Icons8</a>
