@@ -307,8 +307,8 @@ p{
 }
 
 
-::-webkit-input-placeholder  { color:lighten(@themeColor, 35%); }
-input:-moz-placeholder { color:lighten(@themeColor, 35%); }
+::-webkit-input-placeholder  { color:lighten(@themeColor, 10%); }
+input:-moz-placeholder { color:lighten(@themeColor, 10%); }
 
 
 .invalid{
