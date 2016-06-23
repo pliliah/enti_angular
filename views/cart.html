@@ -53,7 +53,7 @@
                         </li>
                     </ul>
 
-                    <input type="button" class="button buttonStrong right" ng-disabled="form.$invalid" ng-click="SubmitOrder(customer, shoppingCart)" value="ИЗПРАТИ ПОРЪЧКАТА" name="buttonSubmit">
+                    <input type="button" class="button buttonStrong right" ng-disabled="form.$invalid || (total == 0)" ng-click="SubmitOrder(customer, shoppingCart)" value="ИЗПРАТИ ПОРЪЧКАТА" name="buttonSubmit">
                     <div class="clearfix"></div>
                 </div>
             </form>
