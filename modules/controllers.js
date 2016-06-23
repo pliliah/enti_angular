@@ -261,7 +261,7 @@
 
         $scope.ok = function () {
             $uibModalInstance.close();
-            $location.path('/');
+            window.location = "/";
         };
     }]);
 
