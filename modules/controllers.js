@@ -77,9 +77,25 @@
         $scope.total = 0;
         $scope.imagesFolter = config.shoppingItemGallery;
 
-        $scope.UpdateCart = function (shoppingCart) {
-            shoppingCartService.UpdateCart(shoppingCart);
-            updateTotal();
+        $scope.UpdateCart = function (shoppingCart, item) {            
+            if (!item.quantity || item.quantity > item.item.quantity) {
+                var modalInstance = $uibModal.open({
+                    templateUrl: 'modules/templates/errorModal.html',
+                    controller: 'OrderModalController',
+                    size: 'sm', //'lg' and by default none
+                    resolve: {
+                        message: function () {
+                            return 'Няма достатъчно налично количество! Максималното налично количество за "' + item.item.title + '" в момента е ' + item.item.quantity;
+                        },
+                        order: {},
+                        callback: {}
+                    }
+                });
+            }
+            else {                
+                shoppingCartService.UpdateCart(shoppingCart);
+                updateTotal();
+            }
         }
 
         $scope.DeleteCartItem = function (e, item) {          
@@ -108,6 +124,13 @@
                     }
                 }
             });
+        }
+
+        $scope.ShowQuantityLabel = function (wantedQty, itemQty) {
+            if (wantedQty > itemQty) {
+                return true;
+            }
+            return false;
         }
 
         var orderSubmittedCallback = function (data) {
@@ -223,9 +246,9 @@
         function ($scope, $location, shoppingCartService, $uibModalInstance, message, order, callback) {
 
             $scope.message = message;
-            $scope.customer = order.customer;
-            $scope.shoppingCart = order.shoppingCart;
-            $scope.total = order.total;
+            $scope.customer = order ? order.customer : '';
+            $scope.shoppingCart = order ? order.shoppingCart : '';
+            $scope.total = order ? order.total : '';
 
         $scope.submit = function () {
             shoppingCartService.SubmitOrder(order.customer, order.shoppingCart, callback);
