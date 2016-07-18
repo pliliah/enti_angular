@@ -4,14 +4,14 @@
     'text!modules/templates/successModal.html!strip'
     //'uiGrid'
 ], function (angular, services) {
-    var module = angular.module('enti.panel.controllers', []);    
+    var module = angular.module('enti.panel.controllers', []);
 
     module.controller('AdminController', ['$scope', function ($scope) {
 
     }]);
 
-    module.controller('ItemsController', ['$scope', 'shopService', '$uibModal', 'config',
-        function ($scope, shopService, $uibModal, config) {
+    module.controller('ItemsController', ['$scope', 'shopService', '$uibModal', 'config', '$routeParams',
+        function ($scope, shopService, $uibModal, config, $routeParams) {
         $scope.categories = shopService.categories;
         $scope.categoryItems = shopService.shoppingItems;
         $scope.selectedCategory = null;
@@ -22,18 +22,27 @@
             shopService.GetCategoryItems($scope.selectedCategory);
         }
 
+        $scope.$on('categoriesLoaded', function (e, categories) {
+            //get the items for the selected category (on page refresh case)           
+            shopService.GetItemById($routeParams.id, function (response) {
+                $scope.selectedItem = response.data;
+                $scope.selectedCategory = $.map(shopService.categories, function (cat) { if (cat.id == $scope.selectedItem.categoryId) return cat; })[0];
+            });
+        });
+
+            
         //triggered when we change the page to update selected item
-        $scope.$on('$routeChangeSuccess', function (next, current) {
-            if (current.params.id) {
+        $scope.$on("$routeChangeSuccess", function (e) {
+            if ($routeParams.id) {
                 var item = {};
                 for (var inx = 0; inx < $scope.categoryItems.items.length; inx++) {
                     item = $scope.categoryItems.items[inx];
-                    if (item.id == current.params.id) {
+                    if (item.id == $routeParams.id) {
                         $scope.selectedItem = item;
                         break;
                     }
-                }               
-                $scope.selectedCategory = $scope.categoryItems.category;               
+                }
+                $scope.selectedCategory = $scope.categoryItems.category;
             }
             else {
                 $scope.selectedItem = {};
@@ -44,6 +53,7 @@
                 }
             }
         });
+      
 
         $scope.Update = function (item) {
             shopService.UpdateCategoryItem(item)

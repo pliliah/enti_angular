@@ -15,7 +15,7 @@
         }
     }]);
     
-    module.service('shopService', ['$http', 'config', function ($http, config) {
+    module.service('shopService', ['$http', 'config', '$rootScope', function ($http, config, $rootScope) {
         var self = this;
         self.categories = {};
         self.shoppingItems = {
@@ -33,6 +33,7 @@
                         category = response.data[inx];
                         self.categories[category.systemName] = category;
                     }
+                    $rootScope.$broadcast('categoriesLoaded', self.categories);
                 },
                 function (error) {
                     //error
@@ -52,6 +53,15 @@
                 function (error) {
                     //error
                 });                    
+        }
+
+        // Gets the specified item by it's id 
+        self.GetItemById = function (itemId, callback) {
+            $http.get(config.apiUrl + 'ShoppingItems?itemId=' + itemId)
+                .then(callback,
+                function (error) {
+                    //error
+                });
         }
 
         self.InsertCategoryItem = function (newItem) {
