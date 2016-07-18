@@ -56,12 +56,14 @@
         $scope.categoryItems = shopService.shoppingItems;
         $scope.imagesFolter = config.shoppingItemGallery;
         
-        //triggered when we change the page to see shop details
-        $scope.$on('$routeChangeSuccess', function (next, current) {
-            if (current.params.category) {
-                $scope.category = $scope.shopCategories[current.params.category].name;
-                shopService.GetCategoryItems($scope.shopCategories[current.params.category]);
-            }
+            //triggered when we change the page to see shop details
+        angular.forEach("$routeChangeSuccess categoriesLoaded".split(" "), function (event) {
+            $scope.$on(event, function (next) {
+                if ($routeParams.category && Object.keys($scope.shopCategories).length > 0) {
+                    $scope.category = $scope.shopCategories[$routeParams.category].name;
+                    shopService.GetCategoryItems($scope.shopCategories[$routeParams.category]);
+                }
+            });
         });
 
         $scope.AddItemToCart = function (item) {
