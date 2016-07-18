@@ -19,8 +19,9 @@
                 </a>
                 <div class="left title">
                     <h3> <a href="#" class="ui-link"> {{ item.title }} </a> </h3>
-                    <label ng-class="(item.discount > 0)? 'discountOldPrice left' : ''"> {{ item.price | currency }}</label>
-                    <label ng-show="(item.discount > 0)" ng-class="(item.discount > 0) ? 'discountNewPrice' : ''"> &nbsp; {{ item.price - item.price*item.discount/100 | currency }}</label>
+                    <label ng-if="item.quantity > 0" ng-class="(item.discount > 0)? 'discountOldPrice left' : ''"> {{ item.price | currency }}</label>
+                    <label ng-if="item.quantity > 0" ng-show="(item.discount > 0)" ng-class="(item.discount > 0) ? 'discountNewPrice' : ''"> &nbsp; {{ item.price - item.price*item.discount/100 | currency }}</label>
+                    <label ng-if="item.quantity == 0" class="text-danger"><small>Изчерпано количество</small></label>
                     <div class="left date">{{ item.lastUpdated | date:"dd MMM yyyy" }}</div>
                     <br /><br />
                   
@@ -31,7 +32,7 @@
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADDUlEQVR4Xu1Z0XEVMQzcVACpAFIBpAKgAqACoAJIBaEDoAKggoQKCBUAFUAHQAVkNvNuRiNsn06WfY939u/ZsrVerSXdETY+jjbuPwYAgwEbR2CEwMYJMERwhMAIgY0jMEJg4wQYr0ApBB4CeA/gboIl3wC8BfAxgEF/lY2uYVna7EfGeXnedwBeVYKwtwD8BnDL4NwJgJ+GebkpewsAQ+ADgDszzp3twsGLwd4CkHOIlH8jPn4C8MTrPYD/DoD7AL4Khxkqx1sCgL5qfTgFwJehNPRNL8XM8jrwYnhB03ixC+PsXhajqcWXAB6LDxYdaA3AbQC/1GHJTF5WOAAeHWgNwPNd3jI5+12xIQmClwEeHWgNAF+sZ8JLU47iBcCrA6lbiHoFdOL2FABDtThqAPDoQCsANCO5j8k306QMhB4daAWAPssXAEzkZkcNAB4daAWAm401AETpQIQG8PnjMzgNS15yM7cWADfy4rC1AJDqn4W9PwqMZiJIw1E6MBurhQmvAZyL7+xRMCcwjVoGROmA6bCZSVcAHohvs+mvtFMLQJQOeAFIpb+L+hMRAETogBcAluEXYrEp/Y1mwJo6wL7kS+GQKf2NBmBNHdDlryn9jQZgLR1gt5r5f5U/ERrAA6yhA7r8Nae/VYhl1ErrgFfUatZZmjL/2I9iQIqONc541i56/qYNogCgPa3IHie8axarfwsAaJNxyXC45/Vk4Tq++wSe3SDXiGRA6gBsURGQqVPr/acYZaeZBmjDTFFZockWtZxDIB7NdWx3VV2EnSw7WjFAJyipAxAE1u2lEWWnKwD6fS45WKrcouwUEW7BAH1rrM+nX+hMmGTpWmJBlJ3uAOgOj/w7kypfc5cQZWevAFiSv5cAWGKnOwCktcwD2LFhlcbB2l22q0v1e5Sd7gBEiVeUne4AcEN9e6lDWLo3UXa6PoPcjGJH6udSYjrPUCj+ug600x2AaUNdG3hz9yg73VJhV2GyxqIWidAafrj3HAC4oTuQhYMBB3KRbjcGA9zQHcjCwYADuUi3G9fUwbBBLCtMrwAAAABJRU5ErkJggg=="
                             width="32" height="32">
                    
-                    <div class="comments right"><img src="img/icon-comment.png" alt="Брой стоки в тази секция"><a href="#" class="count ui-link">{{ item.quantity }}</a></div>
+                    <!--<div class="comments right"><img src="img/icon-comment.png" alt="Брой стоки в тази секция"><a href="#" class="count ui-link">{{item.quantity}}</a></div>-->
                 </div>
             </div>
             <div class="clearfix"></div>
