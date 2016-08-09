@@ -196,8 +196,7 @@ $(document).ready(function () {
             '-webkit-transform-origin': scrollValue + 'px center',
             '-moz-transform-origin': scrollValue + 'px center'
         });
-    })
-    
+    });
 });
 
 var windowLoaded = false;

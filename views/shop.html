@@ -1,18 +1,17 @@
-﻿<div id="blogPage" class="page innerPage padpage padtop padbottom ui-page ui-body-c ui-page-active" tabindex="0">
+﻿<div id="page-content-wrapper" class="page innerPage padpage padtop padbottom ui-page ui-body-c ui-page-active" tabindex="0">
     <div ng-include="'views/header.html'"></div>
-
     <h1><a href="#" class="ui-link">Категории продукти</a></h1>
-
     <div class="shop">
-        <p>Добре дошли в нашият магазин!<br />
-        За ваше удобство продуктите ни са разделени в категории. Отстрани на всяка категория има номерче, което съответства на броят артикули 
-        в дадената категория, които са налични в момента в магазина. Изберете категория според продукта, който търсите и разгледайте набора от артикули,
-        които предоставяме. <br />
-        Ако ви интересува нещо, което в момента е в изчерпано количество или не е налично в магазина, не се колебайте да се свържете с нас през секцията
-        <a href="contact">контакти</a>.</p>
+        <p>
+            Добре дошли в нашият магазин!<br />
+            За ваше удобство продуктите ни са разделени в категории. Отстрани на всяка категория има номерче, което съответства на броят артикули
+            в дадената категория, които са налични в момента в магазина. Изберете категория според продукта, който търсите и разгледайте набора от артикули,
+            които предоставяме. <br />
+            Ако ви интересува нещо, което в момента е в изчерпано количество или не е налично в магазина, не се колебайте да се свържете с нас през секцията
+            <a href="contact">контакти</a>.
+        </p>
         <a href="cart" class="button buttonStrong right" alt="Към завършване на вашата поръчка"> КЪМ ВАШАТА КОШНИЧКА</a>
         <br /><hr />
-
         <div class="shopItem" ng-repeat="(catName, category) in shopCategories">
             <div class="head">
                 <a class="left image ui-link" href="{{ category.src }}">
@@ -25,11 +24,9 @@
                 </div>
             </div>
             <div class="clearfix"></div>
-
             <div class="description">
                 {{ category.description }}
             </div>
-
             <!--<div class="foot">
                 <a href="#" class="left category ui-link">News</a>
                 <a href="#" class="right author ui-link">- Matt Hardy</a>
@@ -38,7 +35,6 @@
             <div class="clearfix"></div>
         </div>
         <!--end category-->
-
         <!--<div class="pagination">
             <span class="left page-description"> Page 1 of 9 </span>
             <ul class="right">
@@ -50,11 +46,8 @@
             </ul>
             <div class="clearfix"></div>
         </div>-->
-
         <a href="cart" class="button buttonStrong right" alt="Към завършване на вашата поръчка"> КЪМ ВАШАТА КОШНИЧКА</a>
-
     </div>
-
 
     <div ng-include="'views/footer.html'"></div>
     <!--end footer-->

@@ -1,47 +1,40 @@
-﻿<div id="servicesPage" data-role="page" class="page innerPage padpage padtop padbottom ui-page ui-body-c ui-page-active" data-url="servicesPage" tabindex="0">
+﻿<div id="servicesPage" data-role="page" class="page innerPage padpage padtop padbottom ui-page ui-body-c ui-page-active page-content-wrapper" data-url="servicesPage" tabindex="0">
     <div ng-include="'views/header.html'"></div>
-
     <h1><a href="#" class="ui-link">Бонсай връзки</a></h1>
     <p>
         В тази секция ще намерите полезни връзки - сайтове и линкове към световното бонсай общество.
     </p>
-    
 
     <!-- h2 has to be written like this, for the black area -->
     <h2></h2>
     <span class="h2">
         Български страници
     </span>
-
     <ul class="services">
-        <li  ng-repeat="link in bgLinks track by $index">
-            <a class="image ui-link" href="{{ link.src }}"  target="_blank"> <img src="img/sample-images/product5-image.png" alt="{{ link.title }}"> </a> 
+        <li ng-repeat="link in bgLinks track by $index">
+            <a class="image ui-link" href="{{ link.src }}" target="_blank"> <img src="img/sample-images/product5-image.png" alt="{{ link.title }}"> </a>
             <a href="{{ link.src }}" class="text ui-link" target="_blank">{{ link.title }}</a>
             <div class="clearfix"></div>
-        </li>        
+        </li>
     </ul>
-    
 
     <!-- h2 has to be written like this, for the black area -->
     <h2></h2>
     <span class="h2">
         Клубове
     </span>
-
     <ul class="services">
         <li ng-repeat="link in clubsLinks track by $index">
             <a class="image ui-link" href="{{ link.src }}" target="_blank"> <img src="img/sample-images/product5-image.png" alt="{{ link.title }}"> </a>
             <a href="{{ link.src }}" class="text ui-link" target="_blank">{{ link.title }}</a>
             <div class="clearfix"></div>
-        </li>   
+        </li>
     </ul>
-
     <!-- h2 has to be written like this, for the black area -->
     <h2></h2>
     <span class="h2">
         Блогове
     </span>
-
     <ul class="services">
         <li ng-repeat="link in blogsLinks track by $index">
             <a class="image ui-link" href="{{ link.src }}" target="_blank"> <img src="img/sample-images/product5-image.png" alt="{{ link.title }}"> </a>
@@ -49,13 +42,11 @@
             <div class="clearfix"></div>
         </li>
     </ul>
-
     <!-- h2 has to be written like this, for the black area -->
     <h2></h2>
     <span class="h2">
         Магазини
     </span>
-
     <ul class="services">
         <li ng-repeat="link in shopsLinks track by $index">
             <a class="image ui-link" href="{{ link.src }}" target="_blank"> <img src="img/sample-images/product5-image.png" alt="{{ link.title }}"> </a>
@@ -63,7 +54,5 @@
             <div class="clearfix"></div>
         </li>
     </ul>
-
     <div ng-include="'views/footer.html'"></div>
-
 </div>

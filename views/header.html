@@ -1,58 +1,21 @@
 ﻿<div class="topGrahic"></div>
 <nav class="navbar navbar-light bg-faded">
-    <a class="menuButton ui-link navbar-toggler" data-toggle="collapse" data-target="#exCollapsingNavbar">
+    <!--<a class="menuButton ui-link navbar-toggler" data-toggle="collapse" data-target="#exCollapsingNavbar">
         <img src="img/menu-button.png" alt="Навигация">
+    </a>-->
+
+    <a href="#" class="menuButton ui-link navbar-toggler" >
+        <img id="menu-toggle" src="img/menu-button.png" alt="Навигация">
     </a>
 </nav>
-<div class="collapse" id="exCollapsingNavbar" ng-controller="NavigationController">
-    <!--<div class="panel panel-default">-->
-        <ul class="nav navbar-nav text-uppercase btn-sm">
-            <!--<li class="nav-item active">
-                <a class="nav-link" href="/">Начало</a>
-            </li>-->
-            <li class="nav nav-tabs">
-                <a class="nav-link" href="history">История</a>
-            </li>
-            <li class="nav nav-tabs">
-                <a class="nav-link" href="gallery">Галерия</a>
-            </li>
-            <li class="nav nav-tabs dropdown dropdown-submenu">
-                <a class="dropdown-toggle" href="#" data-toggle="dropdown">Отглеждане <b class="caret"></b></a>
-                <ul class="dropdown-menu text-capitalize">
-                    <li><a href="growth/care">Грижи</a></li>
-                    <li><a href="growth/cutting">Подстригване</a></li>
-                    <li><a href="growth/fertilization">Торене</a></li>
-                    <li><a href="growth/place">Места за отглеждане</a></li>
-                    <li><a href="growth/potting">Саксии</a></li>
-                    <li><a href="growth/soil">Почви</a></li>
-                    <li><a href="growth/technologies">Технологии за отглеждане</a></li>
-                </ul>
-            </li>
-            <li class="nav nav-tabs dropdown dropdown-submenu">
-                <a class="dropdown-toggle" href="#" data-toggle="dropdown">Магазинче <b class="caret"></b></a>
-                <ul class="dropdown-menu text-capitalize">
-                    <li><a href="shop">Магазинче</a></li>
-                    <li class="divider"></li>
-                    <li ng-repeat="(catName, category) in shopCategories">
-                        <a href="{{ category.src }}">{{ category.name }}</a>
-                    </li>                                    
-                </ul>
-            </li>
-            <li class="nav nav-tabs">
-                <a class="nav-link" href="cart">Потребителска кошничка</a>
-            </li>
-            <li class="nav nav-tabs">
-                <a class="nav-link" href="videos">Видеоклипове</a>
-            </li>
-            <li class="nav nav-tabs">
-                <a class="nav-link" href="links">Препратки</a>
-            </li>
-            <li class="nav nav-tabs">
-                <a class="nav-link" href="about">За нас</a>
-            </li>
-            <li class="nav nav-tabs">
-                <a class="nav-link" href="contact">Контакти</a>
-            </li>
-        </ul>
-    <!--</div>-->
-</div>
+
+
+
+<script type="text/javascript">
+    //Toggle menu script
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $("[data-role=page]").toggleClass("toggled");
+    });
+</script>

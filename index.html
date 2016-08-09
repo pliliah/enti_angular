@@ -42,16 +42,11 @@
 </head>
 <body>
 
-<header>
-</header>
-
-    <div class="ng-view"></div>
-
-    
-<footer>
-</footer>
-
-
+    <div id="wrapper">
+        <div ng-include="'views/sideNavigation.html'"></div>
+        <div class="ng-view">
+        </div>
+    </div>
 <!-- Development -->
 <script data-main="require.config" src="js/requirejs/require.js"></script>
 <!-- Production -->

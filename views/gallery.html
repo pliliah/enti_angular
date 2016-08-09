@@ -1,54 +1,48 @@
 <div class="ui-mobile-viewport ui-overlay-c">
-    <div id="galleryPage" class="page innerPage padpage padtop padbottom ui-page ui-body-c ui-page-active">
+    <div id="galleryPage" class="page innerPage padpage padtop padbottom ui-page ui-body-c ui-page-active page-content-wrapper">
         <div ng-include="'views/header.html'"></div>
-
         <h1><a href="#">Gallery</a></h1>
-
         <div class="iscroll" id="galleryScroller">
             <!--<div class="scroller">-->
-                <!--<ul class="menu">                  
-                    <li>
-                        <ul class="section">
-                            <li class="square" ng-repeat="img in slides track by $index" ng-if="$index < slides.length / 3" >
-                                <a class="box gallery-item">
-                                    <img ng-src="{{ img.src }}" alt="slide number {{ $index }}">
-                                </a>
-                            </li>                           
-                        </ul>
-                    </li>
-                    <li>
-                        <ul class="section">
-                            <li class="square" ng-repeat="img in slides track by $index" ng-if="$index >= slides.length / 3 && $index < slides.length / 1.5 " >
-                                <a class="box gallery-item">
-                                    <img ng-src="{{ img.src }}" alt="slide number {{ $index }}">
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <ul class="section">
-                            <li class="square"  ng-repeat="img in slides track by $index" ng-if="$index >= slides.length / 1.5" >
-                                <a class="box gallery-item">
-                                    <img ng-src="{{ img.src }}" alt="slide number {{ $index }}">
-                                </a>
-                            </li>
-                        </ul>
-                    </li>                    
-                </ul>-->
-                <!--end menu-->
-                <div id="photoswipe" photo-swipe images="slides">
-                </div>
-
-                <!-- Dem photoswipe -->
-                <div photo-slider></div>
-
-                <div ng-include="'views/footer.html'"></div>
-            <!--</div>-->                        
+            <!--<ul class="menu">
+                <li>
+                    <ul class="section">
+                        <li class="square" ng-repeat="img in slides track by $index" ng-if="$index < slides.length / 3" >
+                            <a class="box gallery-item">
+                                <img ng-src="{{ img.src }}" alt="slide number {{ $index }}">
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="section">
+                        <li class="square" ng-repeat="img in slides track by $index" ng-if="$index >= slides.length / 3 && $index < slides.length / 1.5 " >
+                            <a class="box gallery-item">
+                                <img ng-src="{{ img.src }}" alt="slide number {{ $index }}">
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="section">
+                        <li class="square"  ng-repeat="img in slides track by $index" ng-if="$index >= slides.length / 1.5" >
+                            <a class="box gallery-item">
+                                <img ng-src="{{ img.src }}" alt="slide number {{ $index }}">
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>-->
+            <!--end menu-->
+            <div id="photoswipe" photo-swipe images="slides">
+            </div>
+            <!-- Dem photoswipe -->
+            <div photo-slider></div>
+            <div ng-include="'views/footer.html'"></div>
+            <!--</div>-->
             <!--end scroller-->
 
-            
         </div>
         <!--end gallery scroller-->
-
     </div>
 </div>

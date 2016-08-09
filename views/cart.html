@@ -1,13 +1,12 @@
-﻿<div id="shoppingCartPage" data-role="page" class="page innerPage ui-page ui-body-c ui-page-active" tabindex="0">
+﻿<div id="shoppingCartPage" data-role="page" class="page innerPage ui-page ui-body-c ui-page-active page-content-wrapper" tabindex="0">
     <div ng-include="'views/header.html'"></div>
     <div class="padpage padtop">
         <h1><a class="back ui-link" href="/shop"><img src="img/icon-back.png" alt="Back"> Към магазинчето</a></h1>
     </div>
-
     <div class="shopDetail padpage padtop">
         <h1 class="ui-link">Потребителска кошничка</h1>
         <br />
-            <h4> Това са избраните от вас артикули за поръчка. Уверете се, че сте избрали желаното от вас количество, преди да направите поръчката.</h4>       
+        <h4> Това са избраните от вас артикули за поръчка. Уверете се, че сте избрали желаното от вас количество, преди да направите поръчката.</h4>
         <div>
             <form name="form" novalidate>
                 <div class="table-responsive">
@@ -18,8 +17,10 @@
                                 <td>{{ item.item.title }}</td>
                                 <td>{{  item.item.description | limitTo : 100 }}</td>
                                 <td>{{ (item.item.price - item.item.price * item.item.discount/100) * item.quantity | currency }}</td>
-                                <td><input type="number" ng-model="item.quantity" ng-change="UpdateCart(shoppingCart, item)" 
-                                           max="{{ item.item.quantity }}" min="1" class="quantity" /></td>
+                                <td>
+                                    <input type="number" ng-model="item.quantity" ng-change="UpdateCart(shoppingCart, item)"
+                                           max="{{ item.item.quantity }}" min="1" class="quantity" />
+                                </td>
                                 <td class="text-center"><div class='glyphicon glyphicon-remove' ng-click="DeleteCartItem($event, item.item)"></div>  </td>
                             </tr>
                         </tbody>
@@ -58,6 +59,5 @@
                 </div>
             </form>
         </div>
-
-    <div ng-include="'views/footer.html'"></div>
-</div>
+        <div ng-include="'views/footer.html'"></div>
+    </div>

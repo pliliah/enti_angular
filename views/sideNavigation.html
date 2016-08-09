@@ -1,0 +1,50 @@
+﻿<div id="sidebar-wrapper" ng-controller="NavigationController">
+    <ul class="nav sidebar-nav text-uppercase">
+        <li class="sidebar-brand">
+            <a href="/">
+                Енти Трийс
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="history">История</a>
+        </li>
+        <li>
+            <a class="nav-link" href="gallery">Галерия</a>
+        </li>
+        <li>
+            <a href="#" data-toggle="collapse" data-target="#growthNav">Отглеждане <b class="caret"></b></a>
+            <ul id="growthNav" class="collapse text-capitalize">
+                <li><a href="growth/care">Грижи</a></li>
+                <li><a href="growth/cutting">Подстригване</a></li>
+                <li><a href="growth/fertilization">Торене</a></li>
+                <li><a href="growth/place">Места за отглеждане</a></li>
+                <li><a href="growth/potting">Саксии</a></li>
+                <li><a href="growth/soil">Почви</a></li>
+                <li><a href="growth/technologies">Технологии за отглеждане</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" data-toggle="collapse" data-target="#shopNav">Магазинче <b class="caret"></b></a>
+            <ul id="shopNav" class="collapse text-capitalize">
+                <li ng-repeat="(catName, category) in shopCategories">
+                    <a href="{{ category.src }}">{{ category.name }}</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a class="nav-link" href="cart">Кошничка</a>
+        </li>
+        <li>
+            <a class="nav-link" href="videos">Видеоклипове</a>
+        </li>
+        <li>
+            <a class="nav-link" href="links">Препратки</a>
+        </li>
+        <li>
+            <a class="nav-link" href="about">За нас</a>
+        </li>
+        <li>
+            <a class="nav-link" href="contact">Контакти</a>
+        </li>
+    </ul>
+</div>
