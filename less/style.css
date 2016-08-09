@@ -1685,28 +1685,29 @@ form li{
     background: none;
 }
 
-/*only for small devices */
-@media only screen and (max-width: 768px) {
-     #page-content-wrapper {
-        width: 100%;
-        position: absolute;
-        padding: 15px;
-    }
-
-    .toggled #page-content-wrapper {
-        position: absolute;
-        margin-right: -250px;
-    }
-}
-
-/*END OF SIDEBAR NAVIGATION*/
 
 #page-content-wrapper {
+    width: 100%;
+    position: absolute;
     padding: 20px;
-    position: relative;
 }
 
-#wrapper.toggled #page-content-wrapper {
-    position: relative;
-    margin-right: 0;
+.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
 }
+
+
+/*only for small devices */
+@media only screen and (max-width: 1500px) {
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+/*END OF SIDEBAR NAVIGATION*/
