@@ -7,15 +7,36 @@
 ], function (angular, htmlTemplate) {
     var module = angular.module('enti.controllers', ['ngPhotoswipe', 'ui.bootstrap']);
     
-    module.controller('NavigationController', ['$scope', 'shopService',
-        function ($scope, shopService) {
+    module.controller('NavigationController', ['$scope', 'shopService', 'shoppingCartData', '$rootScope',
+        function ($scope, shopService, shoppingCartData, $rootScope) {
             $scope.shopCategories = shopService.categories;
+            
+            $scope.itemsCount = ''; //number of items in the shopping cart
+            
+            var updateCartItems = function () {
+                //used to update the number of items in the shopping cart
+                var items = 0;
+                for (item in shoppingCartData) {
+                    items += shoppingCartData[item].quantity;
+                }
+                if (items > 0) {
+                    $scope.itemsCount = items;
+                }
+                else {
+                    $scope.itemsCount = '';
+                }
+            }
 
             $scope.load = function () {
                 $(document).trigger('pagechange');
             }
 
             $scope.load();
+            updateCartItems();
+
+            $rootScope.$on('shoppingCartUpdated', function (event, orders) {
+                updateCartItems();
+            });
         }]);
 
     module.controller('VideosController', ['$scope', function ($scope) {

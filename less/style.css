@@ -1710,4 +1710,8 @@ form li{
         margin-right: 0;
     }
 }
+
+.label-as-badge {
+    border-radius: 1em;
+}
 /*END OF SIDEBAR NAVIGATION*/

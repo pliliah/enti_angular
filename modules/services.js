@@ -81,7 +81,8 @@
         return self;
     }]);
 
-    module.service('shoppingCartService', ['shoppingCartData', '$cookies', 'config', '$http', function (shoppingCartData, $cookies, config, $http) {
+    module.service('shoppingCartService', ['shoppingCartData', '$cookies', 'config', '$http', '$rootScope',
+        function (shoppingCartData, $cookies, config, $http, $rootScope) {
         var self = this;
 
         var updateShoppingCookie = function () {
@@ -89,6 +90,7 @@
                 $cookies.remove(config.shoppingCartCookie);
             }
             $cookies.put(config.shoppingCartCookie, JSON.stringify(shoppingCartData));
+            $rootScope.$emit('shoppingCartUpdated', shoppingCartData);
         }
 
         self.AddCartItem = function (item, quantity) {
