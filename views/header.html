@@ -13,9 +13,17 @@
 
 <script type="text/javascript">
     //Toggle menu script
-    $("#menu-toggle").click(function (e) {
+    var toggleMenu = function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
         $("[data-role=page]").toggleClass("toggled");
-    });
+    };
+
+    $("#menu-toggle").click(toggleMenu);
+
+    $("#sidebar-wrapper").on("swipeleft", toggleMenu);
+
+    $('#page-content-wrapper').on("swipeleft", toggleMenu);
+
+    $('#page-content-wrapper').on("swiperight", toggleMenu);
 </script>
