@@ -5,16 +5,18 @@
                 Енти Трийс
             </a>
         </li>
+        <li class="nav-divider"></li>
         <li>
             <div class="btn-group btn-group-lg" role="group">
-                <a class="btn" href="/"><span class="glyphicon glyphicon-home"></span></a>
+                <a class="btn" href="/"><span class="glyphicon glyphicon-home pull-left"></span></a>
                 <!--<a class="btn" href="/"><span class="glyphicon glyphicon-user"></span></a>-->
                 <a class="btn" href="cart">
-                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                    <span class="glyphicon glyphicon-shopping-cart pull-left"></span>
                     <span class="label label-default label-as-badge">{{ itemsCount }}</span>
                 </a>
             </div>
         </li>
+        <li class="nav-divider"></li>
         <li>
             <a class="nav-link" href="history">История</a>
         </li>
@@ -23,7 +25,7 @@
         </li>
         <li>
             <a href="#" data-toggle="collapse" data-target="#growthNav">Отглеждане <b class="caret"></b></a>
-            <ul id="growthNav" class="collapse text-capitalize">
+            <ul id="growthNav" class="collapse text-capitalize ui-panel-inner">
                 <li><a href="growth/care">Грижи</a></li>
                 <li><a href="growth/cutting">Подстригване</a></li>
                 <li><a href="growth/fertilization">Торене</a></li>
@@ -35,7 +37,7 @@
         </li>
         <li>
             <a href="#" data-toggle="collapse" data-target="#shopNav">Магазинче <b class="caret"></b></a>
-            <ul id="shopNav" class="collapse text-capitalize">
+            <ul id="shopNav" class="collapse text-capitalize ui-panel-inner">
                 <li ng-repeat="(catName, category) in shopCategories">
                     <a href="{{ category.src }}">{{ category.name }}</a>
                 </li>
