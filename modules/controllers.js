@@ -10,7 +10,6 @@
     module.controller('NavigationController', ['$scope', 'shopService', 'shoppingCartData', '$rootScope',
         function ($scope, shopService, shoppingCartData, $rootScope) {
             $scope.shopCategories = shopService.categories;
-            
             $scope.itemsCount = ''; //number of items in the shopping cart
             
             var updateCartItems = function () {
@@ -37,6 +36,39 @@
             $rootScope.$on('shoppingCartUpdated', function (event, orders) {
                 updateCartItems();
             });
+
+            //region Navigation - this is done because in mobile browsers the events are not loaded as expected
+            var toggleMenu = function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+                $("#page-content-wrapper").toggleClass("toggled");
+            };
+
+            var loadSidebarNav = function () {
+                setTimeout(function () {
+                    //alert($("#sidebar-wrapper").length + '' + $("#menu-toggle").length + '' + $("#page-content-wrapper").length)
+                    if ($("#sidebar-wrapper").length && $("#menu-toggle").length && $("#page-content-wrapper").length) {
+                        $("#menu-toggle").off('click').click(toggleMenu);
+
+                        $("#sidebar-wrapper").off('swipeleft').on("swipeleft", toggleMenu);
+
+                        $('#page-content-wrapper').off('swipeleft').on("swipeleft", toggleMenu);
+
+                        $('#page-content-wrapper').off('swiperight').on("swiperight", toggleMenu);
+                    }
+                    else {
+                        loadSidebarNav();
+                    }
+                }, 200);
+            }
+
+            $scope.$on('$routeChangeSuccess', function () {
+                loadSidebarNav();
+            });
+
+            loadSidebarNav();
+
+            //end region
         }]);
 
     module.controller('VideosController', ['$scope', function ($scope) {
