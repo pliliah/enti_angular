@@ -1671,9 +1671,10 @@ form li{
 }
 
 .sidebar-nav > .sidebar-brand {
-    height: 65px;
+    height: 125px;
     font-size: 18px;
-    line-height: 60px;
+    line-height: 120px;
+    margin-left: -20px;
 }
 
 .sidebar-nav > .sidebar-brand a {

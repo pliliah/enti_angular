@@ -7,7 +7,7 @@
 ], function (angular, htmlTemplate) {
     var module = angular.module('enti.controllers', ['ngPhotoswipe', 'ui.bootstrap']);
     
-    module.controller('NavigationController', ['$scope', 'shopService', 'shoppingCartData', '$rootScope',
+    module.controller('NavigationController', ['$scope', 'shopService', 'shoppingCartData', '$rootScope', 
         function ($scope, shopService, shoppingCartData, $rootScope) {
             $scope.shopCategories = shopService.categories;
             $scope.itemsCount = ''; //number of items in the shopping cart
@@ -39,7 +39,7 @@
 
             //region Navigation - this is done because in mobile browsers the events are not loaded as expected
             var toggleMenu = function (e) {
-                e.preventDefault();
+                if(e) e.preventDefault();
                 $("#wrapper").toggleClass("toggled");
                 $("#page-content-wrapper").toggleClass("toggled");
             };
@@ -62,8 +62,12 @@
                 }, 200);
             }
 
-            $scope.$on('$routeChangeSuccess', function () {
+            $scope.$on('$routeChangeSuccess', function (e, toRoute, fromRoute) {
                 loadSidebarNav();
+                //hide the navigation only if you navigate to the home screen
+                if (toRoute.originalPath == '/' && $("#wrapper").hasClass('toggled')) {
+                    toggleMenu();
+                }
             });
 
             loadSidebarNav();
