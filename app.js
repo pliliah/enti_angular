@@ -18,6 +18,7 @@ function (angular, jQuery) {
     ])
     .constant('config', {
         "apiUrl": "http://192.168.254.177:222/api/",
+        //"apiUrl": "http://127.0.0.1:222/api/",
         "shoppingCartCookie": "shoppingCart",
         "shoppingItemGallery": "/img/gallery/",
         "userCookie": "userCookie",

@@ -212,6 +212,7 @@
             $('#mask').fadeTo("slow", 0.8);
             //transition effect
             $id.fadeIn(2000);
+            $location.path('/admin'); //redirect to home page to prevent seeing unauthorized info
         }
         
         $scope.Login = function (username, password) {
