@@ -17,8 +17,8 @@ function (angular, jQuery) {
         'ngTouch'
     ])
     .constant('config', {
-        "apiUrl": "http://192.168.254.177:222/api/",
-        //"apiUrl": "http://localhost:6891/api/",
+        //"apiUrl": "http://192.168.254.177:222/api/",
+        "apiUrl": "http://localhost:6891/api/",
         "shoppingCartCookie": "shoppingCart",
         "shoppingItemGallery": "/img/gallery/",
         "userCookie": "userCookie",

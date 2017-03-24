@@ -178,8 +178,8 @@
                 });
         }
 
-        self.UpdateOrder = function (id, isCompleted) {
-            return $http.put(config.apiUrl + 'Order?id=' + id + '&isCompleted=' + isCompleted);
+        self.UpdateOrder = function (order, isCompleted) {
+            return $http.put(config.apiUrl + 'Order?isCompleted=' + isCompleted, order);
         }
 
         return self;

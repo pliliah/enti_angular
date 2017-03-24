@@ -90,8 +90,8 @@
             </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="button" ng-show="!orderDetails.isCompleted" class="btn btn-success pull-right" ng-click="OrderSubmitted(orderDetails.orderId, true)">Запиши като изпратена</button>
-                        <button type="button" ng-show="orderDetails.isCompleted" class="btn btn-danger pull-right" ng-click="OrderSubmitted(orderDetails.orderId, false)">Запиши като неизпратена</button>
+                        <button type="button" ng-show="!orderDetails.isCompleted" class="btn btn-success pull-right" ng-click="OrderSubmitted(orderDetails, true)">Запиши като изпратена</button>
+                        <button type="button" ng-show="orderDetails.isCompleted" class="btn btn-danger pull-right" ng-click="OrderSubmitted(orderDetails, false)">Запиши като неизпратена</button>
                     </div>
                 </div>
 </form>

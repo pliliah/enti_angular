@@ -166,23 +166,31 @@
            }
 
            //Saves the order as submitted
-           $scope.OrderSubmitted = function (orderId, isCompleted) {
-               ordersService.UpdateOrder(orderId, isCompleted)
+           $scope.OrderSubmitted = function (order, isCompleted) {
+               ordersService.UpdateOrder(order, isCompleted)
                    .then(function (response) {
-                   var modalInstance = $uibModal.open({
-                       templateUrl: 'modules/templates/successModal.html',
-                       controller: 'ModalController',
-                       size: 'sm', //'lg' and by default none
-                       resolve: {
-                           message: function () {
-                               return 'Поръчка номер "' + orderId + '" е записана като ' + (isCompleted ? 'изпратена' : 'неизпратена') + '!';
-                           },
-                           path: function () {
-                               return '/admin/orders';
+                       var templateUrl = response.data && response.data.code === 200 ?
+                        'modules/templates/successModal.html' :
+                        'modules/templates/errorModal.html',
+                        message = response.data && response.data.code === 200 ?
+                        'Поръчка номер "' + order.orderId + '" е записана като ' + (isCompleted ? 'изпратена' : 'неизпратена') + '!' :
+                        'Възникна проблем: ' + response.data.message;
+
+                       var modalInstance = $uibModal.open({
+                           templateUrl: templateUrl,
+                           controller: 'ModalController',
+                           size: 'sm', //'lg' and by default none
+                           resolve: {
+                               message: function () {
+                                   return message;
+                               },
+                               path: function () {
+                                   return '/admin/orders';
+                               }
+
                            }
-                       }
+                       });
                    });
-               });
            }
            
        }]);
