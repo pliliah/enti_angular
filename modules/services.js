@@ -201,9 +201,7 @@
                 text += possible.charAt(Math.floor(Math.random() * possible.length));
 
             return text;
-        };
-
-        
+        };        
         self.IsLoggedIn = function () {
             ///<summary> Checks whether the user is logged in </summary>
             if ($cookies.get(config.userCookie) &&
@@ -263,7 +261,65 @@
         }
 
         return self;
-    }]);
+        }]);
+
+    module.service('customersService', ['$http', 'config', '$rootScope', '$location', '$cookies',
+        function ($http, config, $rootScope, $location, $cookies) {
+            var self = this;
+
+            self.customers = [];
+
+            self.GetCustomers = function () {
+                $http.get(config.apiUrl + 'Customer')
+               .then(function (response) {
+                   //successs
+                   self.customers = response.data;
+                   $rootScope.$emit('customersLoaded', self.customers);
+                   return self.customers;
+               },
+               function (error) {
+                   //error
+               });
+            }
+
+            return self;
+        }]);
+
+    module.service('contactsService', ['$http', 'config', '$rootScope', '$location', '$cookies',
+        function ($http, config, $rootScope, $location, $cookies) {
+            var self = this;
+            self.selectedContact = {};
+
+            self.GetContacts = function () {
+                $http.get(config.apiUrl + 'Contact')
+                .then(function (response) {
+                    //successs
+                    self.contacts = response.data;
+                    $rootScope.$emit('contactsLoaded', self.contacts);
+                    return self.contacts;
+                },
+                function (error) {
+                    //error
+                });
+            }
+
+            //Insert new user contact with a question
+            self.InsertNewContact = function (contact) {
+                return $http.post(config.apiUrl + 'Contact', contact);
+            }
+
+            //Marks the contact as completed i.e. send answer by phone and not email
+            self.MarkCompleted = function (contact, answer) {
+                return $http.put(config.apiUrl + 'Contact?id=' + contact.contactId + '&isCompleted=true' + '&answer=' + answer);
+            }
+
+            //Marks the contact as completed by sending email
+            self.SendMessage = function (message, contact) {
+                return $http.put(config.apiUrl + 'Contact?id=' + contact.contactId + '&email=' + contact.email + '&name=' + contact.name + '&message=' + message);
+            }
+
+            return self;
+        }]);
 
     return module;
 });

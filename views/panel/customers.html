@@ -1,0 +1,36 @@
+﻿<div id="portfolioPage" data-role="page" class="page innerPage ui-page ui-body-c ui-page-active" data-url="portfolioPage" tabindex="0">
+    <div ng-include="'views/header.html'"></div>
+    <div class="padpage padtop">
+        <h1><a class="back ui-link" href="admin"><img src="img/icon-back.png" alt="Back"> Обратно към админския панел</a></h1>
+    </div>
+
+    <div class="shop padpage padtop">
+        <h1 class="ui-link">Клиенти в магазина</h1>
+        <br />
+        <div class="table-responsive">
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <th>Име</th>
+                        <th>Email</th>
+                        <th>Телефон</th>
+                        <th>Адрес</th>
+                        <th>Брой поръчки</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="customer in customers" ng-click="ShowCustomer(customer)">
+                        <td>{{ customer.name }}</td>
+                        <td>{{ customer.email }}</td>
+                        <td>{{ customer.phone }}</td>
+                        <td>{{ customer.address }}</td>
+                        <td>{{ customer.ordersCount }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-include="'views/footer.html'"></div>
+        <a href="https://icons8.com" style="display:none">Icon pack by Icons8</a>
+        <!--end padpage-->
+    </div>
+    <div ng-include="'views/panel/login.html'"></div>

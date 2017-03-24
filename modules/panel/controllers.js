@@ -94,10 +94,6 @@
         }
     }]);
 
-    module.controller('ItemDetailsController', ['$scope', '$routeParams', function ($scope, $routeParams) {
-        var itemId = $routeParams.id;
-    }]);
-
     module.controller('NewItemController', ['$scope', '$routeParams', 'shopService',  '$uibModal', function ($scope, $routeParams, shopService,  $uibModal) {
         $scope.category = $routeParams.categoryName;
         $scope.newItem = {
@@ -126,7 +122,7 @@
                         }
                     }
                 });
-            });;
+            });
         }       
 
     }]);
@@ -191,10 +187,98 @@
            
        }]);
 
+    module.controller('CustomersController', ['$scope', 'customersService', '$rootScope', '$location',
+        function ($scope, customersService, $rootScope, $location) {
+            $scope.customers = [];
+            customersService.GetCustomers();
+
+            $rootScope.$on('customersLoaded', function (event, customers) {
+                $scope.customers = customers;
+            });
+
+            $scope.ShowCustomer = function (order) {
+                $location.path('admin/customers/' + customer.customerId);
+            }
+        }]);
+
+    module.controller('ContactsController', ['$scope', '$rootScope', 'contactsService', '$location', '$routeParams', '$uibModal',
+        function ($scope, $rootScope, contactsService, $location, $routeParams, $uibModal) {
+            $scope.contacts = [];
+            contactsService.GetContacts();
+            $scope.today = new Date();
+            $scope.selectedContact = {};
+
+            $rootScope.$on('contactsLoaded', function (event, contacts) {
+                $scope.contacts = contacts;
+            });
+
+            $scope.ShowContactDetails = function (contact) {
+                contactsService.selectedContact = contact; //this is the way to pass data between route changes
+                $location.path('admin/contacts/' + contact.contactId);
+            }
+
+            //triggered when we change the page to update selected item
+            $scope.$on("$routeChangeSuccess", function (e) {
+                if ($routeParams.id) {
+                    $scope.selectedContact = contactsService.selectedContact;
+                }
+                else {
+                    contactsService.selectedContact = {};
+                    $scope.selectedContact = {};
+                    
+                }
+            });
+
+            $scope.MarkCompleted = function (selectedContact, message) {
+                //TODO: done this better - return message from the server for success
+                contactsService.MarkCompleted(selectedContact, message);
+                contactsService.GetContacts();
+                $location.path('admin/contacts');
+            }
+
+            $scope.SendMessage = function (message, selectedContact) {
+                contactsService.SendMessage(message, selectedContact)
+                .then(function (response) {
+                    var templateUrl = response.data && response.data.code === 200 ?
+                        'modules/templates/successModal.html' :
+                        'modules/templates/errorModal.html',
+                        message = response.data && response.data.code === 200 ?
+                        'Отговорът е изпратен успешно!' :
+                        'Възникна проблем: ' + response.data.message;
+
+                    var modalInstance = $uibModal.open({
+                        templateUrl: templateUrl,
+                        controller: 'ModalController',
+                        size: 'sm', //'lg' and by default none
+                        resolve: {
+                            message: function () {
+                                return message;
+                            },
+                            path: function () {
+                                return '/admin/contacts';
+                            }
+                            
+                        }
+                    });
+                    $scope.contact = {};
+                });
+            }
+
+            //Compares the contact date to the current date
+            $scope.CompareDates = function (date) {
+                return Math.round(Math.abs(($scope.today.getTime() - (new Date(date)).getTime()) / (24 * 60 * 60 * 1000))) - 1;
+            }
+        }]);
+
     module.controller('ModalController', ['$scope', '$location', '$uibModalInstance', 'message', 'path', function ($scope, $location, $uibModalInstance, message, path) {
         $scope.message = message;
 
         $scope.ok = function () {
+            $uibModalInstance.close();
+            $location.path(path);
+        };
+
+        $scope.cancel = function () {
             $uibModalInstance.close();
             $location.path(path);
         };

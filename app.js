@@ -17,8 +17,8 @@ function (angular, jQuery) {
         'ngTouch'
     ])
     .constant('config', {
-        "apiUrl": "http://192.168.254.177:222/api/",
-        //"apiUrl": "http://127.0.0.1:222/api/",
+        //"apiUrl": "http://192.168.254.177:222/api/",
+        "apiUrl": "http://localhost:6891/api/",
         "shoppingCartCookie": "shoppingCart",
         "shoppingItemGallery": "/img/gallery/",
         "userCookie": "userCookie",
@@ -140,6 +140,18 @@ function (angular, jQuery) {
             .when('/admin/orders/:id', {
                 templateUrl: 'views/panel/orderEdit.html',
                 controller: 'OrderDetailsController'
+            })
+            .when('/admin/customers', {
+                templateUrl: 'views/panel/customers.html',
+                controller: 'CustomersController'
+            })
+            .when('/admin/contacts', {
+                templateUrl: 'views/panel/contacts.html',
+                controller: 'ContactsController'
+            })
+            .when('/admin/contacts/:id', {
+                templateUrl: 'views/panel/contactEdit.html',
+                controller: 'ContactsController'
             })
             .otherwise({ redirectTo: '/' });
 

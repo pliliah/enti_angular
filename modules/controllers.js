@@ -230,8 +230,35 @@
         updateTotal();
     }]);
 
-    module.controller('ContactController', ['$scope', function ($scope) {
+    module.controller('ContactController', ['$scope', 'contactsService', '$uibModal',
+        function ($scope, contactsService, $uibModal) {
+            $scope.contact = {};
+            $scope.Submit = function (contact) {
+                contactsService.InsertNewContact(contact)
+                .then(function (response) {
+                    var templateUrl = response.data && response.data.code === 201 ?
+                        'modules/templates/successModal.html' :
+                        'modules/templates/errorModal.html',
+                        message = response.data && response.data.code === 201 ?
+                        'Вашето запитване е изпратено! Ще получите отговор по email или телефон до няколко дни.' :
+                        'Възникна проблем при изпращането на допитването. Моля опитайте по-късно!';
 
+                    var modalInstance = $uibModal.open({
+                        templateUrl: templateUrl,
+                        controller: 'ModalController',
+                        size: 'sm', //'lg' and by default none
+                        resolve: {
+                            message: function () {
+                                return message;
+                            },
+                            path: function () {
+                                return '/contact';
+                            }
+                        }
+                    });
+                    $scope.contact = {};
+                });
+            }
     }]);
 
     module.controller('HistoryController', ['$scope', function ($scope) {
