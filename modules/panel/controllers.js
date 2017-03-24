@@ -6,9 +6,22 @@
 ], function (angular, services) {
     var module = angular.module('enti.panel.controllers', []);
 
-    module.controller('AdminController', ['$scope', function ($scope) {
+    module.controller('AdminController', ['$scope', '$rootScope', 'loginService', 'notificationsService',
+        function ($scope, $rootScope, loginService, notificationsService) {
+            $scope.notifications = notificationsService.notifications;
+            if (loginService.IsLoggedIn()) {
+                //if the user is logged in - get the notifications
+                notificationsService.GetNotifications();
+            }
 
-    }]);
+            $rootScope.$on('loginSuccessfull', function (event) {
+                notificationsService.GetNotifications();
+            });
+
+            $rootScope.$on('notificationsLoaded', function (event) {
+                $scope.notifications = notificationsService.notifications;;
+            });
+        }]);
 
     module.controller('ItemsController', ['$scope', 'shopService', '$uibModal', 'config', '$routeParams',
         function ($scope, shopService, $uibModal, config, $routeParams) {

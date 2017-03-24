@@ -243,6 +243,7 @@
                                 $cookies.put(config.nonceCookie, JSON.stringify(nonce2base64), { expires: expire });
                                 $cookies.put(config.createdCookie, JSON.stringify(created), { expires: expire });
                                 $cookies.put(config.digestCookie, JSON.stringify(hashedPass), { expires: expire });
+                                $rootScope.$broadcast('loginSuccessfull');
                                 callback(true);
                                 break;
                             case 401: 
@@ -316,6 +317,28 @@
             //Marks the contact as completed by sending email
             self.SendMessage = function (message, contact) {
                 return $http.put(config.apiUrl + 'Contact?id=' + contact.contactId + '&email=' + contact.email + '&name=' + contact.name + '&message=' + message);
+            }
+
+            return self;
+        }]);
+
+    module.service('notificationsService', ['$http', 'config', '$rootScope', '$location', '$cookies',
+        function ($http, config, $rootScope, $location, $cookies) {
+            var self = this;
+
+            self.notifications = [];
+
+            self.GetNotifications = function () {
+                $http.get(config.apiUrl + 'Notifications')
+               .then(function (response) {
+                   //successs
+                   self.notifications = response.data;
+                   $rootScope.$broadcast('notificationsLoaded', self.notifications);
+                   return self.notifications;
+               },
+               function (error) {
+                   //error
+               });
             }
 
             return self;

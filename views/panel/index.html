@@ -7,10 +7,17 @@
     <br />
 
     <div class="padpage">
-        <a href="/admin/items">Артикули</a> - управление на артикулите на сайта<br />
-        <a href="/admin/orders">Поръчки</a> - всички поръчки в сайта и информация за тях<br />
-        <a href="/admin/customers">Клиенти</a> - потребителите, които са правили поръчки на сайта<br />
-        <a href="/admin/contacts">Контакти</a> - всички потребители, които са изпратили запитване през формата за контакти
+        <a href="/admin/items">Артикули</a> 
+        <span class="label label-pill label-success">{{ notifications.activeItems }}</span>
+        <span class="label label-pill label-default">{{ notifications.allItems }}</span> - управление на артикулите на сайта<br />
+        <a href="/admin/orders">Поръчки</a> 
+        <span class="label label-pill label-danger">{{ notifications.openOrders }}</span>
+        <span class="label label-pill label-default">{{ notifications.allOrders }}</span> - всички поръчки в сайта и информация за тях<br />
+        <a href="/admin/customers">Клиенти</a> 
+        <span class="label label-pill label-default">{{ notifications.customersCount }}</span> - потребителите, които са правили поръчки на сайта<br />
+        <a href="/admin/contacts">Контакти</a> 
+        <span class="label label-pill label-danger">{{ notifications.openContacts }}</span>
+        <span class="label label-pill label-default">{{ notifications.allContacts }}</span> - всички потребители, които са изпратили запитване през формата за контакти
     </div>
 
     <div ng-include="'views/footer.html'"></div>    
